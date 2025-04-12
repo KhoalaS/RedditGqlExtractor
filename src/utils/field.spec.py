@@ -1,7 +1,7 @@
 import utils
 import unittest
 
-test_file = './src/test/example.smali'
+test_file = open('./src/test/example.smali', 'r')
 
 
 class FieldTest(unittest.TestCase):
@@ -19,7 +19,7 @@ class FieldTest(unittest.TestCase):
         self.assertEqual(utils.get_field_access(test_file), ('LmB/hW;',['a', 'b']))
 
     def test_get_string(self):
-        self.assertEqual(utils.get_strings(test_file), '')
+        self.assertEqual(utils.get_strings(test_file), 'TaxonomyTopic1(id=, displayName=)')
 
 if __name__ == '__main__':
     unittest.main()

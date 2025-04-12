@@ -1,11 +1,13 @@
+from io import TextIOWrapper
 import re
 
 
-def get_fields(filename: str):
-    f = open(filename, 'r')
+def get_fields(file: TextIOWrapper):
+    file.seek(0)
+
     r = re.compile('# instance fields.+?#', re.DOTALL)
 
-    findings = r.findall(f.read())
+    findings = r.findall(file.read())
     if len(findings) == 0:
         return []
 
@@ -13,7 +15,6 @@ def get_fields(filename: str):
     field_lines = set((m.split("\n")[1:-1]))
     field_lines.remove('')
 
-    f.close()
     return field_lines
 
 
@@ -22,14 +23,15 @@ def transform_field_line(line: str):
     return (spl[0], spl[1])
 
 
-def get_field_access(filename: str):
-    f = open(filename, 'r')
+def get_field_access(file: TextIOWrapper):
+    file.seek(0)
+
     class_name = ''
     fields = []
 
     flag = False
 
-    for line in f:
+    for line in file:
         if line.startswith('.class'):
             class_name = line.split()[-1]
 
@@ -48,19 +50,18 @@ def get_field_access(filename: str):
 
             fields.append(m[0])
 
-    f.close()
     return class_name, fields
 
 
-def get_strings(filename: str):
-    f = open(filename, 'r')
+def get_strings(file: TextIOWrapper):
+    file.seek(0)
 
     flag = False
 
     r = re.compile('const-string.+?\\"(.*?)\\"', re.DOTALL)
 
     s = ''
-    for line in f:
+    for line in file:
         if line.startswith('.method public final toString()Ljava/lang/String;'):
             flag = True
 
@@ -68,14 +69,10 @@ def get_strings(filename: str):
             continue
 
         if 'const-string' in line:
-            m = r.match(line)
+            m = r.findall(line)
             if m == None:
                 print(f'could not extract string content {line}')
                 continue
             s += m[0]
-
-    f.close()
-
-    print(s)
 
     return s
