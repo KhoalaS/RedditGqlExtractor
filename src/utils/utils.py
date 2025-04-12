@@ -36,7 +36,9 @@ def get_field_access(file: TextIOWrapper) -> tuple[str, list[str]]:
         if line.startswith('.class'):
             class_name = line.split()[-1]
 
-        if line.startswith('.method public final toString()Ljava/lang/String;'):
+        if line.startswith(
+            '.method public final toString()Ljava/lang/String;'
+        ):
             flag = True
 
         if not flag:
@@ -45,7 +47,7 @@ def get_field_access(file: TextIOWrapper) -> tuple[str, list[str]]:
         if 'iget-' in line:
             r = re.compile(f'{class_name}->(.+?):')
             m = r.findall(line)
-            if m == None:
+            if len(m) == 0:
                 print(f'field access from foreign class: {class_name}')
                 continue
 
@@ -63,7 +65,9 @@ def get_strings(file: TextIOWrapper) -> str:
 
     s: str = ''
     for line in file:
-        if line.startswith('.method public final toString()Ljava/lang/String;'):
+        if line.startswith(
+            '.method public final toString()Ljava/lang/String;'
+        ):
             flag = True
 
         if not flag:
@@ -71,7 +75,7 @@ def get_strings(file: TextIOWrapper) -> str:
 
         if 'const-string' in line:
             m = r.findall(line)
-            if m == None:
+            if len(m) == 0:
                 print(f'could not extract string content {line}')
                 continue
             s += str(m[0])
@@ -80,7 +84,7 @@ def get_strings(file: TextIOWrapper) -> str:
 
 
 def extract_types(full_string: str) -> tuple[str, list[list[str]]] | None:
-    r = re.compile('(.+?)\((.+?)\)')
+    r = re.compile('(.+?)\\((.+?)\\)')
 
     m = r.findall(full_string)
 
