@@ -1,8 +1,20 @@
+import argparse
 import json
 from utils import helpers
 from tqdm import tqdm
 
-files = open('./src/__tests__/test_data/candidates.txt', 'r')
+parser = argparse.ArgumentParser(
+    prog='RedditGQL Type Extractor',
+    description='Extract GQL Types from a decompiled Reddit APK.')
+
+parser.add_argument('candidates', default='./candidates.txt',
+                    help='Path to a list of smali files to check.')
+parser.add_argument('-o', '--outfile', default='./schema.graphqls',
+                    help='Path to the output file.')
+
+args = parser.parse_args()
+
+files = open(args.candidates, 'r')
 
 # maps a obfuscated classname to a typedef dict
 class_mapping: dict[str, dict[str, str | dict[str, str | None]]] = {}
@@ -91,7 +103,7 @@ for filename in tqdm(iterable=files, desc='extracting types'):
 
     class_mapping.update({filename: type_dict})
 
-out = open('./out/out.json', 'w+')
+out = open(args.outfile, 'w+')
 out.write(json.dumps(class_mapping))
 
 files.close()
