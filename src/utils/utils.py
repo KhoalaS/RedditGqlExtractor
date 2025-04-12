@@ -76,3 +76,25 @@ def get_strings(file: TextIOWrapper):
             s += m[0]
 
     return s
+
+
+def extract_types(full_string: str):
+    r = re.compile('(.+?)\((.+?)\)')
+
+    m = r.findall(full_string)
+
+    if len(m) == 0:
+        print(f'could not extract types for: {full_string}')
+        return None
+
+    if len(m[0]) == 0:
+        print(f'could not extract types for: {full_string}')
+        return None
+
+    # m[0][1] should look like this 'id=, displayName=default'
+
+    spl = str(m[0][1]).split(',')
+
+    fields = [p.strip().split('=') for p in spl]
+
+    return m[0][0], fields
