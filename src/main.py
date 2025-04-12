@@ -12,10 +12,15 @@ java_mapping = {
     "Ljava/lang/Boolean;": "Boolean",
     "Ljava/util/List;": "[Unknown]",
     "Ljava/lang/Long;": "Int",
+    "Ljava/lang/Double;": "Float",
+    "Ljava/lang/Float;": "Float",
     "Ljava/util/ArrayList;": "[Unknown]",
-    "Z": "Boolean",
+    "C": "String",
+    "D": "Float",
+    "F": "Float",
+    "I": "Int",
     "J": "Int",
-    "D": "Float"
+    "Z": "Boolean",
 }
 
 type_mapping: dict[str, str] = {}
