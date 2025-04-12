@@ -3,7 +3,7 @@ import re
 from typing import Iterable
 
 
-def get_fields(file: TextIOWrapper) -> Iterable[str]:
+def get_fields_lines(file: TextIOWrapper) -> Iterable[str]:
     file.seek(0)
 
     r = re.compile('# instance fields.+?#', re.DOTALL)
