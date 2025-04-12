@@ -1,8 +1,9 @@
 from io import TextIOWrapper
 import re
+from typing import Iterable
 
 
-def get_fields(file: TextIOWrapper):
+def get_fields(file: TextIOWrapper) -> Iterable[str]:
     file.seek(0)
 
     r = re.compile('# instance fields.+?#', re.DOTALL)
@@ -18,16 +19,16 @@ def get_fields(file: TextIOWrapper):
     return field_lines
 
 
-def transform_field_line(line: str):
+def transform_field_line(line: str) -> tuple[str, str]:
     spl = line.split()[-1].split(':')
     return (spl[0], spl[1])
 
 
-def get_field_access(file: TextIOWrapper):
+def get_field_access(file: TextIOWrapper) -> tuple[str, list[str]]:
     file.seek(0)
 
     class_name = ''
-    fields = []
+    fields: list[str] = []
 
     flag = False
 
@@ -48,19 +49,19 @@ def get_field_access(file: TextIOWrapper):
                 print(f'field access from foreign class: {class_name}')
                 continue
 
-            fields.append(m[0])
+            fields.append(str(m[0]))
 
     return class_name, fields
 
 
-def get_strings(file: TextIOWrapper):
+def get_strings(file: TextIOWrapper) -> str:
     file.seek(0)
 
     flag = False
 
     r = re.compile('const-string.+?\\"(.*?)\\"', re.DOTALL)
 
-    s = ''
+    s: str = ''
     for line in file:
         if line.startswith('.method public final toString()Ljava/lang/String;'):
             flag = True
@@ -73,12 +74,12 @@ def get_strings(file: TextIOWrapper):
             if m == None:
                 print(f'could not extract string content {line}')
                 continue
-            s += m[0]
+            s += str(m[0])
 
     return s
 
 
-def extract_types(full_string: str):
+def extract_types(full_string: str) -> tuple[str, list[list[str]]] | None:
     r = re.compile('(.+?)\((.+?)\)')
 
     m = r.findall(full_string)
@@ -97,4 +98,4 @@ def extract_types(full_string: str):
 
     fields = [p.strip().split('=') for p in spl]
 
-    return m[0][0], fields
+    return str(m[0][0]), fields
