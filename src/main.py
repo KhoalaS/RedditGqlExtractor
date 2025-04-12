@@ -19,10 +19,11 @@ java_mapping = {
 }
 
 for filename in files:
-    f = open(filename, 'r')
+    lines = open(filename, 'r').readlines()
+    content = ''.join(lines)
 
     # extract the field lines: '.field public final b:Ljava/lang/String;'
-    field_lines = helpers.get_fields_lines(f)
+    field_lines = helpers.get_fields_lines(content)
 
     fields: dict[str, str] = {}
 
@@ -32,10 +33,10 @@ for filename in files:
         (field_name, field_type) = helpers.transform_field_line(f_line)
         fields.update({field_name: field_type})
     # 'LmB/hW;', ['a', 'b'])
-    (obf_class_name, field_accesses) = helpers.get_field_access(f)
+    (obf_class_name, field_accesses) = helpers.get_field_access(lines)
 
     # ('TaxonomyTopic1', [['id', ''], ['displayName', 'default']])
-    ex = helpers.extract_types(helpers.get_strings(f))
+    ex = helpers.extract_types(helpers.get_strings(lines))
     if ex is None:
         continue
 

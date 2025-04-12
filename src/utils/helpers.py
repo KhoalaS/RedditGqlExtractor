@@ -1,14 +1,12 @@
-from io import TextIOWrapper
 import re
 from typing import Iterable
 
 
-def get_fields_lines(file: TextIOWrapper) -> Iterable[str]:
-    file.seek(0)
+def get_fields_lines(file_content: str) -> Iterable[str]:
 
     r = re.compile('# instance fields.+?#', re.DOTALL)
 
-    findings = r.findall(file.read())
+    findings = r.findall(file_content)
     if len(findings) == 0:
         return []
 
@@ -24,15 +22,13 @@ def transform_field_line(line: str) -> tuple[str, str]:
     return (spl[0], spl[1])
 
 
-def get_field_access(file: TextIOWrapper) -> tuple[str, list[str]]:
-    file.seek(0)
-
+def get_field_access(lines: list[str]) -> tuple[str, list[str]]:
     class_name = ''
     fields: list[str] = []
 
     flag = False
 
-    for line in file:
+    for line in lines:
         if line.startswith('.class'):
             class_name = line.split()[-1]
 
@@ -56,15 +52,13 @@ def get_field_access(file: TextIOWrapper) -> tuple[str, list[str]]:
     return class_name, fields
 
 
-def get_strings(file: TextIOWrapper) -> str:
-    file.seek(0)
-
+def get_strings(lines: list[str]) -> str:
     flag = False
 
     r = re.compile('const-string.+?\\"(.*?)\\"', re.DOTALL)
 
     s: str = ''
-    for line in file:
+    for line in lines:
         if line.startswith(
             '.method public final toString()Ljava/lang/String;'
         ):
