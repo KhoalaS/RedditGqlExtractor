@@ -24,15 +24,26 @@ def extract_type(types: dict, f: TextIOWrapper, filename: str):
             else:
                 if line.strip().startswith('const-string v1'):
                     match = re.findall('\"(.+)\"', line)
-                    content: str = match[0].strip(' ,=')
+                    content: str = match[0].strip(' ,=\\\'')
                     if content == ')':
                         break
+
+                    current_field = ''
                     if content.find('(') != -1:
                         [type_name, field_name] = content.split('(')
                         current_field = field_name
                         current_type = type_name
                     else:
                         current_field = content
+
+                    # check for default fields, e.g. "productSurface=android, searchInput="
+                    if current_field.find(','):
+                        for spl in current_field.split(',')[0:-1]:
+                            d_field = spl.strip().split("=")
+                            print(d_field, filename)
+                            fields.update({d_field[0]: d_field[1]})
+                            current_field = current_field.split(',')[-1].strip()
+
                     fieldAccess = True
                 pass
 
