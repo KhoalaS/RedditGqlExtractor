@@ -9,7 +9,8 @@
     "smali_classes7/Je0/a.smali": {
         "DevplatformRuntimeTraceInfo": {
             "target": "Ljava/lang/String;",
-            "intent=, eventCount": "Ljava/lang/Integer;"
+            "intent": "",
+            "eventCount": "Ljava/lang/Integer;"
         }
     },
     "smali_classes7/pg0/a.smali": {
@@ -68,7 +69,8 @@
             "action": "Ljava/lang/String;",
             "noun": "Ljava/lang/String;",
             "correlationId": "Ljava/lang/String;",
-            "oauth=null, subreddit": "Lld0/c;",
+            "oauth": "null",
+            "subreddit": "Lld0/c;",
             "actionInfo": "Lld0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
@@ -78,7 +80,8 @@
     },
     "smali_classes2/vX/x.smali": {
         "PickerPresentationModel": {
-            "id=allowable_content, title": "Ljava/lang/String;",
+            "id": "allowable_content",
+            "title": "Ljava/lang/String;",
             "iconRes": "Ljava/util/List;",
             "currentOptionIndex": "Z"
         }
@@ -131,7 +134,8 @@
     },
     "smali_classes2/vX/E.smali": {
         "SliderPresentationModel": {
-            "id=max_emojis, title": "Ljava/lang/String;",
+            "id": "max_emojis",
+            "title": "Ljava/lang/String;",
             "iconRes": "Ljava/lang/String;",
             "isEnabled": "Z",
             "onChanged": "LFX/c;"
@@ -139,9 +143,11 @@
     },
     "smali_classes2/vX/p.smali": {
         "LinkOptionSelectorPresentationModel": {
-            "id=country_link, title": "Ljava/lang/String;",
+            "id": "country_link",
+            "title": "Ljava/lang/String;",
             "description": "Landroid/text/SpannableString;",
-            "iconRes=2131231914, option": "Ljava/lang/String;",
+            "iconRes": "2131231914",
+            "option": "Ljava/lang/String;",
             "onClick": "Lr70/a;"
         }
     },
@@ -170,7 +176,8 @@
     },
     "smali_classes2/vX/k.smali": {
         "GroupHeaderUiModel": {
-            "id=chat_requests, title": "Ljava/lang/String;",
+            "id": "chat_requests",
+            "title": "Ljava/lang/String;",
             "showDivider": "Z"
         }
     },
@@ -191,7 +198,8 @@
     },
     "smali_classes2/vX/l.smali": {
         "IconListHeaderUiModel": {
-            "id=mod_notifications_disabled_banner, title": "Ljava/lang/String;",
+            "id": "mod_notifications_disabled_banner",
+            "title": "Ljava/lang/String;",
             "text": "Ljava/lang/String;"
         }
     },
@@ -253,7 +261,8 @@
             "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
             "modAction": "Lyi0/f;",
-            "poll=null, filter": "Lyi0/c;",
+            "poll": "null",
+            "filter": "Lyi0/c;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
@@ -266,21 +275,34 @@
             "correlationId": "Ljava/lang/String;",
             "post": "Lnd0/j;",
             "listing": "Lnd0/d;",
-            "comment=null, userPreferences=null, subreddit": "Lnd0/m;",
+            "comment": "null",
+            "userPreferences": "null",
+            "subreddit": "Lnd0/m;",
             "actionInfo": "Lnd0/a;",
             "media": "Lnd0/e;",
-            "profile=null, experiment": "Lnd0/b;",
-            "userSubreddit=null, search": "Lnd0/l;",
-            "goldPurchase=null, visibility": "Lnd0/p;",
-            "relevanceModel=null, metaSearch=null, customFeed=null, targetPost": "Lnd0/j;",
+            "profile": "null",
+            "experiment": "Lnd0/b;",
+            "userSubreddit": "null",
+            "search": "Lnd0/l;",
+            "goldPurchase": "null",
+            "visibility": "Lnd0/p;",
+            "relevanceModel": "null",
+            "metaSearch": "null",
+            "customFeed": "null",
+            "targetPost": "Lnd0/j;",
             "mlModel": "Lnd0/f;",
             "topicMetadata": "Lnd0/n;",
             "poll": "Lnd0/i;",
-            "playback=null, feed": "Lnd0/c;",
-            "predictions=null, navigationSession": "Lnd0/g;",
-            "theaterMode=null, adMetadata=null, newAward": "Lnd0/h;",
+            "playback": "null",
+            "feed": "Lnd0/c;",
+            "predictions": "null",
+            "navigationSession": "Lnd0/g;",
+            "theaterMode": "null",
+            "adMetadata": "null",
+            "newAward": "Lnd0/h;",
             "translationMetrics": "Lnd0/o;",
-            "snacks=null, userLoggedInId": "Ljava/lang/String;",
+            "snacks": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -381,7 +403,8 @@
     },
     "smali_classes7/qf0/b.smali": {
         "GlobalMemoryApp": {
-            "action=memory, androidMemoryEvent": "Lqf0/a;",
+            "action": "memory",
+            "androidMemoryEvent": "Lqf0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
@@ -443,9 +466,13 @@
     "smali_classes7/Id0/a.smali": {
         "BannerView": {
             "noun": "Ljava/lang/String;",
-            "userPreferences=null, subreddit": "Lpi0/b;",
+            "userPreferences": "null",
+            "subreddit": "Lpi0/b;",
             "actionInfo": "Lpi0/a;",
-            "metaSearch=null, banner=null, topicMetadata=null, userLoggedInId": "Ljava/lang/String;",
+            "metaSearch": "null",
+            "banner": "null",
+            "topicMetadata": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -491,7 +518,8 @@
             "actionInfo": "Lsi0/a;",
             "communityRecommendationUnit": "Lsi0/b;",
             "feed": "Lsi0/c;",
-            "topicTag=null, userLoggedInId": "Ljava/lang/String;",
+            "topicTag": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
         }
@@ -502,7 +530,8 @@
             "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
             "modAction": "Lyi0/f;",
-            "modnote=null, userLoggedInId": "Ljava/lang/String;",
+            "modnote": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -541,7 +570,8 @@
             "post": "Lyi0/h;",
             "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
-            "profile=null, userSubreddit": "Lyi0/n;",
+            "profile": "null",
+            "userSubreddit": "Lyi0/n;",
             "setting": "Lyi0/j;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
@@ -587,7 +617,8 @@
             "noun": "Ljava/lang/String;",
             "actionInfo": "Lyi0/a;",
             "subreddit": "Lyi0/k;",
-            "topicTag=null, setting": "Lyi0/j;",
+            "topicTag": "null",
+            "setting": "Lyi0/j;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
@@ -621,8 +652,11 @@
     "smali_classes7/rh0/a.smali": {
         "ProfileSettingsClick": {
             "noun": "Ljava/lang/String;",
-            "userPreferences=null, actionInfo": "Lnd0/a;",
-            "profile=null, socialLink=null, userLoggedInId": "Ljava/lang/String;",
+            "userPreferences": "null",
+            "actionInfo": "Lnd0/a;",
+            "profile": "null",
+            "socialLink": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -652,7 +686,9 @@
     },
     "smali_classes7/ug0/a.smali": {
         "OnboardingSelectCategory": {
-            "listing=null, userPreferences=null, actionInfo": "Lzi0/a;",
+            "listing": "null",
+            "userPreferences": "null",
+            "actionInfo": "Lzi0/a;",
             "onboarding": "Lzi0/c;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
@@ -823,7 +859,8 @@
     "smali_classes7/Xd0/a.smali": {
         "CommunitySetFrequencyEvent": {
             "noun": "Ljava/lang/String;",
-            "userPreferences=null, subreddit": "Ljd0/d;",
+            "userPreferences": "null",
+            "subreddit": "Ljd0/d;",
             "actionInfo": "Ljd0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
@@ -1903,7 +1940,8 @@
     },
     "smali_classes2/jU/a8.smali": {
         "GetAllVaultsQuery": {
-            "provider=ethereum, includeInactive": "Lv4/W;"
+            "provider": "ethereum",
+            "includeInactive": "Lv4/W;"
         }
     },
     "smali_classes2/jU/y4.smali": {
@@ -2686,7 +2724,8 @@
             "sort": "Lv4/W;",
             "afterCursor": "Lv4/W;",
             "filters": "Lv4/W;",
-            "productSurface=android, pageSize": "Lv4/W;",
+            "productSurface": "android",
+            "pageSize": "Lv4/W;",
             "searchInput": "Lv4/W;",
             "includeSubredditInPosts": "Lv4/W;",
             "includeAwards": "Lv4/W;",
@@ -4059,7 +4098,8 @@
     "smali_classes2/jU/yE.smali": {
         "SearchCommunitiesQuery": {
             "query": "Ljava/lang/String;",
-            "productSurface=android, pageSize": "Lv4/W;",
+            "productSurface": "android",
+            "pageSize": "Lv4/W;",
             "afterCursor": "Lv4/V;",
             "filters": "Lv4/V;",
             "searchInput": "Lv4/V;"
@@ -4243,7 +4283,8 @@
     "smali_classes2/jU/Ay.smali": {
         "MultiContentReportingSearchQuery": {
             "isModerator": "Lv4/V;",
-            "query=, subredditNames": "Ljava/lang/String;",
+            "query": "",
+            "subredditNames": "Ljava/lang/String;",
             "authorNames": "Ljava/lang/String;",
             "first": "Lv4/V;",
             "subredditName": "Ljava/lang/String;",
@@ -4940,7 +4981,8 @@
         "SearchUsersForBlockQuery": {
             "query": "Ljava/lang/String;",
             "filters": "Lv4/V;",
-            "productSurface=android, searchInput": "Lv4/V;",
+            "productSurface": "android",
+            "searchInput": "Lv4/V;",
             "limit": "Lv4/V;"
         }
     },
@@ -6044,7 +6086,8 @@
     },
     "smali_classes2/jU/TD.smali": {
         "SearchChatMessageReactionIconsQuery": {
-            "query=, first": "Lv4/W;"
+            "query": "",
+            "first": "Lv4/W;"
         }
     },
     "smali_classes2/jU/tw.smali": {
@@ -6812,7 +6855,8 @@
             "last": "Lv4/W;",
             "afterFollowing": "Lv4/W;",
             "includeRecapFields": "Z",
-            "includeEligibleMoment=false, includeWelcomePage": "Z",
+            "includeEligibleMoment": "false",
+            "includeWelcomePage": "Z",
             "includeCommunityGold": "Z",
             "includeCommunityLeaderboard": "Z",
             "includeMomentFeatures": "Z"
@@ -7050,7 +7094,8 @@
     },
     "smali_classes2/jU/ks.smali": {
         "GetUserVaultQuery": {
-            "provider=ethereum, userId": "Ljava/lang/String;"
+            "provider": "ethereum",
+            "userId": "Ljava/lang/String;"
         }
     },
     "smali_classes2/jU/Ib.smali": {
@@ -7177,7 +7222,8 @@
     "smali_classes2/jU/yJ.smali": {
         "TrendingSearchesQuery": {
             "searchInput": "Lv4/V;",
-            "productSurface=android, includeNewPixelTrackingFields": "Z",
+            "productSurface": "android",
+            "includeNewPixelTrackingFields": "Z",
             "subplacement": "Lv4/V;",
             "includeExcludedExperimentsField": "Z"
         }
@@ -10379,7 +10425,8 @@
         "SearchSubredditsForMuteQuery": {
             "query": "Ljava/lang/String;",
             "filters": "Lv4/V;",
-            "productSurface=android, searchInput": "Lv4/V;",
+            "productSurface": "android",
+            "searchInput": "Lv4/V;",
             "limit": "Lv4/V;"
         }
     },
@@ -10959,7 +11006,8 @@
             "sort": "Lv4/W;",
             "afterCursor": "Lv4/W;",
             "filters": "Lv4/W;",
-            "productSurface=android, pageSize": "Lv4/W;",
+            "productSurface": "android",
+            "pageSize": "Lv4/W;",
             "searchInput": "Lv4/W;"
         }
     },
@@ -11781,7 +11829,8 @@
     },
     "smali_classes2/jU/x7.smali": {
         "GetAccountQuery": {
-            "subscriptionType=Premium, isPremiumApiMigrationEnabled": "Z",
+            "subscriptionType": "Premium",
+            "isPremiumApiMigrationEnabled": "Z",
             "paymentEnvironment": "Lv4/W;",
             "includeTrophyCase": "Lv4/V;"
         }
@@ -12013,7 +12062,9 @@
     "smali_classes2/jU/iA.smali": {
         "PostComposerCommunityQuery": {
             "name": "Ljava/lang/String;",
-            "includeAllowedPostCapabilities=true, includePostingEligibilityCriteria=true, includeCommunityGold": "Z"
+            "includeAllowedPostCapabilities": "true",
+            "includePostingEligibilityCriteria": "true",
+            "includeCommunityGold": "Z"
         }
     },
     "smali_classes2/jU/Zt.smali": {
@@ -13095,7 +13146,8 @@
     "smali_classes2/jU/oF.smali": {
         "SearchPostsQuery": {
             "query": "Ljava/lang/String;",
-            "productSurface=android, pageSize": "Lv4/W;",
+            "productSurface": "android",
+            "pageSize": "Lv4/W;",
             "afterCursor": "Lv4/W;",
             "sort": "Lv4/W;",
             "filters": "Lv4/W;",
@@ -15834,7 +15886,8 @@
         "SearchTypeaheadByTypeQuery": {
             "query": "Ljava/lang/String;",
             "filters": "Lv4/V;",
-            "productSurface=android, searchInput": "Lv4/V;",
+            "productSurface": "android",
+            "searchInput": "Lv4/V;",
             "limit": "Lv4/V;",
             "includeUsers": "Z",
             "includeEligibleMoment": "Z"
@@ -16166,12 +16219,23 @@
             "noun": "Ljava/lang/String;",
             "correlationId": "Ljava/lang/String;",
             "post": "Lzi0/d;",
-            "listing=null, oauth=null, userPreferences=null, subreddit": "Lzi0/f;",
+            "listing": "null",
+            "oauth": "null",
+            "userPreferences": "null",
+            "subreddit": "Lzi0/f;",
             "actionInfo": "Lzi0/a;",
-            "profile=null, onboarding": "Lzi0/c;",
-            "userSubreddit=null, search=null, setting": "Lzi0/e;",
-            "metaSearch=null, popup=null, targetUser": "Lod0/a;",
-            "topicMetadata=null, snoovatar=null, experiment=null, userLoggedInId": "Ljava/lang/String;",
+            "profile": "null",
+            "onboarding": "Lzi0/c;",
+            "userSubreddit": "null",
+            "search": "null",
+            "setting": "Lzi0/e;",
+            "metaSearch": "null",
+            "popup": "null",
+            "targetUser": "Lod0/a;",
+            "topicMetadata": "null",
+            "snoovatar": "null",
+            "experiment": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -16182,7 +16246,8 @@
             "noun": "Ljava/lang/String;",
             "post": "Lyi0/h;",
             "comment": "Lyi0/b;",
-            "userPreferences=null, subreddit": "Lyi0/k;",
+            "userPreferences": "null",
+            "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
             "userSubreddit": "Lyi0/n;",
             "userLoggedInId": "Ljava/lang/String;",
@@ -16257,7 +16322,8 @@
     },
     "smali_classes7/Xg0/a.smali": {
         "PopupCloseEmailCollection": {
-            "userPreferences=null, actionInfo": "Lzi0/a;",
+            "userPreferences": "null",
+            "actionInfo": "Lzi0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
@@ -16283,7 +16349,8 @@
     "smali_classes7/ki0/a.smali": {
         "UserPreferencesDeselect": {
             "noun": "Ljava/lang/String;",
-            "userPreferences=null, userLoggedInId": "Ljava/lang/String;",
+            "userPreferences": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -16472,7 +16539,8 @@
     },
     "smali_classes7/Nh0/a.smali": {
         "SettingsPrivacySaveReceiveChatInvites": {
-            "actionInfo=null, setting": "LBi0/a;",
+            "actionInfo": "null",
+            "setting": "LBi0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
@@ -16481,7 +16549,8 @@
     },
     "smali_classes7/Yg0/a.smali": {
         "PopupCloseVerification": {
-            "userPreferences=null, actionInfo": "Lzi0/a;",
+            "userPreferences": "null",
+            "actionInfo": "Lzi0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
@@ -16493,7 +16562,8 @@
             "noun": "Ljava/lang/String;",
             "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
-            "chat=null, userSubreddit": "Lyi0/n;",
+            "chat": "null",
+            "userSubreddit": "Lyi0/n;",
             "setting": "Lyi0/j;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
@@ -18150,7 +18220,8 @@
             "actionInfo": "Lsi0/a;",
             "communityRecommendationUnit": "Lsi0/b;",
             "feed": "Lsi0/c;",
-            "topicTag=null, userLoggedInId": "Ljava/lang/String;",
+            "topicTag": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
         }
@@ -18215,7 +18286,8 @@
             "subreddit": "Lid0/d;",
             "actionInfo": "Lid0/a;",
             "chat": "Lid0/c;",
-            "discoveryUnit=null, userLoggedInId": "Ljava/lang/String;",
+            "discoveryUnit": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -18273,9 +18345,11 @@
     "smali_classes7/U70/z.smali": {
         "MethodSignatureData": {
             "returnType": "Lv80/w;",
-            "receiverType=null, valueParameters": "Ljava/util/List;",
+            "receiverType": "null",
+            "valueParameters": "Ljava/util/List;",
             "typeParameters": "Ljava/util/ArrayList;",
-            "hasStableParameterNames=false, errors": "Ljava/util/List;"
+            "hasStableParameterNames": "false",
+            "errors": "Ljava/util/List;"
         }
     },
     "smali_classes7/be0/a.smali": {
@@ -18322,10 +18396,19 @@
     "smali_classes7/uf0/a.smali": {
         "InboxClick": {
             "noun": "Ljava/lang/String;",
-            "post=null, comment=null, notification": "Lhd0/d;",
-            "userPreferences=null, subreddit": "Lhd0/f;",
+            "post": "null",
+            "comment": "null",
+            "notification": "Lhd0/d;",
+            "userPreferences": "null",
+            "subreddit": "Lhd0/f;",
             "actionInfo": "Lhd0/a;",
-            "message=null, outbound=null, metaSearch=null, banner=null, topicMetadata=null, inbox=null, userLoggedInId": "Ljava/lang/String;",
+            "message": "null",
+            "outbound": "null",
+            "metaSearch": "null",
+            "banner": "null",
+            "topicMetadata": "null",
+            "inbox": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -18385,13 +18468,14 @@
             "allowStructuredMapKeys": "Z",
             "prettyPrint": "Z",
             "explicitNulls": "Z",
-            "prettyPrintIndent=\\'": "Ljava/lang/String;",
-            "\\', coerceInputValues": "Z",
+            "prettyPrintIndent": "Ljava/lang/String;",
+            "coerceInputValues": "Z",
             "useArrayPolymorphism": "Z",
-            "classDiscriminator=\\'": "Ljava/lang/String;",
-            "\\', allowSpecialFloatingPointValues": "Z",
+            "classDiscriminator": "Ljava/lang/String;",
+            "allowSpecialFloatingPointValues": "Z",
             "useAlternativeNames": "Z",
-            "namingStrategy=null, decodeEnumsCaseInsensitive": "Z",
+            "namingStrategy": "null",
+            "decodeEnumsCaseInsensitive": "Z",
             "allowTrailingComma": "Z",
             "classDiscriminatorMode": "Lkotlinx/serialization/json/ClassDiscriminatorMode;"
         }
@@ -18488,9 +18572,11 @@
             "noun": "Ljava/lang/String;",
             "post": "Lyi0/h;",
             "comment": "Lyi0/b;",
-            "userPreferences=null, subreddit": "Lyi0/k;",
+            "userPreferences": "null",
+            "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
-            "poll=null, filter": "Lyi0/c;",
+            "poll": "null",
+            "filter": "Lyi0/c;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
@@ -18670,7 +18756,8 @@
             "visibility": "Lcf0/a;",
             "communityRecommendationUnit": "Lsi0/b;",
             "feed": "Lsi0/c;",
-            "topicTag=null, userLoggedInId": "Ljava/lang/String;",
+            "topicTag": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
         }
@@ -18718,7 +18805,8 @@
             "subreddit": "Lyg0/e;",
             "actionInfo": "Lyg0/a;",
             "media": "Lyg0/b;",
-            "experiment=null, screenTrace": "Lyg0/d;",
+            "experiment": "null",
+            "screenTrace": "Lyg0/d;",
             "devicePerformance": "Lni0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
@@ -18775,7 +18863,9 @@
             "subreddit": "Lne0/b;",
             "taskDescription": "Lne0/c;",
             "sectionDescription": "Lne0/a;",
-            "sectionCompletion=null, moduleStatus=null, userLoggedInId": "Ljava/lang/String;",
+            "sectionCompletion": "null",
+            "moduleStatus": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
         }
@@ -18783,7 +18873,8 @@
     "smali_classes7/Ke0/a.smali": {
         "DiscoverClick": {
             "noun": "Ljava/lang/String;",
-            "post=null, subreddit": "Lpi0/b;",
+            "post": "null",
+            "subreddit": "Lpi0/b;",
             "actionInfo": "Lpi0/a;",
             "topicTag": "Lpi0/c;",
             "userLoggedInId": "Ljava/lang/String;",
@@ -18813,7 +18904,8 @@
     "smali_classes7/li0/a.smali": {
         "UserPreferencesSelect": {
             "noun": "Ljava/lang/String;",
-            "userPreferences=null, userLoggedInId": "Ljava/lang/String;",
+            "userPreferences": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -18844,8 +18936,49 @@
         "GlobalViewScreen": {
             "correlationId": "Ljava/lang/String;",
             "screenviewId": "Ljava/lang/String;",
-            "post=null, listing=null, comment=null, oauth=null, postFlair=null, userPreferences=null, subreddit=null, actionInfo": "Lri0/a;",
-            "chat=null, postComposer=null, profile=null, timer=null, share=null, userSubreddit=null, search=null, postDraft=null, metaSearch=null, postEvent=null, postCollection=null, brand=null, topicTag=null, customFeed=null, seo=null, topicMetadata=null, poll=null, snoovatar=null, feed=null, predictions=null, navigationSession=null, modmailConversation=null, shareUrl=null, liveAudioRoom=null, liveAudioUser=null, media=null, metaflair=null, playback=null, pwa=null, mlModel=null, newAward=null, inbox=null, experiment=null, translationMetrics=null, userLoggedInId": "Ljava/lang/String;",
+            "post": "null",
+            "listing": "null",
+            "comment": "null",
+            "oauth": "null",
+            "postFlair": "null",
+            "userPreferences": "null",
+            "subreddit": "null",
+            "actionInfo": "Lri0/a;",
+            "chat": "null",
+            "postComposer": "null",
+            "profile": "null",
+            "timer": "null",
+            "share": "null",
+            "userSubreddit": "null",
+            "search": "null",
+            "postDraft": "null",
+            "metaSearch": "null",
+            "postEvent": "null",
+            "postCollection": "null",
+            "brand": "null",
+            "topicTag": "null",
+            "customFeed": "null",
+            "seo": "null",
+            "topicMetadata": "null",
+            "poll": "null",
+            "snoovatar": "null",
+            "feed": "null",
+            "predictions": "null",
+            "navigationSession": "null",
+            "modmailConversation": "null",
+            "shareUrl": "null",
+            "liveAudioRoom": "null",
+            "liveAudioUser": "null",
+            "media": "null",
+            "metaflair": "null",
+            "playback": "null",
+            "pwa": "null",
+            "mlModel": "null",
+            "newAward": "null",
+            "inbox": "null",
+            "experiment": "null",
+            "translationMetrics": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -18856,10 +18989,20 @@
             "noun": "Ljava/lang/String;",
             "correlationId": "Ljava/lang/String;",
             "post": "Lzi0/d;",
-            "listing=null, oauth=null, userPreferences=null, subreddit": "Lzi0/f;",
+            "listing": "null",
+            "oauth": "null",
+            "userPreferences": "null",
+            "subreddit": "Lzi0/f;",
             "actionInfo": "Lzi0/a;",
-            "profile=null, onboarding": "Lzi0/c;",
-            "userSubreddit=null, search=null, adblock=null, metaSearch=null, customFeed=null, topicMetadata=null, userLoggedInId": "Ljava/lang/String;",
+            "profile": "null",
+            "onboarding": "Lzi0/c;",
+            "userSubreddit": "null",
+            "search": "null",
+            "adblock": "null",
+            "metaSearch": "null",
+            "customFeed": "null",
+            "topicMetadata": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -18949,7 +19092,9 @@
     },
     "smali_classes7/rg0/a.smali": {
         "OnboardingDeselectCategory": {
-            "listing=null, userPreferences=null, actionInfo": "Lzi0/a;",
+            "listing": "null",
+            "userPreferences": "null",
+            "actionInfo": "Lzi0/a;",
             "onboarding": "Lzi0/c;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
@@ -19273,9 +19418,12 @@
             "noun": "Ljava/lang/String;",
             "correlationId": "Ljava/lang/String;",
             "post": "Lxi0/f;",
-            "userPreferences=null, actionInfo": "Lxi0/a;",
+            "userPreferences": "null",
+            "actionInfo": "Lxi0/a;",
             "profile": "Lxi0/g;",
-            "goldPurchase=null, snoovatar=null, marketplace": "Lxi0/c;",
+            "goldPurchase": "null",
+            "snoovatar": "null",
+            "marketplace": "Lxi0/c;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
@@ -19285,8 +19433,13 @@
     "smali_classes7/Zg0/a.smali": {
         "PopupDismiss": {
             "noun": "Ljava/lang/String;",
-            "post=null, listing=null, userPreferences=null, subreddit=null, actionInfo": "LCi0/a;",
-            "userSubreddit=null, popup": "LCi0/b;",
+            "post": "null",
+            "listing": "null",
+            "userPreferences": "null",
+            "subreddit": "null",
+            "actionInfo": "LCi0/a;",
+            "userSubreddit": "null",
+            "popup": "LCi0/b;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
@@ -19297,9 +19450,20 @@
         "PopupClick": {
             "noun": "Ljava/lang/String;",
             "correlationId": "Ljava/lang/String;",
-            "post=null, listing=null, comment=null, userPreferences=null, subreddit=null, actionInfo": "LCi0/a;",
-            "profile=null, onboarding=null, userSubreddit=null, search=null, outbound=null, popup": "LCi0/b;",
-            "socialLink=null, userLoggedInId": "Ljava/lang/String;",
+            "post": "null",
+            "listing": "null",
+            "comment": "null",
+            "userPreferences": "null",
+            "subreddit": "null",
+            "actionInfo": "LCi0/a;",
+            "profile": "null",
+            "onboarding": "null",
+            "userSubreddit": "null",
+            "search": "null",
+            "outbound": "null",
+            "popup": "LCi0/b;",
+            "socialLink": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -19307,7 +19471,8 @@
     },
     "smali_classes7/Wd0/a.smali": {
         "CommunityCreateHomeScreenShortcutCommunity": {
-            "userPreferences=null, subreddit": "Ljd0/d;",
+            "userPreferences": "null",
+            "subreddit": "Ljd0/d;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
@@ -19369,7 +19534,8 @@
     "smali_classes7/Xh0/a.smali": {
         "SubredditMutingSubreddit": {
             "action": "Ljava/lang/String;",
-            "post=null, subreddit": "Lmd0/b;",
+            "post": "null",
+            "subreddit": "Lmd0/b;",
             "actionInfo": "Lmd0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
@@ -19385,7 +19551,8 @@
     },
     "smali_classes2/hZ/e.smali": {
         "AddButton": {
-            "id=add_button_id, label": "Ljava/lang/String;"
+            "id": "add_button_id",
+            "label": "Ljava/lang/String;"
         }
     },
     "smali_classes7/ii0/a.smali": {
@@ -19403,7 +19570,8 @@
     },
     "smali_classes2/hZ/f.smali": {
         "ExpandAndCollapseButton": {
-            "id=expand_collapse_button_id, label": "Ljava/lang/String;"
+            "id": "expand_collapse_button_id",
+            "label": "Ljava/lang/String;"
         }
     },
     "smali_classes7/Lf0/a.smali": {
@@ -19433,7 +19601,8 @@
         "EmailClick": {
             "noun": "Ljava/lang/String;",
             "correlationId": "Ljava/lang/String;",
-            "post=null, subreddit": "Lhd0/f;",
+            "post": "null",
+            "subreddit": "Lhd0/f;",
             "actionInfo": "Lhd0/a;",
             "email": "Lhd0/c;",
             "userLoggedInId": "Ljava/lang/String;",
@@ -19465,9 +19634,13 @@
             "noun": "Ljava/lang/String;",
             "correlationId": "Ljava/lang/String;",
             "post": "Lzi0/d;",
-            "oauth=null, userPreferences=null, actionInfo": "Lzi0/a;",
+            "oauth": "null",
+            "userPreferences": "null",
+            "actionInfo": "Lzi0/a;",
             "onboarding": "Lzi0/c;",
-            "email=null, experiment=null, userLoggedInId": "Ljava/lang/String;",
+            "email": "null",
+            "experiment": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -19488,8 +19661,11 @@
     },
     "smali_classes2/wT/b.smali": {
         "PostVotesState": {
-            "score=10, scoreLabel=10, voteDirection": "Lcom/reddit/domain/model/vote/VoteDirection;",
-            "hideScore=false, postUnitAccessibilityProperties": "Lcom/reddit/feeds/ui/composables/accessibility/O;",
+            "score": "10",
+            "scoreLabel": "10",
+            "voteDirection": "Lcom/reddit/domain/model/vote/VoteDirection;",
+            "hideScore": "false",
+            "postUnitAccessibilityProperties": "Lcom/reddit/feeds/ui/composables/accessibility/O;",
             "isCompact": "Z"
         }
     },
@@ -19543,7 +19719,8 @@
             "correlationId": "Ljava/lang/String;",
             "actionInfo": "Lxi0/a;",
             "post": "Lxi0/f;",
-            "goldPurchase=null, newAward": "Lxi0/d;",
+            "goldPurchase": "null",
+            "newAward": "Lxi0/d;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
@@ -19617,7 +19794,8 @@
             "actionInfo": "Lsi0/a;",
             "communityRecommendationUnit": "Lsi0/b;",
             "feed": "Lsi0/c;",
-            "topicTag=null, userLoggedInId": "Ljava/lang/String;",
+            "topicTag": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
         }
@@ -19724,9 +19902,22 @@
         "SearchView": {
             "noun": "Ljava/lang/String;",
             "correlationId": "Ljava/lang/String;",
-            "post=null, listing=null, comment=null, userPreferences=null, subreddit=null, actionInfo": "LAi0/a;",
-            "profile=null, discoveryUnit=null, userSubreddit=null, search": "LAi0/b;",
-            "adblock=null, metaSearch=null, categoryHeader=null, poll=null, postFlair=null, userLoggedInId": "Ljava/lang/String;",
+            "post": "null",
+            "listing": "null",
+            "comment": "null",
+            "userPreferences": "null",
+            "subreddit": "null",
+            "actionInfo": "LAi0/a;",
+            "profile": "null",
+            "discoveryUnit": "null",
+            "userSubreddit": "null",
+            "search": "LAi0/b;",
+            "adblock": "null",
+            "metaSearch": "null",
+            "categoryHeader": "null",
+            "poll": "null",
+            "postFlair": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -19741,7 +19932,8 @@
     "smali_classes7/Pd0/a.smali": {
         "ChatAllowlist": {
             "action": "Ljava/lang/String;",
-            "userPreferences=null, actionInfo": "Lid0/a;",
+            "userPreferences": "null",
+            "actionInfo": "Lid0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
@@ -19774,7 +19966,8 @@
     "smali_classes2/CR/a.smali": {
         "PostCarouselElementProps": {
             "id": "Ljava/lang/String;",
-            "disableCarousel=false, subredditName": "Ljava/lang/String;"
+            "disableCarousel": "false",
+            "subredditName": "Ljava/lang/String;"
         }
     },
     "smali_classes7/Hh0/a.smali": {
@@ -19793,15 +19986,25 @@
             "correlationId": "Ljava/lang/String;",
             "post": "Lnd0/j;",
             "listing": "Lnd0/d;",
-            "comment=null, userPreferences=null, subreddit": "Lnd0/m;",
+            "comment": "null",
+            "userPreferences": "null",
+            "subreddit": "Lnd0/m;",
             "actionInfo": "Lnd0/a;",
             "media": "Lnd0/e;",
-            "profile=null, userSubreddit=null, search": "Lnd0/l;",
-            "outbound=null, adblock=null, targetUser": "Lod0/a;",
+            "profile": "null",
+            "userSubreddit": "null",
+            "search": "Lnd0/l;",
+            "outbound": "null",
+            "adblock": "null",
+            "targetUser": "Lod0/a;",
             "poll": "Lnd0/i;",
             "feed": "Lnd0/c;",
             "navigationSession": "Lnd0/g;",
-            "marketplace=null, automoderator=null, parent=null, snacks=null, userLoggedInId": "Ljava/lang/String;",
+            "marketplace": "null",
+            "automoderator": "null",
+            "parent": "null",
+            "snacks": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -19906,7 +20109,8 @@
             "subtitle": "Ljava/lang/String;",
             "subredditId": "Ljava/lang/String;",
             "subredditName": "Ljava/lang/String;",
-            "deeplink=null, imageUrl": "Ljava/lang/String;"
+            "deeplink": "null",
+            "imageUrl": "Ljava/lang/String;"
         }
     },
     "smali_classes2/zU/n.smali": {
@@ -20138,7 +20342,8 @@
     },
     "smali_classes7/Uf0/a.smali": {
         "ModmailSelectBulkActionThread": {
-            "listing=null, subreddit": "Lyi0/k;",
+            "listing": "null",
+            "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
@@ -20199,16 +20404,28 @@
             "correlationId": "Ljava/lang/String;",
             "post": "Lnd0/j;",
             "listing": "Lnd0/d;",
-            "comment=null, postFlair": "Lnd0/k;",
-            "userPreferences=null, subreddit": "Lnd0/m;",
+            "comment": "null",
+            "postFlair": "Lnd0/k;",
+            "userPreferences": "null",
+            "subreddit": "Lnd0/m;",
             "actionInfo": "Lnd0/a;",
             "media": "Lnd0/e;",
-            "profile=null, experiment=null, userSubreddit=null, search": "Lnd0/l;",
-            "outbound=null, adblock=null, metaflair": "Lnd0/n;",
+            "profile": "null",
+            "experiment": "null",
+            "userSubreddit": "null",
+            "search": "Lnd0/l;",
+            "outbound": "null",
+            "adblock": "null",
+            "metaflair": "Lnd0/n;",
             "poll": "Lnd0/i;",
-            "playback=null, gallery=null, adClick=null, feed": "Lnd0/c;",
-            "adMetadata=null, navigationSession": "Lnd0/g;",
-            "chat=null, translationMetrics": "Lnd0/o;",
+            "playback": "null",
+            "gallery": "null",
+            "adClick": "null",
+            "feed": "Lnd0/c;",
+            "adMetadata": "null",
+            "navigationSession": "Lnd0/g;",
+            "chat": "null",
+            "translationMetrics": "Lnd0/o;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
@@ -20275,11 +20492,17 @@
             "correlationId": "Ljava/lang/String;",
             "post": "Lxi0/f;",
             "comment": "Lxi0/b;",
-            "userPreferences=null, subreddit": "Lxi0/h;",
+            "userPreferences": "null",
+            "subreddit": "Lxi0/h;",
             "actionInfo": "Lxi0/a;",
-            "chat=null, profile": "Lxi0/g;",
-            "userSubreddit=null, search=null, targetUser": "Lod0/a;",
-            "poll=null, snoovatar=null, userLoggedInId": "Ljava/lang/String;",
+            "chat": "null",
+            "profile": "Lxi0/g;",
+            "userSubreddit": "null",
+            "search": "null",
+            "targetUser": "Lod0/a;",
+            "poll": "null",
+            "snoovatar": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -20390,7 +20613,8 @@
         "ResetPasswordClickRequestPasswordResetEmail": {
             "post": "Lzi0/d;",
             "actionInfo": "Lzi0/a;",
-            "popup=null, userLoggedInId": "Ljava/lang/String;",
+            "popup": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -20472,7 +20696,8 @@
     },
     "smali_classes7/nc0/c.smali": {
         "TimelineSettings": {
-            "initialSize=30, buildReadReceipts": "Z",
+            "initialSize": "30",
+            "buildReadReceipts": "Z",
             "prefetchMembers": "Z"
         }
     },
@@ -20573,9 +20798,13 @@
             "post": "Lnd0/j;",
             "subreddit": "Lnd0/m;",
             "actionInfo": "Lnd0/a;",
-            "profile=null, programmatic=null, feed": "Lnd0/c;",
+            "profile": "null",
+            "programmatic": "null",
+            "feed": "Lnd0/c;",
             "newAward": "Lnd0/h;",
-            "chat=null, devplatform=null, postFlair": "Lnd0/k;",
+            "chat": "null",
+            "devplatform": "null",
+            "postFlair": "Lnd0/k;",
             "metaflair": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
@@ -20586,8 +20815,22 @@
         "NavClick": {
             "noun": "Ljava/lang/String;",
             "correlationId": "Ljava/lang/String;",
-            "post=null, listing=null, comment=null, userPreferences=null, subreddit=null, actionInfo": "Lqi0/a;",
-            "profile=null, userSubreddit=null, search=null, goldPurchase=null, adblock=null, metaSearch=null, customFeed=null, topicMetadata=null, inbox=null, userLoggedInId": "Ljava/lang/String;",
+            "post": "null",
+            "listing": "null",
+            "comment": "null",
+            "userPreferences": "null",
+            "subreddit": "null",
+            "actionInfo": "Lqi0/a;",
+            "profile": "null",
+            "userSubreddit": "null",
+            "search": "null",
+            "goldPurchase": "null",
+            "adblock": "null",
+            "metaSearch": "null",
+            "customFeed": "null",
+            "topicMetadata": "null",
+            "inbox": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -20598,7 +20841,8 @@
             "noun": "Ljava/lang/String;",
             "post": "Lyi0/h;",
             "comment": "Lyi0/b;",
-            "userPreferences=null, subreddit": "Lyi0/k;",
+            "userPreferences": "null",
+            "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
             "userSubreddit": "Lyi0/n;",
             "userLoggedInId": "Ljava/lang/String;",
@@ -20838,7 +21082,8 @@
             "items": "Landroidx/paging/compose/b;",
             "appendState": "Lcom/reddit/domain/snoovatar/model/storefront/common/LoadMoreState;",
             "listingPresentationType": "LTX/b;",
-            "showSearchButton=false, showShareButton": "Z"
+            "showSearchButton": "false",
+            "showShareButton": "Z"
         }
     },
     "smali_classes7/ve0/a.smali": {
@@ -20891,7 +21136,8 @@
     "smali_classes7/Ug0/a.smali": {
         "PhoneHomeScreenClick": {
             "noun": "Ljava/lang/String;",
-            "userPreferences=null, subreddit": "Ljd0/d;",
+            "userPreferences": "null",
+            "subreddit": "Ljd0/d;",
             "customFeed": "Ljd0/b;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
@@ -20904,9 +21150,11 @@
             "post": "Lyi0/h;",
             "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
-            "profile=null, userSubreddit": "Lyi0/n;",
+            "profile": "null",
+            "userSubreddit": "Lyi0/n;",
             "setting": "Lyi0/j;",
-            "poll=null, userLoggedInId": "Ljava/lang/String;",
+            "poll": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -20915,7 +21163,8 @@
     "smali_classes7/rf0/a.smali": {
         "GlobalRelaunchApp": {
             "action": "Ljava/lang/String;",
-            "userPreferences=null, actionInfo": "Lri0/a;",
+            "userPreferences": "null",
+            "actionInfo": "Lri0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
@@ -21293,7 +21542,8 @@
             "noun": "Ljava/lang/String;",
             "correlationId": "Ljava/lang/String;",
             "post": "Lyi0/h;",
-            "userPreferences=null, subreddit": "Lyi0/k;",
+            "userPreferences": "null",
+            "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
             "userSubreddit": "Lyi0/n;",
             "userFlair": "Lyi0/m;",
@@ -22097,10 +22347,17 @@
     "smali_classes7/Oh0/b.smali": {
         "ShareClick": {
             "noun": "Ljava/lang/String;",
-            "post=null, listing=null, comment=null, userPreferences=null, subreddit": "Lid0/d;",
+            "post": "null",
+            "listing": "null",
+            "comment": "null",
+            "userPreferences": "null",
+            "subreddit": "Lid0/d;",
             "actionInfo": "Lid0/a;",
             "chat": "Lid0/c;",
-            "share=null, search=null, feed=null, recapCard": "LOh0/a;",
+            "share": "null",
+            "search": "null",
+            "feed": "null",
+            "recapCard": "LOh0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
@@ -22180,7 +22437,8 @@
     },
     "smali_classes7/xf0/a.smali": {
         "InvitationInboxClickInvitationDecline": {
-            "userPreferences=null, actionInfo": "Lid0/a;",
+            "userPreferences": "null",
+            "actionInfo": "Lid0/a;",
             "chat": "Lid0/c;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
@@ -22221,7 +22479,8 @@
     },
     "smali_classes7/wf0/a.smali": {
         "InvitationInboxClickInvitationAccept": {
-            "userPreferences=null, actionInfo": "Lid0/a;",
+            "userPreferences": "null",
+            "actionInfo": "Lid0/a;",
             "chat": "Lid0/c;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
@@ -22231,8 +22490,10 @@
     },
     "smali_classes7/eg0/a.smali": {
         "ModqueueHitlFilterFeedback": {
-            "action=view, userLegacyId": "Ljava/lang/String;",
-            "actionInfo=null, comment": "Lkd0/a;",
+            "action": "view",
+            "userLegacyId": "Ljava/lang/String;",
+            "actionInfo": "null",
+            "comment": "Lkd0/a;",
             "post": "Lkd0/c;",
             "subreddit": "Lkd0/d;",
             "userLoggedInId": "Ljava/lang/String;",
@@ -22427,11 +22688,13 @@
     "smali_classes7/Kf0/a.smali": {
         "ModToolsClick": {
             "noun": "Ljava/lang/String;",
-            "userPreferences=null, subreddit": "Lyi0/k;",
+            "userPreferences": "null",
+            "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
             "userSubreddit": "Lyi0/n;",
             "setting": "Lyi0/j;",
-            "topicTag=null, postFlair": "Lyi0/i;",
+            "topicTag": "null",
+            "postFlair": "Lyi0/i;",
             "timer": "Lyi0/l;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
@@ -23649,7 +23912,9 @@
     "smali_classes7/org/matrix/android/sdk/internal/session/room/state/c.smali": {
         "Params": {
             "roomId": "Ljava/lang/String;",
-            "stateKey=null, eventType=m.room.name, body": "Ljava/util/Map;"
+            "stateKey": "null",
+            "eventType": "m.room.name",
+            "body": "Ljava/util/Map;"
         }
     },
     "smali_classes7/org/matrix/android/sdk/internal/session/room/state/SerializablePowerLevelsContent.smali": {
@@ -23742,7 +24007,8 @@
         "Params": {
             "roomId": "Ljava/lang/String;",
             "eventId": "Ljava/lang/String;",
-            "score=0, reason": "Ljava/lang/String;"
+            "score": "0",
+            "reason": "Ljava/lang/String;"
         }
     },
     "smali_classes7/org/matrix/android/sdk/internal/session/room/reporting/ReportContentBody.smali": {
@@ -24285,7 +24551,8 @@
         "Params": {
             "homeServerConnectionConfig": "Lorg/matrix/android/sdk/api/auth/data/HomeServerConnectionConfig;",
             "bearerToken": "Ljava/lang/String;",
-            "deviceName=Reddit Matrix Android, deviceId": "Ljava/lang/String;"
+            "deviceName": "Reddit Matrix Android",
+            "deviceId": "Ljava/lang/String;"
         }
     },
     "smali_classes7/org/matrix/android/sdk/internal/auth/version/Versions.smali": {
@@ -24396,7 +24663,8 @@
             "actionInfo": "Lsi0/a;",
             "communityRecommendationUnit": "Lsi0/b;",
             "feed": "Lsi0/c;",
-            "topicTag=null, userLoggedInId": "Ljava/lang/String;",
+            "topicTag": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
         }
@@ -24584,7 +24852,8 @@
         "ModeratorClickFilter": {
             "noun": "Ljava/lang/String;",
             "userLegacyId": "Ljava/lang/String;",
-            "actionInfo=null, comment": "Lkd0/a;",
+            "actionInfo": "null",
+            "comment": "Lkd0/a;",
             "post": "Lkd0/c;",
             "subreddit": "Lkd0/d;",
             "userLoggedInId": "Ljava/lang/String;",
@@ -24722,9 +24991,12 @@
             "comment": "Lyi0/b;",
             "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
-            "chat=null, modAction": "Lyi0/f;",
+            "chat": "null",
+            "modAction": "Lyi0/f;",
             "targetUser": "Lod0/a;",
-            "poll=null, modnote=null, userLoggedInId": "Ljava/lang/String;",
+            "poll": "null",
+            "modnote": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -24733,8 +25005,15 @@
     "smali_classes7/Ph0/b.smali": {
         "ShareView": {
             "noun": "Ljava/lang/String;",
-            "post=null, listing=null, comment=null, subreddit=null, actionInfo": "Lti0/a;",
-            "share=null, search=null, feed=null, recapCard": "LPh0/a;",
+            "post": "null",
+            "listing": "null",
+            "comment": "null",
+            "subreddit": "null",
+            "actionInfo": "Lti0/a;",
+            "share": "null",
+            "search": "null",
+            "feed": "null",
+            "recapCard": "LPh0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
@@ -24747,7 +25026,8 @@
             "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
             "modAction": "Lyi0/f;",
-            "modnote=null, userLoggedInId": "Ljava/lang/String;",
+            "modnote": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
         }
@@ -24995,10 +25275,12 @@
             "actionInfo": "Lnd0/a;",
             "experiment": "Lnd0/b;",
             "visibility": "Lnd0/p;",
-            "relevanceModel=null, topicMetadata": "Lnd0/n;",
+            "relevanceModel": "null",
+            "topicMetadata": "Lnd0/n;",
             "poll": "Lnd0/i;",
             "feed": "Lnd0/c;",
-            "adMetadata=null, userLoggedInId": "Ljava/lang/String;",
+            "adMetadata": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -25035,9 +25317,20 @@
             "noun": "Ljava/lang/String;",
             "correlationId": "Ljava/lang/String;",
             "post": "Lzi0/d;",
-            "listing=null, comment=null, userPreferences=null, subreddit": "Lzi0/f;",
+            "listing": "null",
+            "comment": "null",
+            "userPreferences": "null",
+            "subreddit": "Lzi0/f;",
             "actionInfo": "Lzi0/a;",
-            "profile=null, userSubreddit=null, search=null, outbound=null, metaSearch=null, popup=null, topicMetadata=null, socialLink=null, userLoggedInId": "Ljava/lang/String;",
+            "profile": "null",
+            "userSubreddit": "null",
+            "search": "null",
+            "outbound": "null",
+            "metaSearch": "null",
+            "popup": "null",
+            "topicMetadata": "null",
+            "socialLink": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -25060,7 +25353,11 @@
             "subreddit": "Lnd0/m;",
             "actionInfo": "Lnd0/a;",
             "media": "Lnd0/e;",
-            "postComposer=null, videoErrorReport=null, cameraFeature=null, automoderator=null, userLoggedInId": "Ljava/lang/String;",
+            "postComposer": "null",
+            "videoErrorReport": "null",
+            "cameraFeature": "null",
+            "automoderator": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -25084,9 +25381,12 @@
         "PostClickAd": {
             "correlationId": "Ljava/lang/String;",
             "post": "Lch0/d;",
-            "listing=null, subreddit=null, actionInfo": "Lch0/a;",
+            "listing": "null",
+            "subreddit": "null",
+            "actionInfo": "Lch0/a;",
             "media": "Led0/c;",
-            "adblock=null, gallery": "Lch0/c;",
+            "adblock": "null",
+            "gallery": "Lch0/c;",
             "adClick": "Lch0/b;",
             "feed": "Led0/b;",
             "adMetadata": "Led0/a;",
@@ -25411,8 +25711,10 @@
     "smali_classes7/vf0/a.smali": {
         "InboxViewInboxNotificationOverflow": {
             "notification": "Lhd0/d;",
-            "userPreferences=null, actionInfo": "Lhd0/a;",
-            "inbox=null, userLoggedInId": "Ljava/lang/String;",
+            "userPreferences": "null",
+            "actionInfo": "Lhd0/a;",
+            "inbox": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -25431,7 +25733,9 @@
     "smali_classes7/vg0/a.smali": {
         "OnboardingSelectGender": {
             "post": "Lzi0/d;",
-            "listing=null, userPreferences=null, actionInfo": "Lzi0/a;",
+            "listing": "null",
+            "userPreferences": "null",
+            "actionInfo": "Lzi0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
@@ -25503,7 +25807,8 @@
             "subredditId": "Ljava/lang/String;",
             "subredditName": "Ljava/lang/String;",
             "subredditNamePrefixed": "Ljava/lang/String;",
-            "deeplink=null, imageUrl": "Ljava/lang/String;"
+            "deeplink": "null",
+            "imageUrl": "Ljava/lang/String;"
         }
     },
     "smali_classes2/IU/b.smali": {
@@ -25627,7 +25932,8 @@
     "smali_classes7/if0/a.smali": {
         "GarlicBreadClick": {
             "noun": "Ljava/lang/String;",
-            "subreddit=null, actionInfo": "Lti0/a;",
+            "subreddit": "null",
+            "actionInfo": "Lti0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
@@ -25676,8 +25982,11 @@
             "noun": "Ljava/lang/String;",
             "subreddit": "Ljd0/d;",
             "actionInfo": "Ljd0/a;",
-            "chat=null, userSubreddit": "Ljd0/f;",
-            "brand=null, tooltip=null, topicTag": "Ljd0/e;",
+            "chat": "null",
+            "userSubreddit": "Ljd0/f;",
+            "brand": "null",
+            "tooltip": "null",
+            "topicTag": "Ljd0/e;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
@@ -25730,7 +26039,8 @@
             "data": "LUB/D;",
             "title": "LUB/j0;",
             "flair": "LUB/V;",
-            "sourcePage=post_detail, isPromoted": "Z",
+            "sourcePage": "post_detail",
+            "isPromoted": "Z",
             "earlyDetachFixEnabled": "Z",
             "largeRichTextImagesFixEanbled": "Z",
             "linkId": "Ljava/lang/String;",
@@ -25809,8 +26119,10 @@
     },
     "smali_classes7/Gd0/a.smali": {
         "BackendDeactivateUser": {
-            "oauth=null, actionInfo": "Lgd0/a;",
-            "userDeactivationInfo=null, userLoggedInId": "Ljava/lang/String;",
+            "oauth": "null",
+            "actionInfo": "Lgd0/a;",
+            "userDeactivationInfo": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -25895,12 +26207,15 @@
         "ModmailClick": {
             "noun": "Ljava/lang/String;",
             "post": "Lyi0/h;",
-            "listing=null, comment": "Lyi0/b;",
+            "listing": "null",
+            "comment": "Lyi0/b;",
             "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
             "setting": "Lyi0/j;",
             "modmailConversation": "Lyi0/g;",
-            "modmailMessage=null, modnote=null, timer": "Lyi0/l;",
+            "modmailMessage": "null",
+            "modnote": "null",
+            "timer": "Lyi0/l;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
@@ -25933,10 +26248,18 @@
             "correlationId": "Ljava/lang/String;",
             "post": "Lnd0/j;",
             "listing": "Lnd0/d;",
-            "userPreferences=null, subreddit": "Lnd0/m;",
+            "userPreferences": "null",
+            "subreddit": "Lnd0/m;",
             "actionInfo": "Lnd0/a;",
             "media": "Lnd0/e;",
-            "postComposer=null, profile=null, userSubreddit=null, postDraft=null, cameraFeature=null, reactSource=null, automoderator=null, userLoggedInId": "Ljava/lang/String;",
+            "postComposer": "null",
+            "profile": "null",
+            "userSubreddit": "null",
+            "postDraft": "null",
+            "cameraFeature": "null",
+            "reactSource": "null",
+            "automoderator": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -25975,7 +26298,9 @@
     },
     "smali_classes7/Ef0/a.smali": {
         "MenuLinksBarClick": {
-            "noun=wiki, userPreferences=null, subreddit": "Lyi0/k;",
+            "noun": "wiki",
+            "userPreferences": "null",
+            "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
             "userSubreddit": "Lyi0/n;",
             "userLoggedInId": "Ljava/lang/String;",
@@ -26005,7 +26330,8 @@
     },
     "smali_classes7/bc0/h.smali": {
         "RoomMemberQueryParams": {
-            "displayName=null, memberships": "Ljava/util/List;"
+            "displayName": "null",
+            "memberships": "Ljava/util/List;"
         }
     },
     "smali_classes7/bc0/a.smali": {
@@ -26088,7 +26414,8 @@
             "actionInfo": "Lsi0/a;",
             "communityRecommendationUnit": "Lsi0/b;",
             "feed": "Lsi0/c;",
-            "topicTag=null, userLoggedInId": "Ljava/lang/String;",
+            "topicTag": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
         }
@@ -26169,7 +26496,8 @@
         "LoadedState": {
             "appealId": "Ljava/lang/String;",
             "description": "Ljava/lang/String;",
-            "descriptionMaxChars=250, adminDecision": "LnV/a;"
+            "descriptionMaxChars": "250",
+            "adminDecision": "LnV/a;"
         }
     },
     "smali_classes2/com/reddit/rpl/extras/draganddrop/l.smali": {
@@ -26293,7 +26621,8 @@
     },
     "smali_classes2/com/reddit/postdetail/refactor/minicontextbar/a.smali": {
         "EmptyMiniContextBarViewState": {
-            "isVisible=false, title": "Ljava/lang/String;",
+            "isVisible": "false",
+            "title": "Ljava/lang/String;",
             "postMetrics": "Lcom/reddit/postdetail/refactor/minicontextbar/f;"
         }
     },
@@ -26402,11 +26731,14 @@
     },
     "smali_classes2/com/reddit/postdetail/refactor/t.smali": {
         "PostDetailScreenDependencies": {
-            "analyticsPageType=post_detail, commentsParams": "Lcom/reddit/comment/domain/presentation/refactor/v;",
+            "analyticsPageType": "post_detail",
+            "commentsParams": "Lcom/reddit/comment/domain/presentation/refactor/v;",
             "commentsTarget": "Lcom/reddit/postdetail/comment/refactor/composables/o;",
             "amaEventTarget": "LRb/b;",
             "screenArguments": "LtS/a;",
-            "screenName=PostDetailScreen, sourcePage=post_detail, screenReferrer": "LLf/b;",
+            "screenName": "PostDetailScreen",
+            "sourcePage": "post_detail",
+            "screenReferrer": "LLf/b;",
             "analyticsScreenViewEventProvider": "Lcom/reddit/postdetail/refactor/a;"
         }
     },
@@ -26698,7 +27030,8 @@
             "menuParams": "Lcom/reddit/postdetail/comment/refactor/commentoverflowactionsbottomsheet/e;",
             "commentOverflowData": "Lcom/reddit/postdetail/comment/refactor/commentoverflowactionsbottomsheet/i;",
             "isAdmin": "Ljava/lang/Boolean;",
-            "analyticsPageType=null, link": "Lcom/reddit/comment/domain/presentation/refactor/b;"
+            "analyticsPageType": "null",
+            "link": "Lcom/reddit/comment/domain/presentation/refactor/b;"
         }
     },
     "smali_classes2/com/reddit/postdetail/comment/refactor/commentoverflowactionsbottomsheet/c.smali": {
@@ -26759,7 +27092,10 @@
             "isUserSubscriber": "Z",
             "userIsModerator": "Z",
             "isAdmin": "Z",
-            "isAwardVisible=false, showShareIcon=true, hasRegularActions=true, isReplyVisible": "Z",
+            "isAwardVisible": "false",
+            "showShareIcon": "true",
+            "hasRegularActions": "true",
+            "isReplyVisible": "Z",
             "isEditVisible": "Z",
             "isMarkAsBrandVisible": "Z",
             "isMarkAsBrandEnabled": "Z",
@@ -26905,7 +27241,8 @@
         "WithComposable": {
             "title": "Ljava/lang/String;",
             "subtitle": "Ljava/lang/String;",
-            "imageResource=2131232856, buttonEnabled": "Z"
+            "imageResource": "2131232856",
+            "buttonEnabled": "Z"
         }
     },
     "smali_classes2/com/reddit/postdetail/comment/refactor/composables/l.smali": {
@@ -27300,7 +27637,8 @@
             "redditRules": "LH80/c;",
             "communityRules": "LH80/c;",
             "showElsewhereOption": "Z",
-            "karmaRulesExpanded=false, totalRedditKarma": "Ljava/lang/String;",
+            "karmaRulesExpanded": "false",
+            "totalRedditKarma": "Ljava/lang/String;",
             "accountAge": "Ljava/lang/String;"
         }
     },
@@ -28278,7 +28616,8 @@
     "smali_classes2/com/reddit/screen/communities/usecase/a.smali": {
         "Params": {
             "name": "Ljava/lang/String;",
-            "description=, privacyType": "Lcom/reddit/domain/model/communitycreation/SubredditPrivacyType;",
+            "description": "",
+            "privacyType": "Lcom/reddit/domain/model/communitycreation/SubredditPrivacyType;",
             "isNsfw": "Z"
         }
     },
@@ -28567,7 +28906,8 @@
     "smali_classes2/com/reddit/screen/customfeed/communitylist/k.smali": {
         "HeaderUiModel": {
             "title": "Ljava/lang/String;",
-            "actionText=, onActionClicked": "Lr70/a;"
+            "actionText": "",
+            "onActionClicked": "Lr70/a;"
         }
     },
     "smali_classes2/com/reddit/screen/snoovatar/wearing/q.smali": {
@@ -29262,7 +29602,9 @@
     },
     "smali_classes2/com/reddit/screens/drawer/profile/L.smali": {
         "WithDrawable": {
-            "title=2131959387, drawable=2131232712, destination": "Lcom/reddit/screens/drawer/profile/NavMenuDestination;",
+            "title": "2131959387",
+            "drawable": "2131232712",
+            "destination": "Lcom/reddit/screens/drawer/profile/NavMenuDestination;",
             "subtitle": "Lcom/reddit/screens/drawer/profile/K;",
             "hasDivider": "Z"
         }
@@ -29307,7 +29649,9 @@
     "smali_classes2/com/reddit/screens/drawer/community/a.smali": {
         "CTAItemUiModel": {
             "uniqueId": "J",
-            "titleResId=2131953230, iconResId=2131231730, showBadge": "Z"
+            "titleResId": "2131953230",
+            "iconResId": "2131231730",
+            "showBadge": "Z"
         }
     },
     "smali_classes2/com/reddit/screens/drawer/community/b.smali": {
@@ -29450,7 +29794,9 @@
     },
     "smali_classes2/com/reddit/screens/drawer/profile/G.smali": {
         "StatsContentArgs": {
-            "accountStats": "LO10/a;"
+            "accountStats": "LO10/a;",
+            "onKarmaClickLabel": "2131955260",
+            "onAchievementsClickLabel": "2131960038"
         }
     },
     "smali_classes2/com/reddit/screen/m.smali": {
@@ -30463,7 +30809,8 @@
     "smali_classes2/com/reddit/screens/pager/v2/A0.smali": {
         "SubredditPagerV2ScreenDependencies": {
             "view": "Lcom/reddit/screens/pager/m;",
-            "sourcePage=subreddit_listing, incognitoAuthParams": "LYD/a;",
+            "sourcePage": "subreddit_listing",
+            "incognitoAuthParams": "LYD/a;",
             "notificationDeeplinkParams": "Lcom/reddit/notification/domain/model/NotificationDeeplinkParams;",
             "subredditPagerParams": "Lcom/reddit/screens/pager/o;"
         }
@@ -30526,7 +30873,9 @@
         "SubredditFeedScreenDependencies": {
             "analyticsScreenData": "Lzx/g;",
             "feedType": "Lcom/reddit/feeds/data/FeedType;",
-            "screenName=SubredditFeedScreen, sourcePage=subreddit_listing, subredditName": "Ljava/lang/String;",
+            "screenName": "SubredditFeedScreen",
+            "sourcePage": "subreddit_listing",
+            "subredditName": "Ljava/lang/String;",
             "subredditId": "Ljava/lang/String;",
             "subredditChannelId": "Ljava/lang/String;",
             "postChannelEnabled": "Z",
@@ -30810,11 +31159,17 @@
     "smali_classes7/Vd0/a.smali": {
         "CommunityClick": {
             "noun": "Ljava/lang/String;",
-            "post=null, listing=null, userPreferences=null, subreddit": "Ljd0/d;",
+            "post": "null",
+            "listing": "null",
+            "userPreferences": "null",
+            "subreddit": "Ljd0/d;",
             "actionInfo": "Ljd0/a;",
-            "chat=null, userSubreddit": "Ljd0/f;",
-            "outbound=null, topicTag": "Ljd0/e;",
-            "topicMetadata=null, feed": "Ljd0/c;",
+            "chat": "null",
+            "userSubreddit": "Ljd0/f;",
+            "outbound": "null",
+            "topicTag": "Ljd0/e;",
+            "topicMetadata": "null",
+            "feed": "Ljd0/c;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
@@ -30836,7 +31191,8 @@
         "PostStatsEntryPointEvent": {
             "action": "Ljava/lang/String;",
             "actionInfo": "Lnd0/a;",
-            "userPreferences=null, targetPost": "Lnd0/j;",
+            "userPreferences": "null",
+            "targetPost": "Lnd0/j;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
@@ -30863,7 +31219,8 @@
     },
     "smali_classes7/Zf0/a.smali": {
         "ModmailUnselectBulkActionAll": {
-            "listing=null, subreddit": "Lyi0/k;",
+            "listing": "null",
+            "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
@@ -30909,7 +31266,8 @@
         "EmailAppSettingsActionEmail": {
             "action": "Ljava/lang/String;",
             "notification": "Lhd0/d;",
-            "userPreferences=null, actionInfo": "Lhd0/a;",
+            "userPreferences": "null",
+            "actionInfo": "Lhd0/a;",
             "email": "Lhd0/c;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
@@ -31032,13 +31390,21 @@
             "comment": "Lyi0/b;",
             "subreddit": "Lyi0/k;",
             "actionInfo": "Lyi0/a;",
-            "chat=null, profile=null, userSubreddit": "Lyi0/n;",
+            "chat": "null",
+            "profile": "null",
+            "userSubreddit": "Lyi0/n;",
             "modAction": "Lyi0/f;",
             "targetUser": "Lod0/a;",
-            "poll=null, modnote=null, automoderator=null, filter": "Lyi0/c;",
-            "navigationSession=null, timer": "LNf0/a;",
+            "poll": "null",
+            "modnote": "null",
+            "automoderator": "null",
+            "filter": "Lyi0/c;",
+            "navigationSession": "null",
+            "timer": "LNf0/a;",
             "setting": "Lyi0/j;",
-            "postRequirement=null, newAward=null, userLoggedInId": "Ljava/lang/String;",
+            "postRequirement": "null",
+            "newAward": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
             "referrerDomain": "Ljava/lang/String;"
@@ -31209,7 +31575,8 @@
             "comment": "Lkg0/b;",
             "newAward": "Lxi0/d;",
             "correlationId": "Ljava/lang/String;",
-            "feed=null, userLoggedInId": "Ljava/lang/String;",
+            "feed": "null",
+            "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;"
         }
@@ -31264,7 +31631,8 @@
     "smali_classes7/Rd0/a.smali": {
         "CheckInboxClick": {
             "noun": "Ljava/lang/String;",
-            "post=null, actionInfo": "Lgd0/a;",
+            "post": "null",
+            "actionInfo": "Lgd0/a;",
             "userLoggedInId": "Ljava/lang/String;",
             "screenViewType": "Ljava/lang/String;",
             "requestBaseUrl": "Ljava/lang/String;",
@@ -32127,14 +32495,16 @@
     },
     "smali_classes2/MT/c.smali": {
         "OneButtonDialogPresentationModel": {
-            "layoutId=2131624117, title": "Ljava/lang/String;",
+            "layoutId": "2131624117",
+            "title": "Ljava/lang/String;",
             "description": "Ljava/lang/String;",
             "buttonText": "Ljava/lang/String;"
         }
     },
     "smali_classes2/MT/i.smali": {
         "TwoButtonDialogPresentationModel": {
-            "layoutId=2131624106, title": "Ljava/lang/String;",
+            "layoutId": "2131624106",
+            "title": "Ljava/lang/String;",
             "description": "Ljava/lang/String;",
             "primaryButtonText": "Ljava/lang/String;",
             "secondaryButtonText": "Ljava/lang/String;"
@@ -32299,7 +32669,8 @@
         "UnsupportedCellElement": {
             "linkId": "Ljava/lang/String;",
             "uniqueId": "Ljava/lang/String;",
-            "promoted=false, cellDetails": "Ljava/lang/String;"
+            "promoted": "false",
+            "cellDetails": "Ljava/lang/String;"
         }
     },
     "smali_classes6/aA/N.smali": {
@@ -32763,7 +33134,8 @@
     },
     "smali_classes6/IC/c.smali": {
         "ModActionBarAccessibilityConnection": {
-            "shouldClearActionButtonsSemantics=true, uiModelListener": "LQE/B;"
+            "shouldClearActionButtonsSemantics": "true",
+            "uiModelListener": "LQE/B;"
         }
     },
     "smali_classes6/aA/u0.smali": {
@@ -33122,7 +33494,8 @@
     },
     "smali_classes6/iA/a.smali": {
         "ExperimentOverride": {
-            "experimentName=android_snap_feed, variantName": "Ljava/lang/String;"
+            "experimentName": "android_snap_feed",
+            "variantName": "Ljava/lang/String;"
         }
     },
     "smali_classes6/oG/h.smali": {
@@ -33415,7 +33788,8 @@
     "smali_classes6/zx/f.smali": {
         "SAN": {
             "source": "Ljava/lang/String;",
-            "action=view, noun": "Ljava/lang/String;"
+            "action": "view",
+            "noun": "Ljava/lang/String;"
         }
     },
     "smali_classes6/zx/g.smali": {
@@ -33657,13 +34031,15 @@
     },
     "smali_classes6/Ry/O.smali": {
         "ModFeatureFlag": {
-            "experimentName=android_mod_queue_realtime_updates, autoExpose": "Z",
+            "experimentName": "android_mod_queue_realtime_updates",
+            "autoExpose": "Z",
             "sessionView": "Lcom/reddit/session/C;"
         }
     },
     "smali_classes6/Ry/J.smali": {
         "HoldoutFeatureFlag": {
-            "experimentName=android_query_suggestions, holdout": "Lcom/reddit/features/delegates/SearchFeaturesDelegate$QuarterlyHoldout;"
+            "experimentName": "android_query_suggestions",
+            "holdout": "Lcom/reddit/features/delegates/SearchFeaturesDelegate$QuarterlyHoldout;"
         }
     },
     "smali_classes6/vC/b.smali": {
@@ -33773,7 +34149,8 @@
             "contentId": "Ljava/lang/String;",
             "authorId": "Ljava/lang/String;",
             "subredditName": "Ljava/lang/String;",
-            "isComment=false, isMatureContent": "Z"
+            "isComment": "false",
+            "isMatureContent": "Z"
         }
     },
     "smali_classes6/pD/c.smali": {
@@ -33830,7 +34207,8 @@
             "id": "Ljava/lang/String;",
             "subject": "Ljava/lang/String;",
             "preview": "Ljava/lang/String;",
-            "body=, metadata": "Ljava/lang/String;",
+            "body": "",
+            "metadata": "Ljava/lang/String;",
             "mediaMetadata": "Ljava/util/Map;",
             "subredditNamePrefixed": "Ljava/lang/String;",
             "timePosted": "Ljava/lang/String;"
@@ -33848,7 +34226,8 @@
             "url": "Ljava/lang/String;",
             "title": "Ljava/lang/String;",
             "domain": "Ljava/lang/String;",
-            "postType=link, isOver18": "Z",
+            "postType": "link",
+            "isOver18": "Z",
             "createdUtc": "J",
             "isSpoiler": "Z",
             "isPromoted": "Z"
@@ -34279,7 +34658,8 @@
     "smali_classes6/Cy/p.smali": {
         "VideoPlayerSideNavigation": {
             "correlation": "LCy/a;",
-            "pageType=video_feed_v1, galleryInfo": "Lcom/reddit/events/builders/D;"
+            "pageType": "video_feed_v1",
+            "galleryInfo": "Lcom/reddit/events/builders/D;"
         }
     },
     "smali_classes6/Cy/a.smali": {
@@ -34441,7 +34821,8 @@
     },
     "smali_classes4/mg/d.smali": {
         "CommunityBadgePageUIModel": {
-            "showBadge=true, username": "Ljava/lang/String;",
+            "showBadge": "true",
+            "username": "Ljava/lang/String;",
             "snoovatarUrl": "Ljava/lang/String;"
         }
     },
@@ -34751,7 +35132,8 @@
         "OnClickMultiChatChannelFeedUnit": {
             "feedElementId": "Ljava/lang/String;",
             "uxExperience": "Lcom/reddit/domain/model/experience/UxExperience;",
-            "uxVariant=chat_channel_unit_in_home_feed_multiple, pageType": "Ljava/lang/String;",
+            "uxVariant": "chat_channel_unit_in_home_feed_multiple",
+            "pageType": "Ljava/lang/String;",
             "clickItemIndex": "LXy/a;",
             "multiChatChannelFeedUnit": "LXy/g;"
         }
@@ -34782,14 +35164,17 @@
         "OnClickMultiChatChannelHide": {
             "feedElementId": "Ljava/lang/String;",
             "uxExperience": "Lcom/reddit/domain/model/experience/UxExperience;",
-            "uxVariant=chat_channel_unit_in_home_feed_multiple, pageType=chat_module_home, multiChatChannelFeedUnit": "LXy/g;"
+            "uxVariant": "chat_channel_unit_in_home_feed_multiple",
+            "pageType": "chat_module_home",
+            "multiChatChannelFeedUnit": "LXy/g;"
         }
     },
     "smali_classes6/az/e.smali": {
         "OnViewMultiChatChannelFeedUnit": {
             "feedElementId": "Ljava/lang/String;",
             "uxExperience": "Lcom/reddit/domain/model/experience/UxExperience;",
-            "uxVariant=chat_channel_unit_in_home_feed_multiple, pageType": "Ljava/lang/String;",
+            "uxVariant": "chat_channel_unit_in_home_feed_multiple",
+            "pageType": "Ljava/lang/String;",
             "multiChatChannelFeedUnit": "LXy/g;",
             "reportTelemetry": "Z"
         }
@@ -34982,7 +35367,9 @@
     },
     "smali_classes6/tz/b.smali": {
         "BaliExperimentToVariant": {
-            "experimentId=11309, experimentName=android_bali_il_fbp, variantName": "Ljava/lang/String;"
+            "experimentId": "11309",
+            "experimentName": "android_bali_il_fbp",
+            "variantName": "Ljava/lang/String;"
         }
     },
     "smali_classes6/nC/a.smali": {
@@ -35133,7 +35520,8 @@
         "OnClickPost": {
             "linkId": "Ljava/lang/String;",
             "uniqueId": "Ljava/lang/String;",
-            "promoted=false, url": "Ljava/lang/String;"
+            "promoted": "false",
+            "url": "Ljava/lang/String;"
         }
     },
     "smali_classes6/ZQ/m.smali": {
@@ -35152,7 +35540,8 @@
         "OnClickSubreddit": {
             "linkId": "Ljava/lang/String;",
             "uniqueId": "Ljava/lang/String;",
-            "promoted=false, subredditName": "Ljava/lang/String;",
+            "promoted": "false",
+            "subredditName": "Ljava/lang/String;",
             "type": "Lcom/reddit/events/common/AnalyticsScreenReferrer$Type;"
         }
     },
@@ -35231,7 +35620,9 @@
     },
     "smali_classes6/Hy/f.smali": {
         "IsVariant": {
-            "experimentName=android_snap_feed, autoExpose=true, expectedVariant": "Lcom/reddit/common/experiments/model/feed/SnapFeedVariant;"
+            "experimentName": "android_snap_feed",
+            "autoExpose": "true",
+            "expectedVariant": "Lcom/reddit/common/experiments/model/feed/SnapFeedVariant;"
         }
     },
     "smali_classes6/Hy/d.smali": {
@@ -35248,14 +35639,16 @@
     "smali_classes6/Hy/i.smali": {
         "VariantOrDefault": {
             "experimentName": "Ljava/lang/String;",
-            "autoExpose=false, mapper": "Lkotlin/jvm/internal/FunctionReferenceImpl;",
+            "autoExpose": "false",
+            "mapper": "Lkotlin/jvm/internal/FunctionReferenceImpl;",
             "default": "Ljava/lang/Enum;"
         }
     },
     "smali_classes6/Hy/e.smali": {
         "IsInVariants": {
             "experimentName": "Ljava/lang/String;",
-            "autoExpose=true, expectedVariants": "Ljava/util/Collection;"
+            "autoExpose": "true",
+            "expectedVariants": "Ljava/util/Collection;"
         }
     },
     "smali_classes4/Ne/i.smali": {
@@ -35360,7 +35753,8 @@
             "title": "Ljava/lang/String;",
             "description": "Ljava/lang/String;",
             "ctaText": "Ljava/lang/String;",
-            "imageResource=2131232450, imageUrl": "Ljava/lang/String;",
+            "imageResource": "2131232450",
+            "imageUrl": "Ljava/lang/String;",
             "imageVisible": "Z",
             "ctaButtonVisible": "Z",
             "classicViewEnabled": "Z",
@@ -35752,7 +36146,8 @@
             "pageType": "Ljava/lang/String;",
             "correlationId": "Ljava/lang/String;",
             "listingSort": "Ljava/lang/String;",
-            "subredditName=null, settingValue": "Ljava/lang/String;",
+            "subredditName": "null",
+            "settingValue": "Ljava/lang/String;",
             "newFeedSize": "Ljava/lang/Integer;",
             "arenaId": "Ljava/lang/String;"
         }
@@ -35814,7 +36209,8 @@
             "linkId": "Ljava/lang/String;",
             "uniqueId": "Ljava/lang/String;",
             "promoted": "Z",
-            "clickedOnVideoPreview=false, clickLocation": "Lcom/reddit/ads/analytics/ClickLocation;",
+            "clickedOnVideoPreview": "false",
+            "clickLocation": "Lcom/reddit/ads/analytics/ClickLocation;",
             "postTransitionParams": "LxA/w0;"
         }
     },
@@ -35905,7 +36301,8 @@
         "IsRead": {
             "linkKindWithId": "Ljava/lang/String;",
             "uniqueId": "Ljava/lang/String;",
-            "promoted=false, isRead": "Z"
+            "promoted": "false",
+            "isRead": "Z"
         }
     },
     "smali_classes6/xA/F.smali": {
@@ -36168,11 +36565,14 @@
     "smali_classes6/uD/a.smali": {
         "GoldPackage": {
             "id": "Ljava/lang/String;",
-            "name=, price": "Ljava/lang/String;",
+            "name": "",
+            "price": "Ljava/lang/String;",
             "priceMacro": "Ljava/lang/String;",
-            "quantity=1, staticImageUrls": "Ljava/util/List;",
+            "quantity": "1",
+            "staticImageUrls": "Ljava/util/List;",
             "skuDetails": "LPd/c;",
-            "productVersion=1, pricePackageId": "Ljava/lang/String;",
+            "productVersion": "1",
+            "pricePackageId": "Ljava/lang/String;",
             "goldAmount": "Z",
             "baseCurrency": "Ljava/lang/String;",
             "externalProductId": "Ljava/lang/String;"
@@ -36270,7 +36670,8 @@
         "OnAdClickLink": {
             "linkId": "Ljava/lang/String;",
             "uniqueId": "Ljava/lang/String;",
-            "promoted=true, clickedOnVideoPreview": "Z",
+            "promoted": "true",
+            "clickedOnVideoPreview": "Z",
             "clickLocation": "Lcom/reddit/ads/analytics/ClickLocation;",
             "isVideo": "Z"
         }
@@ -36395,7 +36796,8 @@
     "smali_classes6/oA/b.smali": {
         "SnapFeedScreenDependencies": {
             "analyticsScreenData": "Lzx/g;",
-            "feedType": "Lcom/reddit/feeds/data/FeedType;"
+            "feedType": "Lcom/reddit/feeds/data/FeedType;",
+            "screenName": "SnapFeedScreen"
         }
     },
     "smali_classes6/sY/e.smali": {
@@ -46759,7 +47161,8 @@
         "OnSubredditClickEvent": {
             "linkId": "Ljava/lang/String;",
             "uniqueId": "Ljava/lang/String;",
-            "promoted=false, subredditName": "Ljava/lang/String;"
+            "promoted": "false",
+            "subredditName": "Ljava/lang/String;"
         }
     },
     "smali_classes6/tR/f.smali": {
@@ -46893,7 +47296,9 @@
             "scrollToPosition": "Ljava/lang/Integer;",
             "downloadMediaAfterPermissionGranted": "Lkotlin/jvm/functions/Function1;",
             "captionsSettingsEnabledByUser": "Z",
-            "uiPrefetchingEnabled=false, isHorizontalChainingEnabled=true, swipeTutorial": "Lcom/reddit/fullbleedplayer/data/y;",
+            "uiPrefetchingEnabled": "false",
+            "isHorizontalChainingEnabled": "true",
+            "swipeTutorial": "Lcom/reddit/fullbleedplayer/data/y;",
             "hasShownMedia": "Z",
             "lastSharedImageViaAccessibilityActionUrl": "Ljava/lang/String;",
             "isAwardEntryPointEnabled": "Z",
@@ -47470,10 +47875,12 @@
             "headerSections": "Ljava/util/List;",
             "awardSections": "Ljava/util/List;",
             "footerSections": "Ljava/util/List;",
-            "awardListTitleMessage=, activeCoachmarkForSectionIndex": "Z",
+            "awardListTitleMessage": "",
+            "activeCoachmarkForSectionIndex": "Z",
             "isComposePerformanceTrackerEnabled": "Z",
             "isCommunityAwardsEnabled": "Z",
-            "specialAwardUiModel=null, includeFooterCta": "Z",
+            "specialAwardUiModel": "null",
+            "includeFooterCta": "Z",
             "ctaIsLoading": "Z",
             "croppedSelectionBackground": "Z"
         }
@@ -47640,7 +48047,8 @@
     "smali_classes6/com/reddit/graphql/J.smali": {
         "Comments": {
             "cacheConfig": "Lcom/reddit/graphql/G;",
-            "debounceInFlightCalls=true, deviceTier": "Lcom/reddit/graphql/GraphQlClientConfig$DeviceTier;",
+            "debounceInFlightCalls": "true",
+            "deviceTier": "Lcom/reddit/graphql/GraphQlClientConfig$DeviceTier;",
             "userId": "LD60/d;"
         }
     },
@@ -47658,14 +48066,16 @@
     },
     "smali_classes6/com/reddit/graphql/M.smali": {
         "WithMemorySqlCache": {
-            "debounceInFlightCalls=true, deviceTier": "Lcom/reddit/graphql/GraphQlClientConfig$DeviceTier;",
+            "debounceInFlightCalls": "true",
+            "deviceTier": "Lcom/reddit/graphql/GraphQlClientConfig$DeviceTier;",
             "cacheConfig": "Lcom/reddit/graphql/F;",
             "userId": "LD60/d;"
         }
     },
     "smali_classes6/com/reddit/graphql/L.smali": {
         "NoCache": {
-            "debounceInFlightCalls=true, deviceTier": "Lcom/reddit/graphql/GraphQlClientConfig$DeviceTier;",
+            "debounceInFlightCalls": "true",
+            "deviceTier": "Lcom/reddit/graphql/GraphQlClientConfig$DeviceTier;",
             "userId": "LD60/d;"
         }
     },
@@ -47748,7 +48158,8 @@
             "linkKindWithId": "Ljava/lang/String;",
             "parentId": "Ljava/lang/String;",
             "bodyText": "Ljava/lang/String;",
-            "type=comment, score": "Ljava/lang/Long;",
+            "type": "comment",
+            "score": "Ljava/lang/Long;",
             "numberGildings": "Ljava/lang/Long;",
             "createdTimestamp": "Ljava/lang/Long;",
             "contentType": "Ljava/lang/String;",
@@ -48427,7 +48838,8 @@
     "smali_classes6/com/reddit/fullbleedplayer/data/events/p0.smali": {
         "OnCreateSwipeUpToComments": {
             "linkId": "Ljava/lang/String;",
-            "titleAndBodyTextExpanded=false, analyticsModel": "LRx/b;"
+            "titleAndBodyTextExpanded": "false",
+            "analyticsModel": "LRx/b;"
         }
     },
     "smali_classes6/com/reddit/flair/flairedit/a.smali": {
@@ -48503,7 +48915,8 @@
     },
     "smali_classes6/com/reddit/fullbleedplayer/data/j.smali": {
         "Params": {
-            "doNotEmitInitialConnectedState=false, interval": "J",
+            "doNotEmitInitialConnectedState": "false",
+            "interval": "J",
             "timeUnit": "Ljava/util/concurrent/TimeUnit;"
         }
     },
@@ -48714,7 +49127,8 @@
         "OnSubredditClickEvent": {
             "linkId": "Ljava/lang/String;",
             "uniqueId": "Ljava/lang/String;",
-            "promoted=false, subredditName": "Ljava/lang/String;"
+            "promoted": "false",
+            "subredditName": "Ljava/lang/String;"
         }
     },
     "smali_classes6/com/reddit/onboardingfeedscomponents/featuredcommunities/impl/feed/events/d.smali": {
@@ -48737,7 +49151,8 @@
         "OnSubredditClickEvent": {
             "linkId": "Ljava/lang/String;",
             "uniqueId": "Ljava/lang/String;",
-            "promoted=false, subredditName": "Ljava/lang/String;"
+            "promoted": "false",
+            "subredditName": "Ljava/lang/String;"
         }
     },
     "smali_classes6/com/reddit/onboardingfeedscomponents/rankedcommunity/impl/feed/events/b.smali": {
@@ -49206,7 +49621,9 @@
     },
     "smali_classes6/com/reddit/frontpage/ui/e.smali": {
         "ExperimentInfo": {
-            "id=11309, name=android_bali_il_fbp, variant": "Ljava/lang/String;"
+            "id": "11309",
+            "name": "android_bali_il_fbp",
+            "variant": "Ljava/lang/String;"
         }
     },
     "smali_classes6/com/reddit/frontpage/domain/usecase/d.smali": {
@@ -49427,7 +49844,8 @@
     "smali_classes6/com/reddit/feeds/popular/impl/ui/f.smali": {
         "PopularFeedScreenDependencies": {
             "analyticsScreenData": "Lzx/g;",
-            "feedType": "Lcom/reddit/feeds/data/FeedType;"
+            "feedType": "Lcom/reddit/feeds/data/FeedType;",
+            "screenName": "PopularFeedScreen"
         }
     },
     "smali_classes6/com/reddit/feeds/watch/impl/ui/a.smali": {
@@ -49445,7 +49863,9 @@
             "playerUiOverrides": "Lk50/t;",
             "analyticsPageType": "Ljava/lang/String;",
             "dispatcherProvider": "Lcom/reddit/common/coroutines/a;",
-            "muteIsAtTheTop=false, videoImprovedOnMeasureEnabled=true, baliM3Enabled": "Z",
+            "muteIsAtTheTop": "false",
+            "videoImprovedOnMeasureEnabled": "true",
+            "baliM3Enabled": "Z",
             "reduceAdsRpsM1Enabled": "Z",
             "enableVideoComposableEffectFix": "Z",
             "enableUpdatedAdVisibleTracker": "Z"
@@ -49454,13 +49874,15 @@
     "smali_classes6/com/reddit/feeds/watch/impl/ui/e.smali": {
         "WatchFeedScreenDependencies": {
             "analyticsScreenData": "Lzx/g;",
-            "feedType": "Lcom/reddit/feeds/data/FeedType;"
+            "feedType": "Lcom/reddit/feeds/data/FeedType;",
+            "screenName": "WatchFeedScreen"
         }
     },
     "smali_classes6/com/reddit/feeds/latest/impl/ui/h.smali": {
         "LatestFeedScreenDependencies": {
             "analyticsScreenData": "Lzx/g;",
-            "feedType": "Lcom/reddit/feeds/data/FeedType;"
+            "feedType": "Lcom/reddit/feeds/data/FeedType;",
+            "screenName": "LatestFeedScreen"
         }
     },
     "smali_classes6/com/reddit/feedslegacy/switcher/impl/homepager/t.smali": {
@@ -49492,7 +49914,9 @@
     },
     "smali_classes6/com/reddit/feeds/impl/domain/m.smali": {
         "ExperimentInfo": {
-            "id=11309, name=android_bali_il_fbp, variant": "Ljava/lang/String;"
+            "id": "11309",
+            "name": "android_bali_il_fbp",
+            "variant": "Ljava/lang/String;"
         }
     },
     "smali_classes6/com/reddit/feeds/impl/ui/composables/X.smali": {
@@ -49541,7 +49965,8 @@
         "FeedPostScoreActionBarRedesignSection": {
             "data": "LNz/d;",
             "goldPopupDelegate": "LxH/d;",
-            "isGoldPopupEnabled=true, feedType": "Lcom/reddit/feeds/data/FeedType;",
+            "isGoldPopupEnabled": "true",
+            "feedType": "Lcom/reddit/feeds/data/FeedType;",
             "hideTranslationIndicatorRow": "Z",
             "modModeActivated": "Z",
             "isBaliShareCountFormatEnabled": "Z",
@@ -49655,7 +50080,8 @@
     "smali_classes6/com/reddit/feeds/impl/ui/composables/O.smali": {
         "MetadataHeaderSection": {
             "data": "LaA/W;",
-            "longClickActionSheetMenuEnabled=false, boldTitleDesignEnabled": "Z",
+            "longClickActionSheetMenuEnabled": "false",
+            "boldTitleDesignEnabled": "Z",
             "style": "Lcom/reddit/feeds/ui/composables/HeaderStyle;",
             "feedType": "Lcom/reddit/feeds/data/FeedType;"
         }
@@ -49685,7 +50111,8 @@
             "data": "LNz/d;",
             "awardEntryPointDelegate": "LLF/b;",
             "goldPopupDelegate": "LxH/d;",
-            "isGoldPopupEnabled=true, feedType": "Lcom/reddit/feeds/data/FeedType;",
+            "isGoldPopupEnabled": "true",
+            "feedType": "Lcom/reddit/feeds/data/FeedType;",
             "hideTranslationFeatures": "Z",
             "showAwardBtnOnAds": "Z",
             "postVoteComponentProvider": "Lj60/a;"
@@ -49716,7 +50143,8 @@
     "smali_classes6/com/reddit/feeds/home/impl/ui/h.smali": {
         "HomeFeedScreenDependencies": {
             "analyticsScreenData": "Lzx/g;",
-            "feedType": "Lcom/reddit/feeds/data/FeedType;"
+            "feedType": "Lcom/reddit/feeds/data/FeedType;",
+            "screenName": "HomeFeedScreen"
         }
     },
     "smali_classes6/com/reddit/feeds/home/impl/ui/actions/c.smali": {
@@ -50031,7 +50459,8 @@
     "smali_classes6/com/reddit/feeds/ui/composables/feed/m.smali": {
         "FeedPostTitleSection": {
             "data": "LaA/x0;",
-            "denseDesignEnabled=false, ifRecommended": "Lcom/reddit/feeds/home/impl/ui/composables/a;"
+            "denseDesignEnabled": "false",
+            "ifRecommended": "Lcom/reddit/feeds/home/impl/ui/composables/a;"
         }
     },
     "smali_classes4/com/reddit/composevisibilitytracking/composables/c.smali": {
@@ -50675,7 +51104,9 @@
         "ParentTopicBrowseScreenDependencies": {
             "analyticsScreenData": "Lzx/g;",
             "feedType": "Lcom/reddit/feeds/data/FeedType;",
-            "screenName=topic, sourcePage=topic, topicFeedParams": "Lcom/reddit/communitiestab/topicfeed/e;"
+            "screenName": "topic",
+            "sourcePage": "topic",
+            "topicFeedParams": "Lcom/reddit/communitiestab/topicfeed/e;"
         }
     },
     "smali_classes4/com/reddit/communitiestab/browse/data/model/Topic.smali": {
@@ -50700,7 +51131,8 @@
     "smali_classes4/com/reddit/communitiestab/explore/f.smali": {
         "ExploreScreenDependencies": {
             "analyticsScreenData": "Lzx/g;",
-            "feedType": "Lcom/reddit/feeds/data/FeedType;"
+            "feedType": "Lcom/reddit/feeds/data/FeedType;",
+            "screenName": "explore"
         }
     },
     "smali_classes4/Jf/e.smali": {
@@ -51693,7 +52125,8 @@
         "CreatePostFromSubredditClickEvent": {
             "subredditName": "Ljava/lang/String;",
             "subredditId": "Ljava/lang/String;",
-            "pageType=community, actionInfoType": "Ljava/lang/String;"
+            "pageType": "community",
+            "actionInfoType": "Ljava/lang/String;"
         }
     },
     "smali_classes6/my/i.smali": {
@@ -54378,7 +54811,8 @@
     "smali_classes9/tM/j.smali": {
         "QueueCommentContentSection": {
             "data": "LpM/l;",
-            "isComposePreview=false, showPostTitle": "Z"
+            "isComposePreview": "false",
+            "showPostTitle": "Z"
         }
     },
     "smali_classes9/tM/y.smali": {
@@ -54953,7 +55387,8 @@
     "smali_classes9/aJ/b.smali": {
         "Text": {
             "id": "Ljava/lang/String;",
-            "timestamp=, body": "Ljava/lang/String;",
+            "timestamp": "",
+            "body": "Ljava/lang/String;",
             "links": "LH80/c;"
         }
     },
@@ -61151,7 +61586,8 @@
         "RichTextMediaUiModel": {
             "ownerId": "Ljava/lang/String;",
             "status": "Lcom/reddit/mediarichtext/api/models/Status;",
-            "analyticPageType=analyticsPageType, width": "Ljava/lang/String;",
+            "analyticPageType": "analyticsPageType",
+            "width": "Ljava/lang/String;",
             "mediaId": "Ljava/lang/String;",
             "videoUrl": "Ljava/lang/String;"
         }
@@ -62814,7 +63250,8 @@
     },
     "smali_classes9/kL/a.smali": {
         "AdditionalStatCard": {
-            "contentType=post, alignedWithModAction": "LkL/g;",
+            "contentType": "post",
+            "alignedWithModAction": "LkL/g;",
             "oppositeOfModAction": "LkL/g;",
             "notReviewedByMods": "LkL/g;"
         }
@@ -63045,7 +63482,8 @@
     },
     "smali_classes9/SJ/h.smali": {
         "AutomationTriggeredRule": {
-            "markDownValidationMessage=, richTextValidationMessage": "Ljava/lang/String;",
+            "markDownValidationMessage": "",
+            "richTextValidationMessage": "Ljava/lang/String;",
             "triggeredLocation": "Lcom/reddit/mod/automations/model/AutomationTriggeredRule$LocationType;",
             "actionType": "Lcom/reddit/mod/automations/model/AutomationTriggeredRule$ActionType;",
             "guidanceId": "Ljava/lang/String;",
@@ -63608,8 +64046,10 @@
             "markdown": "Ljava/lang/String;",
             "richtext": "Ljava/lang/String;",
             "preview": "Ljava/lang/String;",
-            "isOriginal=false, isPollIncluded": "Z",
-            "isQuarantined=false, isDevPlatformApp": "Z"
+            "isOriginal": "false",
+            "isPollIncluded": "Z",
+            "isQuarantined": "false",
+            "isDevPlatformApp": "Z"
         }
     },
     "smali_classes9/mM/o.smali": {
@@ -63626,7 +64066,8 @@
             "verdict": "LeL/n;",
             "removalReason": "Ljava/lang/String;",
             "modQueueReasons": "Ljava/util/ArrayList;",
-            "userIsBanned=false, contentKindWithId": "Ljava/lang/String;",
+            "userIsBanned": "false",
+            "contentKindWithId": "Ljava/lang/String;",
             "status": "LmM/j;",
             "content": "LmM/h;",
             "post": "LmM/i;",
@@ -64280,7 +64721,8 @@
     },
     "smali_classes8/H20/pj.smali": {
         "RegisterVaultAddressInput": {
-            "provider=ethereum, address": "Ljava/lang/String;",
+            "provider": "ethereum",
+            "address": "Ljava/lang/String;",
             "signature": "Ljava/lang/String;",
             "referralSurface": "Lv4/W;"
         }
@@ -64719,8 +65161,10 @@
     "smali_classes8/H20/J0.smali": {
         "AddVaultMetadataEventInput": {
             "uuid": "Ljava/lang/String;",
-            "provider=ethereum, address": "Ljava/lang/String;",
-            "key=encrypted_backup_android, status": "Ljava/lang/String;",
+            "provider": "ethereum",
+            "address": "Ljava/lang/String;",
+            "key": "encrypted_backup_android",
+            "status": "Ljava/lang/String;",
             "createdAt": "Ljava/time/Instant;",
             "correlationId": "Lv4/W;",
             "extra": "Lv4/W;"
@@ -65151,7 +65595,8 @@
     "smali_classes8/H20/t7.smali": {
         "CreateTemporaryEventConfigInput": {
             "name": "Ljava/lang/String;",
-            "contributionMessage=, labels": "Ljava/util/ArrayList;",
+            "contributionMessage": "",
+            "labels": "Ljava/util/ArrayList;",
             "subredditId": "Ljava/lang/String;",
             "fields": "LH20/Uq;"
         }
@@ -65910,7 +66355,8 @@
     },
     "smali_classes8/H20/J2.smali": {
         "BackUpVaultInput": {
-            "provider=ethereum, address": "Ljava/lang/String;",
+            "provider": "ethereum",
+            "address": "Ljava/lang/String;",
             "createdAt": "Ljava/time/Instant;",
             "wallet": "Ljava/lang/String;",
             "signature": "Ljava/lang/String;"
@@ -66426,7 +66872,8 @@
             "isNsfw": "Z",
             "isSpoiler": "Z",
             "blurNsfw": "Z",
-            "media=null, richTextElements": "LH80/c;"
+            "media": "null",
+            "richTextElements": "LH80/c;"
         }
     },
     "smali_classes9/zN/a.smali": {
@@ -66728,13 +67175,19 @@
         }
     },
     "smali_classes9/PK/a.smali": {
-        "LogConfig": {}
+        "LogConfig": {
+            "nameResource": "2131959216"
+        }
     },
     "smali_classes9/PK/b.smali": {
-        "MailConfig": {}
+        "MailConfig": {
+            "nameResource": "2131959217"
+        }
     },
     "smali_classes9/PK/c.smali": {
-        "QueueConfig": {}
+        "QueueConfig": {
+            "nameResource": "2131959218"
+        }
     },
     "smali_classes8/K30/a.smali": {
         "PurchaseConfirmationPerkUiModel": {}
@@ -66750,7 +67203,8 @@
             "productId": "Ljava/lang/String;",
             "pricePackageId": "Ljava/lang/String;",
             "price": "Ljava/lang/String;",
-            "productVersion=1, skuDetails": "LPd/c;"
+            "productVersion": "1",
+            "skuDetails": "LPd/c;"
         }
     },
     "smali/com/reddit/econ/earn/features/contributorprogram/y.smali": {
@@ -67300,7 +67754,8 @@
     },
     "smali/com/reddit/auth/login/screen/welcome/composables/a.smali": {
         "WelcomePagerConfig": {
-            "initialPageIndex=0, pages": "LH80/g;"
+            "initialPageIndex": "0",
+            "pages": "LH80/g;"
         }
     },
     "smali/com/reddit/auth/login/data/model/AccessTokenRequest.smali": {
@@ -68583,7 +69038,8 @@
     "smali/com/reddit/auth/login/impl/phoneauth/sms/i.smali": {
         "EnterCodeViewState": {
             "inputField": "LGQ/f;",
-            "smsCodeLength=6, actionNext": "Lcom/reddit/auth/login/impl/phoneauth/sms/ContinueButtonViewState;",
+            "smsCodeLength": "6",
+            "actionNext": "Lcom/reddit/auth/login/impl/phoneauth/sms/ContinueButtonViewState;",
             "resend": "Lcom/reddit/auth/login/impl/phoneauth/sms/h;"
         }
     },
@@ -68632,7 +69088,8 @@
     },
     "smali/com/reddit/auth/login/impl/phoneauth/deleteaccount/y.smali": {
         "DeleteAccountFailedBottomSheetViewState": {
-            "title=2131951771, text": "Ljava/lang/String;"
+            "title": "2131951771",
+            "text": "Ljava/lang/String;"
         }
     },
     "smali/com/reddit/auth/login/impl/phoneauth/deleteaccount/z.smali": {
@@ -70351,7 +70808,8 @@
     },
     "smali_classes9/com/reddit/mod/notes/screen/add/v.smali": {
         "NoteContentViewState": {
-            "maxChars=250, value": "Ljava/lang/String;"
+            "maxChars": "250",
+            "value": "Ljava/lang/String;"
         }
     },
     "smali_classes9/com/reddit/mod/hub/impl/screen/v.smali": {
@@ -71246,7 +71704,8 @@
     },
     "smali_classes9/com/reddit/mod/usercard/screen/card/o.smali": {
         "DeleteNoteModal": {
-            "showDeleteNoteModal=true, noteId": "Ljava/lang/String;",
+            "showDeleteNoteModal": "true",
+            "noteId": "Ljava/lang/String;",
             "noteType": "Lcom/reddit/mod/notes/domain/model/NoteType;"
         }
     },
@@ -72139,9 +72598,12 @@
         "EditRuleViewState": {
             "editMode": "Z",
             "name": "Ljava/lang/String;",
-            "nameMaxChars=100, description": "Ljava/lang/String;",
-            "descriptionMaxChars=500, reason": "Ljava/lang/String;",
-            "reasonMaxChars=100, contentTypes": "LH80/c;",
+            "nameMaxChars": "100",
+            "description": "Ljava/lang/String;",
+            "descriptionMaxChars": "500",
+            "reason": "Ljava/lang/String;",
+            "reasonMaxChars": "100",
+            "contentTypes": "LH80/c;",
             "saveEnabled": "Z",
             "saveLoading": "Z",
             "showDiscardDialog": "Z",
@@ -72467,12 +72929,15 @@
     "smali_classes9/com/reddit/mod/communitytype/impl/current/F.smali": {
         "Loading": {
             "visibilityType": "Landroidx/compose/ui/text/g;",
-            "visibilityTypeA11y=, visibilityDescription": "Ljava/lang/String;",
+            "visibilityTypeA11y": "",
+            "visibilityDescription": "Ljava/lang/String;",
             "visibilityIcon": "Lh30/a;",
             "currentNsfwSetting": "Ljava/lang/String;",
-            "currentNsfwSettingA11y=, currentNsfwSentiment": "Lcom/reddit/ui/compose/ds/BadgeSentiment;",
+            "currentNsfwSettingA11y": "",
+            "currentNsfwSentiment": "Lcom/reddit/ui/compose/ds/BadgeSentiment;",
             "currentNsfwIcon": "Lh30/a;",
-            "alterationsEnabled=false, areContributionRequestsEnabled": "Z"
+            "alterationsEnabled": "false",
+            "areContributionRequestsEnabled": "Z"
         }
     },
     "smali_classes9/com/reddit/mod/communitytype/impl/current/K.smali": {
@@ -72547,8 +73012,10 @@
         "EditRemovalReasonViewState": {
             "editMode": "Z",
             "title": "Ljava/lang/String;",
-            "titleMaxChars=50, message": "Ljava/lang/String;",
-            "messageMaxChars=10000, saveEnabled": "Z",
+            "titleMaxChars": "50",
+            "message": "Ljava/lang/String;",
+            "messageMaxChars": "10000",
+            "saveEnabled": "Z",
             "saveLoading": "Z",
             "showDiscardDialog": "Z"
         }
@@ -72638,7 +73105,8 @@
     },
     "smali_classes9/com/reddit/mod/removalreasons/screen/detail/e.smali": {
         "MessageViewState": {
-            "maxChars=10000, value": "Ljava/lang/String;"
+            "maxChars": "10000",
+            "value": "Ljava/lang/String;"
         }
     },
     "smali_classes9/com/reddit/mod/removalreasons/screen/list/j.smali": {
@@ -73107,7 +73575,8 @@
     },
     "smali_classes9/com/reddit/marketplace/impl/screens/nft/claim/a.smali": {
         "ClaimDependencies": {
-            "claimCallback=null, vaultEventListener": "Lq40/a;",
+            "claimCallback": "null",
+            "vaultEventListener": "Lq40/a;",
             "params": "Lcom/reddit/marketplace/impl/screens/nft/claim/B;"
         }
     },
@@ -73188,10 +73657,12 @@
     },
     "smali_classes9/com/reddit/marketplace/impl/screens/nft/claim/I.smali": {
         "Selection": {
-            "pageContext=2131957731, drops": "Ljava/util/List;",
+            "pageContext": "2131957731",
+            "drops": "Ljava/util/List;",
             "initialDropPosition": "Ljava/lang/String;",
             "dropDescription": "Ljava/lang/String;",
-            "ctaText=2131957716, screenMetadata": "Lcom/reddit/marketplace/impl/screens/nft/claim/N;",
+            "ctaText": "2131957716",
+            "screenMetadata": "Lcom/reddit/marketplace/impl/screens/nft/claim/N;",
             "isGenerateButtonLoading": "Z",
             "isGenerateButtonEnabled": "Z"
         }
@@ -73199,7 +73670,8 @@
     "smali_classes9/com/reddit/marketplace/impl/screens/nft/claim/N.smali": {
         "NftScreenMetadata": {
             "backgroundImage": "LpG/c;",
-            "pdpBackgroundImage": "LpG/c;"
+            "pdpBackgroundImage": "LpG/c;",
+            "backgroundRevealAnimationUri": "https://www.redditstatic.com/crypto-assets/v2/marketplace/mobile/animations/reveal_background_animation_Android.webm"
         }
     },
     "smali_classes9/com/reddit/marketplace/impl/screens/nft/transfer/h.smali": {
@@ -73689,7 +74161,9 @@
     },
     "smali_classes9/com/reddit/notification/impl/reenablement/x.smali": {
         "PrePromptBottomSheetScreenDependencies": {
-            "promptStyle": "Lcom/reddit/events/inbox/NotificationEnablementPromptStyle;"
+            "promptStyle": "Lcom/reddit/events/inbox/NotificationEnablementPromptStyle;",
+            "showBackButton": "false",
+            "navigateBack": "null"
         }
     },
     "smali_classes9/com/reddit/notification/impl/reenablement/o.smali": {
@@ -73712,7 +74186,8 @@
     },
     "smali_classes9/com/reddit/notification/impl/reenablement/H.smali": {
         "PrePromptViewState": {
-            "isSkippable=false, showBackButton": "Z"
+            "isSkippable": "false",
+            "showBackButton": "Z"
         }
     },
     "smali_classes9/com/reddit/notification/impl/reenablement/e.smali": {
@@ -73785,7 +74260,8 @@
         "LaunchActionsScreen": {
             "notificationAnnouncementId": "Ljava/lang/String;",
             "deepLink": "Ljava/lang/String;",
-            "isHideDisplayed=true, optFlags": "LH80/g;",
+            "isHideDisplayed": "true",
+            "optFlags": "LH80/g;",
             "authorId": "Ljava/lang/String;",
             "authorName": "Ljava/lang/String;"
         }
@@ -74130,7 +74606,8 @@
         "SubredditCreatedChannel": {
             "channelId": "Ljava/lang/String;",
             "subredditId": "Ljava/lang/String;",
-            "showCrowdControlButton=true, showBannedAccountsButton": "Z"
+            "showCrowdControlButton": "true",
+            "showBannedAccountsButton": "Z"
         }
     },
     "smali_classes9/com/reddit/matrix/feature/moderation/usecase/b.smali": {
@@ -74828,7 +75305,8 @@
             "isUserBanned": "Ljava/lang/Boolean;",
             "showDistinguishAction": "Z",
             "canKick": "Z",
-            "canRemoveMod=false, isUserBlocked": "Z",
+            "canRemoveMod": "false",
+            "isUserBlocked": "Z",
             "chatType": "Lcom/reddit/matrix/domain/model/RoomType;",
             "username": "Ljava/lang/String;",
             "redditUser": "LUH/T;"
@@ -75512,7 +75990,8 @@
     "smali_classes9/com/reddit/nellie/reporting/c.smali": {
         "W3ReportingBody": {
             "name": "Ljava/lang/String;",
-            "samplingFraction=1.0, labels": "Ljava/util/Map;",
+            "samplingFraction": "1.0",
+            "labels": "Ljava/util/Map;",
             "value": "D",
             "type": "Lcom/reddit/nellie/reporting/EventBody$W3ReportingBody$Type;"
         }
@@ -75578,7 +76057,8 @@
     "smali_classes9/com/reddit/nellie/reporting/a.smali": {
         "Event": {
             "type": "Lcom/reddit/nellie/reporting/Event$Type;",
-            "ageInMilliseconds=0, url": "Ljava/lang/String;",
+            "ageInMilliseconds": "0",
+            "url": "Ljava/lang/String;",
             "userAgent": "Ljava/lang/String;",
             "body": "Lcom/reddit/link/impl/util/f;"
         }
@@ -75590,7 +76070,8 @@
             "phase": "Ljava/lang/String;",
             "protocol": "Ljava/lang/String;",
             "referrer": "Ljava/lang/String;",
-            "samplingFraction=1.0, serverIp": "Ljava/lang/String;",
+            "samplingFraction": "1.0",
+            "serverIp": "Ljava/lang/String;",
             "statusCode": "Lcom/reddit/nellie/reporting/NelEventType;"
         }
     },
@@ -75736,7 +76217,8 @@
             "view": "Lcom/reddit/modtools/ban/add/AddBannedUserScreen;",
             "params": "Lcom/reddit/modtools/ban/add/a;",
             "sourcePage": "Ljava/lang/String;",
-            "analyticsPageType=add_banned_user, screenReferrer": "LEx/c;",
+            "analyticsPageType": "add_banned_user",
+            "screenReferrer": "LEx/c;",
             "listingPostBoundsProvider": "Lcom/reddit/screen/listing/common/g;"
         }
     },
@@ -76298,13 +76780,16 @@
         "CacheMissFailure": {
             "throwable": "Ljava/lang/Throwable;",
             "hasGqlErrors": "Z",
-            "httpCode=-1, isLast": "Z"
+            "httpCode": "-1",
+            "isLast": "Z"
         }
     },
     "smali_classes9/com/reddit/network/e.smali": {
         "UpstreamError": {
             "throwable": "Ljava/lang/Throwable;",
-            "hasGqlErrors=false, httpCode=-1, isLast": "Z"
+            "hasGqlErrors": "false",
+            "httpCode": "-1",
+            "isLast": "Z"
         }
     },
     "smali_classes9/com/reddit/network/common/tags/RetryAlgorithmTag.smali": {
@@ -77228,7 +77713,8 @@
             "productId": "Ljava/lang/String;",
             "pricePackageId": "Ljava/lang/String;",
             "price": "Ljava/lang/String;",
-            "productVersion=1, skuDetails": "LPd/c;",
+            "productVersion": "1",
+            "skuDetails": "LPd/c;",
             "externalProductId": "Ljava/lang/String;",
             "baseCurrency": "Ljava/lang/String;",
             "isProdPayment": "Z"
@@ -77391,7 +77877,8 @@
     },
     "smali_classes8/com/reddit/ui/compose/l.smali": {
         "ChipStyle": {
-            "badgeText=null, labelContent": "Landroidx/compose/runtime/internal/a;",
+            "badgeText": "null",
+            "labelContent": "Landroidx/compose/runtime/internal/a;",
             "leadingContent": "Landroidx/compose/runtime/internal/a;",
             "trailingContent": "Landroidx/compose/runtime/internal/a;",
             "onLeadingClick": "Lr70/a;",
@@ -78061,7 +78548,8 @@
         "MediaPostAnimatedPreviewViewState": {
             "aspectRatio": "Ljava/lang/String;",
             "videoMetadata": "Ln50/e;",
-            "playerUiOverrides": "Lk50/t;"
+            "playerUiOverrides": "Lk50/t;",
+            "shouldAutoPlay": "true"
         }
     },
     "smali_classes8/com/reddit/search/media/a.smali": {
@@ -78376,7 +78864,8 @@
             "args": "Lcom/reddit/search/combined/ui/C0;",
             "analyticsScreenData": "Lzx/g;",
             "feedType": "Lcom/reddit/feeds/data/FeedType;",
-            "screenName=SearchResultsScreen, sourcePage": "Ljava/lang/String;"
+            "screenName": "SearchResultsScreen",
+            "sourcePage": "Ljava/lang/String;"
         }
     },
     "smali_classes8/com/reddit/search/combined/ui/o0.smali": {
@@ -78538,7 +79027,8 @@
         "VideoAppLifecycleAnalyticsModel": {
             "metadata": "Ln50/e;",
             "pageType": "Ljava/lang/String;",
-            "postType=video, position": "J",
+            "postType": "video",
+            "position": "J",
             "orientation": "Lcom/reddit/events/builders/VideoEventBuilder$Orientation;",
             "correlation": "Lcom/reddit/videoplayer/lifecycle/c;"
         }
@@ -78746,7 +79236,8 @@
             "items": "LH80/c;",
             "confirmButton": "Lcom/reddit/specialevents/picker/v;",
             "enableCommunitySelection": "Z",
-            "showSkipButton=false, appBarIcon": "Lcom/reddit/specialevents/picker/u;",
+            "showSkipButton": "false",
+            "appBarIcon": "Lcom/reddit/specialevents/picker/u;",
             "showNewPromptUI": "Z"
         }
     },
@@ -79026,7 +79517,8 @@
             "avatarImageUrl": "Ljava/lang/String;",
             "title": "Ljava/lang/String;",
             "description": "Ljava/lang/String;",
-            "nftInfo=null, clickAction": "Lcom/reddit/streaks/v3/achievement/n0;"
+            "nftInfo": "null",
+            "clickAction": "Lcom/reddit/streaks/v3/achievement/n0;"
         }
     },
     "smali_classes8/com/reddit/streaks/v3/achievement/D.smali": {
@@ -79111,7 +79603,8 @@
     },
     "smali_classes8/com/reddit/streaks/v3/trophydetail/l.smali": {
         "Loaded": {
-            "thumbnailImageUrl=null, imageUrl": "Ljava/lang/String;",
+            "thumbnailImageUrl": "null",
+            "imageUrl": "Ljava/lang/String;",
             "title": "Ljava/lang/String;",
             "description": "Ljava/lang/String;"
         }
@@ -79131,7 +79624,8 @@
     },
     "smali_classes8/com/reddit/streaks/v3/trophydetail/m.smali": {
         "Loading": {
-            "thumbnailImageUrl=null, title": "Ljava/lang/String;"
+            "thumbnailImageUrl": "null",
+            "title": "Ljava/lang/String;"
         }
     },
     "smali_classes8/com/reddit/streaks/v3/claim/l.smali": {
@@ -79758,7 +80252,8 @@
             "displayNsfwBanner": "Z",
             "requestState": "Lcom/reddit/typeahead/data/TypeaheadRequestState;",
             "sections": "Ljava/lang/Object;",
-            "displayCovidBanner": "Z"
+            "displayCovidBanner": "Z",
+            "displayNoInternetBanner": "false"
         }
     },
     "smali_classes8/com/reddit/subredditcreation/ui/e.smali": {
@@ -80771,7 +81266,8 @@
             "queryTags": "Ljava/util/List;",
             "suggestedQueries": "Ljava/util/List;",
             "ctaTextsFormatted": "Ljava/util/List;",
-            "componentData=null, topComponent": "LzZ/m;"
+            "componentData": "null",
+            "topComponent": "LzZ/m;"
         }
     },
     "smali_classes8/zZ/e.smali": {
@@ -80857,7 +81353,8 @@
             "selfText": "Ljava/lang/String;",
             "media": "Lcom/reddit/domain/model/LinkMedia;",
             "mediaMetadata": "Ljava/util/Map;",
-            "isPromoted=false, domain": "Ljava/lang/String;",
+            "isPromoted": "false",
+            "domain": "Ljava/lang/String;",
             "followed": "Z",
             "isCreatedFromAdsUi": "Z",
             "isBlankAd": "Z",
@@ -80873,7 +81370,8 @@
             "encryptedTrackingPayload": "Ljava/lang/String;",
             "outboundLink": "Lcom/reddit/domain/model/OutboundLink;",
             "shouldOpenExternally": "Z",
-            "promotedCommunityPost=null, galleryItemPosition": "Ljava/util/List;",
+            "promotedCommunityPost": "null",
+            "galleryItemPosition": "Ljava/util/List;",
             "eventCollaborators": "Ljava/lang/Object;",
             "eventRemindeesCount": "Ljava/lang/Integer;",
             "eventAdmin": "Z",
@@ -81190,7 +81688,8 @@
     },
     "smali_classes10/Na/c.smali": {
         "OverflowMenuUiModel": {
-            "showDebugMenu=false, iconColor": "Landroidx/compose/ui/graphics/x;",
+            "showDebugMenu": "false",
+            "iconColor": "Landroidx/compose/ui/graphics/x;",
             "showHideOption": "Z"
         }
     },
@@ -81244,7 +81743,8 @@
             "image": "LaA/y;",
             "linkId": "Ljava/lang/String;",
             "uniqueId": "Ljava/lang/String;",
-            "isRead=false, title": "Ljava/lang/String;",
+            "isRead": "false",
+            "title": "Ljava/lang/String;",
             "previewText": "Ljava/lang/String;",
             "shouldShowBorder": "Z",
             "shouldShowPreviewText": "Z",
@@ -81434,7 +81934,8 @@
             "isFollowed": "Z",
             "isEventAdmin": "Z",
             "promoted": "Z",
-            "buttonLoading=false, remindeeCountString": "Ljava/lang/String;"
+            "buttonLoading": "false",
+            "remindeeCountString": "Ljava/lang/String;"
         }
     },
     "smali_classes10/ya/c.smali": {
@@ -81496,7 +81997,8 @@
     },
     "smali_classes10/Ac/c.smali": {
         "OtherError": {
-            "errorMessage=Successful response but body was null!, cause": "Ljava/lang/Throwable;"
+            "errorMessage": "Successful response but body was null!",
+            "cause": "Ljava/lang/Throwable;"
         }
     },
     "smali_classes10/ya/d.smali": {
@@ -82095,7 +82597,8 @@
         "PromotedHybridVideoData": {
             "videoMetadata": "Ln50/e;",
             "videoWidth": "Z",
-            "enforceSingleVideoPlayback=true, resizeMode": "Lcom/reddit/videoplayer/player/RedditPlayerResizeMode;",
+            "enforceSingleVideoPlayback": "true",
+            "resizeMode": "Lcom/reddit/videoplayer/player/RedditPlayerResizeMode;",
             "earlyDetachFixEnabled": "Z"
         }
     },
@@ -82912,7 +83415,8 @@
     },
     "smali_classes5/gu/n.smali": {
         "PaymentFailed": {
-            "orderId=null, reason": "Lgu/i;"
+            "orderId": "null",
+            "reason": "Lgu/i;"
         }
     },
     "smali_classes5/rt/a.smali": {
@@ -83348,7 +83852,8 @@
             "screenReferrer": "Lcom/reddit/detailscreens/navigator/ReferrerType;",
             "analyticsPageType": "Ljava/lang/String;",
             "comment": "Ljava/lang/String;",
-            "commentContext=null, context": "Landroid/content/Context;",
+            "commentContext": "null",
+            "context": "Landroid/content/Context;",
             "navigationSession": "Lcom/reddit/domain/model/post/NavigationSession;",
             "scrollTarget": "LpS/c;",
             "sourcePage": "Ljava/lang/String;",
@@ -83870,7 +84375,8 @@
         "ProductInfoUiModel": {
             "name": "Ljava/lang/String;",
             "description": "Ljava/lang/String;",
-            "appName=, basePrice": "Llu/a;",
+            "appName": "",
+            "basePrice": "Llu/a;",
             "terms": "Ljava/lang/String;",
             "image": "Ljava/lang/String;",
             "metadata": "Ljava/lang/Object;"
@@ -84425,7 +84931,8 @@
             "effect": "Lcom/reddit/devvit/ui/effects/v1alpha/EffectOuterClass$Effect;",
             "onUIEvent": "Lkotlin/jvm/internal/FunctionReferenceImpl;",
             "onRender": "Lkotlin/jvm/functions/Function1;",
-            "eventCode=1, metadata": "Lcom/reddit/devplatform/components/events/c;"
+            "eventCode": "1",
+            "metadata": "Lcom/reddit/devplatform/components/events/c;"
         }
     },
     "smali_classes5/com/reddit/devplatform/features/customposts/r.smali": {
@@ -84528,7 +85035,8 @@
     },
     "smali_classes5/com/reddit/domain/premium/usecase/c.smali": {
         "Packages": {
-            "isEligibleForFreeTrial=false, monthly": "Lcom/reddit/domain/premium/usecase/a;",
+            "isEligibleForFreeTrial": "false",
+            "monthly": "Lcom/reddit/domain/premium/usecase/a;",
             "annual": "Lcom/reddit/domain/premium/usecase/a;",
             "annualSavingsPercentage": "Ljava/lang/String;",
             "annualSavingsPercentageNumber": "Ljava/lang/Integer;",
@@ -84948,7 +85456,8 @@
             "name": "Ljava/lang/String;",
             "description": "Ljava/lang/String;",
             "environment": "Lgu/d;",
-            "appName=, basePrice": "Llu/a;",
+            "appName": "",
+            "basePrice": "Llu/a;",
             "terms": "Ljava/lang/String;",
             "image": "Ljava/lang/String;",
             "metadata": "Ljava/lang/Object;"
