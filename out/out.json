@@ -1,9 +1,1 @@
-{
-    "./src/__tests__/test_data/example.smali": {
-        "class_name": "TaxonomyTopic1",
-        "types": {
-            "id": "String",
-            "displayName": "String"
-        }
-    }
-}
+{"./src/__tests__/test_data/example.smali": {"class_name": "TaxonomyTopic1", "types": {"id": "String", "displayName": "String"}}}

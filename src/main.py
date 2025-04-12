@@ -1,5 +1,6 @@
 import json
 from utils import helpers
+from tqdm import tqdm
 
 files = open('./src/__tests__/test_data/candidates.txt', 'r')
 
@@ -25,7 +26,7 @@ java_mapping = {
 
 type_mapping: dict[str, str] = {}
 
-for filename in files:
+for filename in tqdm(iterable=files, desc='generating type mapping'):
     lines = open(filename, 'r').readlines()
 
     # 'LmB/hW;', ['a', 'b'])
@@ -40,7 +41,7 @@ for filename in files:
 
 files.seek(0)
 
-for filename in files:
+for filename in tqdm(iterable=files, desc='extracting types'):
     lines = open(filename, 'r').readlines()
     content = ''.join(lines)
 
