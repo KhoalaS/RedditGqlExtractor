@@ -1,6 +1,6 @@
 from utils import helpers
 
-files = open('./candidates.txt', 'r')
+files = open('./src/__tests__/test_data/candidates.txt', 'r')
 out = open('./out/schema.graphqls', 'w+')
 
 # maps a obfuscated classname to a typedef dict

@@ -1,1 +1,1 @@
-./example.smali
+./src/__tests__/test_data/example.smali
