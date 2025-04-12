@@ -71,12 +71,16 @@ for filename in files:
     type_def: dict[str, str | None] = {}
 
     for entry in z:
-        field = fields.get(entry[0])
-        if field is None:
+        _field_type = fields.get(entry[0])
+        if _field_type is None:
+            print(f'accessed field {entry[0]} is not a field of class')
             continue
 
-        java_type = java_mapping.get(field)
-        _type = java_type if java_type is not None else type_mapping.get(field)
+        java_type = java_mapping.get(_field_type)
+        _type = java_type if java_type is not None else type_mapping.get(
+            _field_type)
+        if _type is None:
+            print(f'unknown type of field: {_field_type}')
         type_def.update({entry[1][0]: _type})
 
     type_dict: dict[str, str | dict[str, str | None]] = {
