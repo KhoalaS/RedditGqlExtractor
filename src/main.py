@@ -1,10 +1,10 @@
+import json
 from utils import helpers
 
 files = open('./src/__tests__/test_data/candidates.txt', 'r')
-out = open('./out/schema.graphqls', 'w+')
 
 # maps a obfuscated classname to a typedef dict
-class_mapping: dict[str, dict[str, str]]
+class_mapping: dict[str, dict[str, str | dict[str, str | None]]] = {}
 
 java_mapping = {
     "Ljava/lang/Integer;": "Int",
@@ -17,6 +17,23 @@ java_mapping = {
     "J": "Int",
     "D": "Float"
 }
+
+type_mapping: dict[str, str] = {}
+
+for filename in files:
+    lines = open(filename, 'r').readlines()
+
+    # 'LmB/hW;', ['a', 'b'])
+    (obf_class_name, field_accesses) = helpers.get_field_access(lines)
+
+    # ('TaxonomyTopic1', [['id', ''], ['displayName', 'default']])
+    ex = helpers.extract_types(helpers.get_strings(lines))
+    if ex is None:
+        continue
+
+    type_mapping.update({obf_class_name: ex[0]})
+
+files.seek(0)
 
 for filename in files:
     lines = open(filename, 'r').readlines()
@@ -42,6 +59,30 @@ for filename in files:
 
     (class_name, extracted_types) = ex
 
+    # zip up field access with extracted types
+    # (('a', ['id', '']), ('b', ['displayName', '']))
     z = zip(field_accesses, extracted_types)
 
-    print(tuple(z))
+    type_def: dict[str, str | None] = {}
+
+    for entry in z:
+        field = fields.get(entry[0])
+        if field is None:
+            continue
+
+        java_type = java_mapping.get(field)
+        _type = java_type if java_type is not None else type_mapping.get(field)
+        type_def.update({entry[1][0]: _type})
+
+    type_dict: dict[str, str | dict[str, str | None]] = {
+        'class_name': class_name,
+        'types': type_def
+    }
+
+    class_mapping.update({filename: type_dict})
+
+out = open('./out/out.json', 'w+')
+out.write(json.dumps(class_mapping))
+
+files.close()
+out.close()
