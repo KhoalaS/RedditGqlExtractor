@@ -9,16 +9,18 @@ def get_fields_lines(file_content: str) -> Iterable[str]:
     findings = r.findall(file_content)
     if len(findings) == 0:
         return []
+    r = re.compile('\\.field.+?\\n', re.DOTALL)
 
-    m = str(findings[0]).strip()
-    field_lines = set((m.split("\n")[1:-1]))
-    field_lines.remove('')
-
+    m = r.findall(str(findings[0]))
+    field_lines = set([str(x).strip() for x in m])
     return field_lines
 
 
-def transform_field_line(line: str) -> tuple[str, str]:
+def transform_field_line(line: str) -> tuple[str, str] | None:
     spl = line.split()[-1].split(':')
+    if len(spl) < 2:
+        print(f'could not transform line {line}')
+        return None
     return (spl[0], spl[1])
 
 

@@ -39,7 +39,7 @@ java_mapping = {
 type_mapping: dict[str, str] = {}
 
 for filename in tqdm(iterable=files, desc='generating type mapping'):
-    lines = open(filename, 'r').readlines()
+    lines = open(filename.strip(), 'r').readlines()
 
     # 'LmB/hW;', ['a', 'b'])
     (obf_class_name, field_accesses) = helpers.get_field_access(lines)
@@ -54,7 +54,7 @@ for filename in tqdm(iterable=files, desc='generating type mapping'):
 files.seek(0)
 
 for filename in tqdm(iterable=files, desc='extracting types'):
-    lines = open(filename, 'r').readlines()
+    lines = open(filename.strip(), 'r').readlines()
     content = ''.join(lines)
 
     # extract the field lines: '.field public final b:Ljava/lang/String;'
@@ -65,7 +65,12 @@ for filename in tqdm(iterable=files, desc='extracting types'):
     # extract the obfuscated name of the field and type
     # ('a', 'Ljava/lang/String;')
     for f_line in field_lines:
-        (field_name, field_type) = helpers.transform_field_line(f_line)
+        tr_line = helpers.transform_field_line(f_line)
+        if tr_line is None:
+            print(f'error tranforming line {f_line} in {filename.strip()}')
+            continue
+
+        (field_name, field_type) = tr_line
         fields.update({field_name: field_type})
     # 'LmB/hW;', ['a', 'b'])
     (obf_class_name, field_accesses) = helpers.get_field_access(lines)
