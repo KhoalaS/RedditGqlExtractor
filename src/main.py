@@ -17,7 +17,7 @@ args = parser.parse_args()
 files = open(args.candidates, 'r')
 
 # maps a obfuscated classname to a typedef dict
-class_mapping: dict[str, dict[str, str | dict[str, str | None]]] = {}
+class_mapping: list[dict[str, str | dict[str, str | None]]] = []
 
 java_mapping = {
     "Ljava/lang/Integer;": "Int",
@@ -102,11 +102,12 @@ for filename in tqdm(iterable=files, desc='extracting types'):
         type_def.update({entry[1][0]: _type})
 
     type_dict: dict[str, str | dict[str, str | None]] = {
+        'file_name': filename.replace('\\', '/').strip(),
         'class_name': class_name,
         'types': type_def
     }
 
-    class_mapping.update({filename: type_dict})
+    class_mapping.append(type_dict)
 
 out = open(args.outfile, 'w+')
 out.write(json.dumps(class_mapping))
