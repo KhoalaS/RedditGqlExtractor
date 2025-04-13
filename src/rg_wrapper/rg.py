@@ -4,21 +4,17 @@ import os
 
 def gen_candidates(working_dir: str = os.getcwd()) -> tuple[list[str], int]:
 
-    p1 = subprocess.Popen(["rg", "-l", "method public (final)? hashCode"],
-                          stdout=subprocess.PIPE,
-                          cwd=working_dir)
+    p1 = subprocess.run(["rg", "-l", "method public (final)? hashCode"],
+                        text=True,
+                        capture_output=True,
+                        cwd=working_dir)
 
-    p2 = subprocess.Popen(
+    p2 = subprocess.run(
         ["rg", "-v",
          "kotlinx|androidx|okhttp|bitdrift|airbnb|google|facebook"],
-        stdin=p1.stdout,
-        stdout=subprocess.PIPE,
+        input=p1.stdout,
+        capture_output=True,
         text=True,
         cwd=working_dir)
 
-    output, error = p2.communicate()
-    p1.terminate
-
-    code = 0 if error is None else 1
-
-    return output.split('\n')[:-1], code
+    return p2.stdout.split('\n')[:-1], p2.returncode
