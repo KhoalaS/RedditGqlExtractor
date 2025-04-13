@@ -11,7 +11,7 @@ def gen_candidates(working_dir: str = os.getcwd()) -> tuple[list[str], int]:
 
     if p1.returncode != 0:
         print(
-            f'error during gen_candidates phase 1: {p1.returncode, p1.stdout}')
+            f'error during gen_candidates phase 1: {p1.returncode, p1.stdout, p1.stderr}')
 
     p2 = subprocess.run(
         ["rg", "-v",
@@ -23,6 +23,6 @@ def gen_candidates(working_dir: str = os.getcwd()) -> tuple[list[str], int]:
 
     if p2.returncode != 0:
         print(
-            f'error during gen_candidates phase 2: {p2.returncode, p2.stdout}')
+            f'error during gen_candidates phase 2: {p2.returncode, p2.stdout, p2.stderr}')
 
     return p2.stdout.split('\n')[:-1], p2.returncode
