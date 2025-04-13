@@ -17,14 +17,13 @@ content = ''.join(lines)
 content_2 = ''.join(lines_2)
 
 
-class FieldTest(unittest.TestCase):
+class HelpersTest(unittest.TestCase):
     def test_get_fields(self):
         self.assertEqual(
             helpers.get_fields_lines(content), set([
                 '.field public final b:Ljava/lang/String;',
                 '.field public final a:Ljava/lang/String;'])
         )
-        print(helpers.get_fields_lines(content_2))
         self.assertEqual(
             helpers.get_fields_lines(content_2), set([
                 '.field private final choiceMetadata:LKL/a;',
