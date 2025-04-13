@@ -16,6 +16,9 @@ lines_2 = test_file_2.readlines()
 content = ''.join(lines)
 content_2 = ''.join(lines_2)
 
+test_file.close()
+test_file_2.close()
+
 
 class HelpersTest(unittest.TestCase):
     def test_get_fields(self):
