@@ -19,7 +19,6 @@ def get_fields_lines(file_content: str) -> Iterable[str]:
 def transform_field_line(line: str) -> tuple[str, str] | None:
     spl = line.split()[-1].split(':')
     if len(spl) < 2:
-        print(f'could not transform line {line}')
         return None
     return (spl[0], spl[1])
 
@@ -46,7 +45,6 @@ def get_field_access(lines: list[str]) -> tuple[str, list[str]]:
             r = re.compile(f'{re.escape(class_name)}->(.+?):')
             m = r.findall(line)
             if len(m) == 0:
-                print(f'field access from foreign class: {class_name}')
                 continue
 
             fields.append(str(m[0]))
@@ -72,7 +70,6 @@ def get_strings(lines: list[str]) -> str:
         if 'const-string' in line:
             m = r.findall(line)
             if len(m) == 0:
-                print(f'could not extract string content {line}')
                 continue
             s += str(m[0])
 
@@ -85,11 +82,9 @@ def extract_types(full_string: str) -> tuple[str, list[list[str]]] | None:
     m = r.findall(full_string)
 
     if len(m) == 0:
-        print(f'could not extract types for: {full_string}')
         return None
 
     if len(m[0]) == 0:
-        print(f'could not extract types for: {full_string}')
         return None
 
     # m[0][1] should look like this 'id=, displayName=default'

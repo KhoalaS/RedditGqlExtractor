@@ -2,6 +2,11 @@ import argparse
 import json
 from utils import helpers, candidates
 from tqdm import tqdm
+import logging
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(filename='extractor.log',
+                    encoding='utf-8', level=logging.DEBUG)
 
 parser = argparse.ArgumentParser(
     prog='RedditGQL Type Extractor',
@@ -66,7 +71,7 @@ for filename in tqdm(iterable=files, desc='extracting types'):
     for f_line in field_lines:
         tr_line = helpers.transform_field_line(f_line)
         if tr_line is None:
-            print(f'error tranforming line {f_line} in {filename.strip()}')
+            logger.debug(f'error tranforming line {f_line} in {filename.strip()}')
             continue
 
         (field_name, field_type) = tr_line
@@ -90,14 +95,14 @@ for filename in tqdm(iterable=files, desc='extracting types'):
     for entry in z:
         _field_type = fields.get(entry[0])
         if _field_type is None:
-            print(f'accessed field {entry[0]} is not a field of class')
+            logger.debug(f'accessed field {entry[0]} is not a field of class')
             continue
 
         java_type = java_mapping.get(_field_type)
         _type = java_type if java_type is not None else type_mapping.get(
             _field_type)
         if _type is None:
-            print(f'unknown type of field: {_field_type}')
+            logger.debug(f'unknown type of field: {_field_type}')
             _type = 'Unknown'
         type_def.update({entry[1][0]: _type})
 
