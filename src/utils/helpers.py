@@ -12,7 +12,7 @@ def get_fields_lines(file_content: str) -> Iterable[str]:
     r = re.compile('\\.field.+?\\n', re.DOTALL)
 
     m = r.findall(str(findings[0]))
-    field_lines = set([str(x).strip() for x in m])
+    field_lines = [str(x).strip() for x in m]
     return field_lines
 
 
@@ -30,20 +30,20 @@ def get_field_access(lines: list[str]) -> tuple[str, list[str]]:
 
     flag = False
 
+    to_string_regex = re.compile('method public (final )?toString')
+
     for line in lines:
         if line.startswith('.class'):
             class_name = line.split()[-1]
 
-        if line.startswith(
-            '.method public final toString()Ljava/lang/String;'
-        ):
+        if re.search(to_string_regex, line) is not None:
             flag = True
 
         if not flag:
             continue
 
-        if 'iget-' in line:
-            r = re.compile(f'{class_name}->(.+?):')
+        if line.strip().startswith('iget'):
+            r = re.compile(f'{re.escape(class_name)}->(.+?):')
             m = r.findall(line)
             if len(m) == 0:
                 print(f'field access from foreign class: {class_name}')
@@ -59,11 +59,11 @@ def get_strings(lines: list[str]) -> str:
 
     r = re.compile('const-string.+?\\"(.*?)\\"', re.DOTALL)
 
+    to_string_regex = re.compile('method public (final )?toString')
+
     s: str = ''
     for line in lines:
-        if line.startswith(
-            '.method public final toString()Ljava/lang/String;'
-        ):
+        if re.search(to_string_regex, line) is not None:
             flag = True
 
         if not flag:

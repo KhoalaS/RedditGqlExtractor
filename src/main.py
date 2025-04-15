@@ -1,20 +1,18 @@
 import argparse
 import json
-from utils import helpers
+from utils import helpers, candidates
 from tqdm import tqdm
 
 parser = argparse.ArgumentParser(
     prog='RedditGQL Type Extractor',
     description='Extract GQL Types from a decompiled Reddit APK.')
 
-parser.add_argument('candidates', default='./candidates.txt',
-                    help='Path to a list of smali files to check.')
 parser.add_argument('-o', '--outfile', default='./schema.graphqls',
                     help='Path to the output file.')
 
 args = parser.parse_args()
 
-files = open(args.candidates, 'r')
+files = candidates.get_candidates()
 
 # maps a obfuscated classname to a typedef dict
 class_mapping: list[dict[str, str | dict[str, str | None]]] = []
@@ -39,7 +37,7 @@ java_mapping = {
 type_mapping: dict[str, str] = {}
 
 for filename in tqdm(iterable=files, desc='generating type mapping'):
-    lines = open(filename.strip(), 'r').readlines()
+    lines = open(filename, 'r').readlines()
 
     # 'LmB/hW;', ['a', 'b'])
     (obf_class_name, field_accesses) = helpers.get_field_access(lines)
@@ -50,8 +48,6 @@ for filename in tqdm(iterable=files, desc='generating type mapping'):
         continue
 
     type_mapping.update({obf_class_name: ex[0]})
-
-files.seek(0)
 
 for filename in tqdm(iterable=files, desc='extracting types'):
     lines = open(filename.strip(), 'r').readlines()
@@ -99,6 +95,7 @@ for filename in tqdm(iterable=files, desc='extracting types'):
             _field_type)
         if _type is None:
             print(f'unknown type of field: {_field_type}')
+            _type = 'Unknown'
         type_def.update({entry[1][0]: _type})
 
     type_dict: dict[str, str | dict[str, str | None]] = {
@@ -112,5 +109,4 @@ for filename in tqdm(iterable=files, desc='extracting types'):
 out = open(args.outfile, 'w+')
 out.write(json.dumps(class_mapping))
 
-files.close()
 out.close()
