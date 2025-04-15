@@ -7,12 +7,15 @@ parser = argparse.ArgumentParser(
     prog='RedditGQL Type Extractor',
     description='Extract GQL Types from a decompiled Reddit APK.')
 
+parser.add_argument('-c', '--candidates',
+                    help='Path to the candidates file.')
 parser.add_argument('-o', '--outfile', default='./schema.graphqls',
                     help='Path to the output file.')
 
 args = parser.parse_args()
 
-files = candidates.get_candidates()
+files = [line.strip() for line in open(args.candidates, 'r').readlines()
+         ] if args.candidates is not None else candidates.get_candidates()
 
 # maps a obfuscated classname to a typedef dict
 class_mapping: list[dict[str, str | dict[str, str | None]]] = []
