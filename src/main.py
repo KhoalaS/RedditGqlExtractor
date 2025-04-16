@@ -1,6 +1,6 @@
 import argparse
 import json
-from utils import helpers, candidates
+from utils import helpers, candidates, enums
 from tqdm import tqdm
 import logging
 
@@ -14,6 +14,8 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument('-c', '--candidates',
                     help='Path to the candidates file.')
+parser.add_argument('-e', '--enums',
+                    help='Path to the enum candidates file.')
 parser.add_argument('-o', '--outfile', default='./schema.graphqls',
                     help='Path to the output file.')
 
@@ -22,8 +24,12 @@ args = parser.parse_args()
 files = [line.strip() for line in open(args.candidates, 'r').readlines()
          ] if args.candidates is not None else candidates.get_candidates()
 
+enum_files = open(args.enums, 'r').readlines()
+
 # maps a obfuscated classname to a typedef dict
 class_mapping: list[dict[str, str | dict[str, str | None]]] = []
+enum_mapping: dict[str, list[str]] = {}
+enum_name_mapping: dict[str, str] = {}
 
 java_mapping = {
     "Ljava/lang/Integer;": "Int",
@@ -44,7 +50,20 @@ java_mapping = {
 
 type_mapping: dict[str, str] = {}
 
-for filename in tqdm(iterable=files, desc='generating type mapping'):
+for file in tqdm(iterable=enum_files, desc='extract enums'):
+    lines = open(file.strip(), 'r').readlines()
+
+    enum_name = enums.get_enum_name(lines[0])
+
+    if enum_name is not None:
+        short_name = enum_name.split('/')[-1].rstrip(';')
+        enum_name_mapping.update({enum_name: short_name})
+
+        enum_values = enums.extract_enum_values(lines)
+        enum_mapping.update({enum_name: enum_values})
+        logger.debug(f'found enum: {enum_name}')
+
+for filename in tqdm(iterable=files, desc='generate type mapping'):
     lines = open(filename, 'r').readlines()
 
     # 'LmB/hW;', ['a', 'b'])
@@ -57,7 +76,7 @@ for filename in tqdm(iterable=files, desc='generating type mapping'):
 
     type_mapping.update({obf_class_name: ex[0]})
 
-for filename in tqdm(iterable=files, desc='extracting types'):
+for filename in tqdm(iterable=files, desc='extract types'):
     lines = open(filename.strip(), 'r').readlines()
     content = ''.join(lines)
 
@@ -71,7 +90,8 @@ for filename in tqdm(iterable=files, desc='extracting types'):
     for f_line in field_lines:
         tr_line = helpers.transform_field_line(f_line)
         if tr_line is None:
-            logger.debug(f'error tranforming line {f_line} in {filename.strip()}')
+            logger.debug(
+                f'error tranforming line {f_line} in {filename.strip()}')
             continue
 
         (field_name, field_type) = tr_line
@@ -101,6 +121,10 @@ for filename in tqdm(iterable=files, desc='extracting types'):
         java_type = java_mapping.get(_field_type)
         _type = java_type if java_type is not None else type_mapping.get(
             _field_type)
+
+        # test if field is an enum
+        if _type is None:
+            _type = enum_name_mapping.get(_field_type)
         if _type is None:
             logger.debug(f'unknown type of field: {_field_type}')
             _type = 'Unknown'
@@ -117,4 +141,8 @@ for filename in tqdm(iterable=files, desc='extracting types'):
 out = open(args.outfile, 'w+')
 out.write(json.dumps(class_mapping))
 
+enum_out = open('enums.json', 'w+')
+enum_out.write(json.dumps(enum_mapping))
+
+enum_out.close
 out.close()
