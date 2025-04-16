@@ -4,6 +4,41 @@
 
 Automated type extraction from the Reddit Android App.
 
+## Building
+
+```bash
+# create venv
+python -m venv .venv
+
+# install dependencies
+pip install -r requirements.txt
+
+# (optional) build the binary
+pyinstaller ./src/main.py -F -n gex
+```
+
+## Usage
+
+Generate the candidate files:
+
+```bash
+# inside the directory where the decompile apk is
+# myapp_decompiled/
+# ├── AndroidManifest.xml
+# ├── assets/
+# ├── lib/
+# ├── res/
+# ├── smali/
+# └── unknown/
+# ...
+# or call gen_candidates.nu|sh from the scripts folder
+rg -l 'method public (final )?hashCode' | rg -v 'kotlinx|androidx|okhttp|bitdrift|airbnb|google|facebook' > candidates.txt
+rg -l '\.class public final enum Lcom/reddit' > enum_candidates.txt
+
+# execute the main script or binary
+./gex -o schema.json -c candidates.txt -e enum_candidates.txt
+```
+
 ## Approaches
 
 The generated Apollo types don't use reflection and will be obfuscated.
