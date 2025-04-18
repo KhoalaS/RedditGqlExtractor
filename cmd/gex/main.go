@@ -1,53 +1,76 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
+	"strings"
 
 	"github.com/KhoalaS/RedditGqlExtractor/internal/utils"
+	"github.com/schollz/progressbar/v3"
 )
 
 func main() {
-	testInput := `        "marketplace_impl"
-    }
-    k = 0x1
-    mv = {
-        0x2,
-        0x1,
-        0x0
-    }
-    xi = 0x30
-.end annotation
+	candidateFile, err := os.Open("./candidates.txt")
+	if err != nil {
+		fmt.Errorf("could not open candidate file", err)
+	}
 
+	enumFile, err := os.Open("./enums.txt")
+	if err != nil {
+		fmt.Errorf("could not open enum file", err)
+	}
 
-# static fields
-.field public static final $stable:I = 0x8
+	defer candidateFile.Close()
+	defer enumFile.Close()
 
+	enumScanner := bufio.NewScanner(enumFile)
+	enumFiles := []string{}
+	for enumScanner.Scan() {
+		enumFiles = append(enumFiles, enumScanner.Text())
+	}
 
-# instance fields
-.field private final choiceMetadata:LKL/a;
+	//javaMapping := map[string]string{
+	//	"Ljava/lang/Integer;":   "Int",
+	//	"Ljava/lang/String;":    "String",
+	//	"Ljava/lang/Boolean;":   "Boolean",
+	//	"Ljava/util/List;":      "[Unknown]",
+	//	"Ljava/lang/Long;":      "Int",
+	//	"Ljava/lang/Double;":    "Float",
+	//	"Ljava/lang/Float;":     "Float",
+	//	"Ljava/util/ArrayList;": "[Unknown]",
+	//	"C":                     "String",
+	//	"D":                     "Float",
+	//	"F":                     "Float",
+	//	"I":                     "Int",
+	//	"J":                     "Int",
+	//	"Z":                     "Boolean",
+	// }
+	//
 
-.field private final claimData:LKL/b;
+	enumNameMapping := make(map[string]string)
+	enumValueMapping := make(map[string][]string)
 
-.field private final dropUiModels:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "LQM/e;",
-            ">;"
-        }
-    .end annotation
-.end field
+	enumProgress := progressbar.Default(int64(len(enumFiles)))
 
-.field private final initialPosition:I
+	for _, file := range enumFiles {
+		f, _ := os.Open(file)
+		scanner := bufio.NewScanner(bufio.NewReader(f))
+		lines := []string{}
+		for scanner.Scan() {
+			lines = append(lines, scanner.Text())
+		}
 
+		enumName := utils.GetEnumName(lines[0])
 
-# direct methods
-.method public constructor <init>(LKL/b;LKL/a;Ljava/util/List;I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "LKL/b;",
-            "LKL/a;",`
-	fmt.Println(utils.GetFieldsLines(testInput))
+		if enumName.IsOk {
+			shortName := strings.TrimRight(utils.Last(strings.Split(*enumName.Value, "/")), ";")
+			enumNameMapping[*enumName.Value] = shortName
+
+			enumValues := utils.ExtractEnumValues(lines)
+			enumValueMapping[*enumName.Value] = enumValues
+			fmt.Println(*enumName.Value)
+		}
+		enumProgress.Add(1)
+	}
 }
