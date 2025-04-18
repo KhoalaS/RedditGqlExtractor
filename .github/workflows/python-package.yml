@@ -40,7 +40,9 @@ jobs:
       run: |
         python -m unittest discover -s './src' -p '*_test.py'
     - name: Build binary
-      run: pyinstaller ./src/main.py -F -n gex
+      run: |
+        echo ${{ github.ref_type }}
+        pyinstaller ./src/main.py -F -n gex
     - name: Release
       uses: softprops/action-gh-release@v2
       if: github.ref_type == 'tag'
