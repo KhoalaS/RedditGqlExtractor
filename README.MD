@@ -33,10 +33,10 @@ Generate the candidate files:
 # ...
 # or call gen_candidates.nu|sh from the scripts folder
 rg -l 'method public (final )?hashCode' | rg -v 'kotlinx|androidx|okhttp|bitdrift|airbnb|google|facebook' > candidates.txt
-rg -l '\.class public final enum Lcom/reddit' > enum_candidates.txt
+rg -l '\.class public final enum Lcom/reddit' > enums.txt
 
 # execute the main script or binary
-./gex -o schema.json -c candidates.txt -e enum_candidates.txt
+./gex -o schema.json -c candidates.txt -e enums.txt
 ```
 
 ## Approaches
