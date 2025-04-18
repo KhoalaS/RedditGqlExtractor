@@ -1,24 +1,24 @@
 package utils
 
 type Result[T any] struct {
-	isOk  bool
-	value *T
+	IsOk  bool
+	Value *T
 }
 
 func Ok[T any](value T) Result[T] {
-	return Result[T]{isOk: true, value: &value}
+	return Result[T]{IsOk: true, Value: &value}
 }
 
 func Err[T any]() Result[T] {
-	return Result[T]{isOk: false, value: nil}
+	return Result[T]{IsOk: false, Value: nil}
 }
 
 func (m Result[T]) Bind(fn func(T) T) *T {
-	if !m.isOk {
+	if !m.IsOk {
 		return nil
 	}
 
-	val := fn(*m.value)
+	val := fn(*m.Value)
 	return &val
 }
 

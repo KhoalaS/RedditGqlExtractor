@@ -29,7 +29,7 @@ func GetFieldsLines(fileContent string) []string {
 
 func TransformFieldLine(line string) Result[Tuple[string]] {
 	firstSplit := strings.Split(line, " ")
-	secondSplit := strings.Split(last(firstSplit), ":")
+	secondSplit := strings.Split(Last(firstSplit), ":")
 
 	if len(secondSplit) < 2 {
 		return Err[Tuple[string]]()
@@ -49,7 +49,7 @@ func GetFieldAccess(lines []string) (string, []string) {
 	for _, line := range lines {
 		if strings.HasPrefix(line, ".class") {
 			spl := strings.Split(line, " ")
-			className = last(spl)
+			className = Last(spl)
 		}
 
 		if !flag && toStringRegex.MatchString(line) {
@@ -127,6 +127,6 @@ func ExtractTypes(fullString string) *ExtractedType {
 	return &ExtractedType{TypeName: typeName, Fields: fields}
 }
 
-func last[T any](array []T) T {
+func Last[T any](array []T) T {
 	return array[len(array)-1]
 }

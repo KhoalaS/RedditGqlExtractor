@@ -31,11 +31,11 @@ func TestTransformFieldLine(t *testing.T) {
 	line := ".field private final choiceMetadata:LKL/a;"
 	res := TransformFieldLine(line)
 
-	if !res.isOk {
+	if !res.IsOk {
 		t.Error()
 	}
 
-	if res.value.A != "choiceMetadata" || res.value.B != "LKL/a;" {
+	if res.Value.A != "choiceMetadata" || res.Value.B != "LKL/a;" {
 		t.Error()
 	}
 }
