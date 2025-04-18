@@ -23,6 +23,17 @@ func (m Result[T]) Bind(fn func(T) T) *T {
 }
 
 type Tuple[T any] struct {
-	a T
-	b T
+	A T
+	B T
+}
+
+type ExtractedType struct {
+	TypeName string
+	Fields   []*Field
+}
+
+type Field struct {
+	Name         string
+	DefaultValue string
+	JavaType     string
 }

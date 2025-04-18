@@ -1,56 +1,28 @@
 package utils
 
 import (
+	"bufio"
+	"io"
+	"os"
+	"slices"
 	"testing"
 )
 
 func TestGetFieldsLines(t *testing.T) {
-	testInput := `        "marketplace_impl"
-    }
-    k = 0x1
-    mv = {
-        0x2,
-        0x1,
-        0x0
-    }
-    xi = 0x30
-.end annotation
+	f, err := os.Open("testdata/example.smali")
+	if err != nil {
+		t.Error(err)
+	}
+	testInput, _ := io.ReadAll(f)
 
-
-# static fields
-.field public static final $stable:I = 0x8
-
-
-# instance fields
-.field private final choiceMetadata:LKL/a;
-
-.field private final claimData:LKL/b;
-
-.field private final dropUiModels:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "LQM/e;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final initialPosition:I
-
-
-# direct methods
-.method public constructor <init>(LKL/b;LKL/a;Ljava/util/List;I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "LKL/b;",
-            "LKL/a;",`
-
-	fieldLines := GetFieldsLines(testInput)
+	fieldLines := GetFieldsLines(string(testInput))
 	t.Log(fieldLines)
 	if len(fieldLines) == 0 {
+		t.Error()
+	}
+
+	expected := []string{".field public final a:Ljava/lang/String;", ".field public final b:Ljava/lang/String;"}
+	if !slices.Equal(fieldLines, expected) {
 		t.Error()
 	}
 }
@@ -63,7 +35,47 @@ func TestTransformFieldLine(t *testing.T) {
 		t.Error()
 	}
 
-	if res.value.a != "choiceMetadata" || res.value.b != "LKL/a;" {
+	if res.value.A != "choiceMetadata" || res.value.B != "LKL/a;" {
 		t.Error()
+	}
+}
+
+func TestGetFieldAccess(t *testing.T) {
+	f, err := os.Open("testdata/example.smali")
+	if err != nil {
+		t.Error(err)
+	}
+	scanner := bufio.NewScanner(bufio.NewReader(f))
+	lines := []string{}
+	for scanner.Scan() {
+		lines = append(lines, scanner.Text())
+	}
+
+	className, fields := GetFieldAccess(lines)
+	if className != "LmB/hW;" {
+		t.Error("expected LmB/hW; but got", className)
+	}
+
+	expected := []string{"a", "b"}
+	if !slices.Equal(fields, expected) {
+		t.Error("expected fields a and b got", fields)
+	}
+}
+
+func TestGetStrings(t *testing.T) {
+	f, err := os.Open("testdata/example.smali")
+	if err != nil {
+		t.Error(err)
+	}
+	scanner := bufio.NewScanner(bufio.NewReader(f))
+	lines := []string{}
+	for scanner.Scan() {
+		lines = append(lines, scanner.Text())
+	}
+
+	s := GetStrings(lines)
+	expected := "TaxonomyTopic1(id=, displayName=)"
+	if s != expected {
+		t.Error("expected", expected, "got", s)
 	}
 }

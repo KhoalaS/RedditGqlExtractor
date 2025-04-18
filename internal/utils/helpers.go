@@ -35,7 +35,7 @@ func TransformFieldLine(line string) Result[Tuple[string]] {
 		return Err[Tuple[string]]()
 	}
 
-	return Ok(Tuple[string]{a: secondSplit[0], b: secondSplit[1]})
+	return Ok(Tuple[string]{A: secondSplit[0], B: secondSplit[1]})
 }
 
 func GetFieldAccess(lines []string) (string, []string) {
@@ -52,7 +52,7 @@ func GetFieldAccess(lines []string) (string, []string) {
 			className = last(spl)
 		}
 
-		if toStringRegex.MatchString(line) {
+		if !flag && toStringRegex.MatchString(line) {
 			flag = true
 			continue
 		}
@@ -76,6 +76,55 @@ func GetFieldAccess(lines []string) (string, []string) {
 
 	return className, fields
 
+}
+
+func GetStrings(lines []string) string {
+	flag := false
+	stringRegex := regexp.MustCompile(`const-string.+?"(.*?)"`)
+	toStringRegex := regexp.MustCompile(`method public (final )?toString`)
+
+	s := ""
+	for _, line := range lines {
+		if !flag && toStringRegex.MatchString(line) {
+			flag = true
+			continue
+		}
+
+		if !flag {
+			continue
+		}
+
+		if strings.HasPrefix(strings.TrimSpace(line), "const-string") {
+			m := stringRegex.FindStringSubmatch(line)
+			if len(m) != 2 {
+				continue
+			}
+			s += m[1]
+		}
+	}
+
+	return s
+}
+
+func ExtractTypes(fullString string) *ExtractedType {
+
+	r := regexp.MustCompile(`(.+?)\((.+?)\)`)
+	m := r.FindStringSubmatch(fullString)
+
+	if len(m) == 0 {
+		return nil
+	}
+
+	typeName := m[1]
+	spl := strings.Split(m[2], ",")
+
+	fields := []*Field{}
+	for _, field := range spl {
+		kv := strings.Split(strings.TrimSpace(field), "=")
+		fields = append(fields, &Field{Name: kv[0], DefaultValue: kv[1], JavaType: ""})
+	}
+
+	return &ExtractedType{TypeName: typeName, Fields: fields}
 }
 
 func last[T any](array []T) T {
