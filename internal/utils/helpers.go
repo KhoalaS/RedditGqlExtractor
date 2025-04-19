@@ -1,6 +1,9 @@
 package utils
 
 import (
+	"bufio"
+	"io"
+	"os"
 	"regexp"
 	"strings"
 )
@@ -129,4 +132,33 @@ func ExtractTypes(fullString string) *ExtractedType {
 
 func Last[T any](array []T) T {
 	return array[len(array)-1]
+}
+
+func GetLines(filepath string) ([]string, error) {
+	lines := []string{}
+
+	f, err := os.Open(filepath)
+	if err != nil {
+		return lines, err
+	}
+
+	scanner := bufio.NewScanner(bufio.NewReader(f))
+	for scanner.Scan() {
+		lines = append(lines, scanner.Text())
+	}
+	return lines, nil
+}
+
+func GetFileContent(filepath string) (string, error) {
+	f, err := os.Open(filepath)
+	if err != nil {
+		return "", err
+	}
+
+	content, err := io.ReadAll(f)
+	if err != nil {
+		return "", err
+	}
+
+	return string(content), nil
 }

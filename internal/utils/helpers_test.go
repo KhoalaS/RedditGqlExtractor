@@ -1,19 +1,12 @@
 package utils
 
 import (
-	"bufio"
-	"io"
-	"os"
 	"slices"
 	"testing"
 )
 
 func TestGetFieldsLines(t *testing.T) {
-	f, err := os.Open("testdata/example.smali")
-	if err != nil {
-		t.Error(err)
-	}
-	testInput, _ := io.ReadAll(f)
+	testInput, _ := GetFileContent("testdata/example.smali")
 
 	fieldLines := GetFieldsLines(string(testInput))
 	t.Log(fieldLines)
@@ -41,15 +34,7 @@ func TestTransformFieldLine(t *testing.T) {
 }
 
 func TestGetFieldAccess(t *testing.T) {
-	f, err := os.Open("testdata/example.smali")
-	if err != nil {
-		t.Error(err)
-	}
-	scanner := bufio.NewScanner(bufio.NewReader(f))
-	lines := []string{}
-	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
-	}
+	lines, _ := GetLines("testdata/example.smali")
 
 	className, fields := GetFieldAccess(lines)
 	if className != "LmB/hW;" {
@@ -63,15 +48,7 @@ func TestGetFieldAccess(t *testing.T) {
 }
 
 func TestGetStrings(t *testing.T) {
-	f, err := os.Open("testdata/example.smali")
-	if err != nil {
-		t.Error(err)
-	}
-	scanner := bufio.NewScanner(bufio.NewReader(f))
-	lines := []string{}
-	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
-	}
+	lines, _ := GetLines("testdata/example.smali")
 
 	s := GetStrings(lines)
 	expected := "TaxonomyTopic1(id=, displayName=)"
@@ -81,7 +58,7 @@ func TestGetStrings(t *testing.T) {
 }
 
 func TestExtractTypes(t *testing.T) {
-	lines := getLines("testdata/example.smali", t)
+	lines, _ := GetLines("testdata/example.smali")
 	fullString := GetStrings(lines)
 
 	extractedType := ExtractTypes(fullString)
@@ -101,31 +78,4 @@ func TestExtractTypes(t *testing.T) {
 	if extractedType.Fields[0].Name != "id" || extractedType.Fields[1].Name != "displayName" {
 		t.Error()
 	}
-}
-
-func getLines(filepath string, t *testing.T) []string {
-	f, err := os.Open(filepath)
-	if err != nil {
-		t.Error(err)
-	}
-	scanner := bufio.NewScanner(bufio.NewReader(f))
-	lines := []string{}
-	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
-	}
-	return lines
-}
-
-func getFileContent(filepath string, t *testing.T) string {
-	f, err := os.Open(filepath)
-	if err != nil {
-		t.Error(err)
-	}
-
-	content, err := io.ReadAll(f)
-	if err != nil {
-		t.Error(err)
-	}
-
-	return string(content)
 }
