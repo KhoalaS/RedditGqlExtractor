@@ -79,3 +79,53 @@ func TestGetStrings(t *testing.T) {
 		t.Error("expected", expected, "got", s)
 	}
 }
+
+func TestExtractTypes(t *testing.T) {
+	lines := getLines("testdata/example.smali", t)
+	fullString := GetStrings(lines)
+
+	extractedType := ExtractTypes(fullString)
+
+	if extractedType == nil {
+		t.Error()
+	}
+
+	if extractedType.TypeName != "TaxonomyTopic1" {
+		t.Error()
+	}
+
+	if len(extractedType.Fields) != 2 {
+		t.Error()
+	}
+
+	if extractedType.Fields[0].Name != "id" || extractedType.Fields[1].Name != "displayName" {
+		t.Error()
+	}
+}
+
+func getLines(filepath string, t *testing.T) []string {
+	f, err := os.Open(filepath)
+	if err != nil {
+		t.Error(err)
+	}
+	scanner := bufio.NewScanner(bufio.NewReader(f))
+	lines := []string{}
+	for scanner.Scan() {
+		lines = append(lines, scanner.Text())
+	}
+	return lines
+}
+
+func getFileContent(filepath string, t *testing.T) string {
+	f, err := os.Open(filepath)
+	if err != nil {
+		t.Error(err)
+	}
+
+	content, err := io.ReadAll(f)
+	if err != nil {
+		t.Error(err)
+	}
+
+	return string(content)
+}
