@@ -2,8 +2,14 @@ package utils
 
 import (
 	"slices"
+	"strings"
 	"testing"
 )
+
+func TestSplit(t *testing.T) {
+	spl := strings.Split("Hello=", "=")
+	slices.Equal(spl, []string{"Hello", ""})
+}
 
 func TestGetFieldsLines(t *testing.T) {
 	testInput, _ := GetFileContent("testdata/example.smali")

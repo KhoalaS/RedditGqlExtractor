@@ -2,7 +2,7 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	"log"
 	"os"
 	"strings"
 
@@ -11,24 +11,10 @@ import (
 )
 
 func main() {
-	candidateFile, err := os.Open("./candidates.txt")
-	if err != nil {
-		fmt.Errorf("could not open candidate file", err)
-	}
 
-	enumFile, err := os.Open("./enums.txt")
-	if err != nil {
-		fmt.Errorf("could not open enum file", err)
-	}
-
-	defer candidateFile.Close()
-	defer enumFile.Close()
-
-	enumScanner := bufio.NewScanner(enumFile)
-	enumFiles := []string{}
-	for enumScanner.Scan() {
-		enumFiles = append(enumFiles, enumScanner.Text())
-	}
+	logfile, _ := os.Create("extractor.log")
+	defer logfile.Close()
+	debugLogger := log.New(logfile, "DEBUG:", log.LstdFlags)
 
 	//javaMapping := map[string]string{
 	//	"Ljava/lang/Integer;":   "Int",
@@ -50,10 +36,14 @@ func main() {
 
 	enumNameMapping := make(map[string]string)
 	enumValueMapping := make(map[string][]string)
+	typeMapping := make(map[string]string)
 
-	enumProgress := progressbar.Default(int64(len(enumFiles)))
+	enumFiles, _ := utils.GetLines("./enums.txt")
+	enumBar := progressbar.Default(int64(len(enumFiles)), "extract enums")
 
 	for _, file := range enumFiles {
+		enumBar.Add(1)
+
 		f, _ := os.Open(file)
 		scanner := bufio.NewScanner(bufio.NewReader(f))
 		lines := []string{}
@@ -69,8 +59,44 @@ func main() {
 
 			enumValues := utils.ExtractEnumValues(lines)
 			enumValueMapping[*enumName.Value] = enumValues
-			fmt.Println(*enumName.Value)
 		}
-		enumProgress.Add(1)
 	}
+
+	candidateFiles, _ := utils.GetLines("./candidates.txt")
+	typeMappingBar := progressbar.Default(int64(len(candidateFiles)), "generate type mapping")
+
+	for _, file := range candidateFiles {
+		typeMappingBar.Add(1)
+
+		lines, err := utils.GetLines(file)
+
+		if err != nil {
+			debugLogger.Println("error reading content of file", file)
+			continue
+		}
+
+		obfClassName := utils.GetObfClassName(lines[0])
+
+		if len(obfClassName) == 0 {
+			debugLogger.Println("error reading obfuscated classname of", file)
+			continue
+		}
+
+		fullString := utils.GetStrings(lines)
+
+		if len(fullString) == 0 {
+			debugLogger.Println("error reading string segments of toString method in", file)
+			continue
+		}
+
+		ex := utils.ExtractTypes(fullString)
+
+		if ex == nil {
+			debugLogger.Println("error extracting type in", file)
+			continue
+		}
+
+		typeMapping[obfClassName] = ex.TypeName
+	}
+
 }

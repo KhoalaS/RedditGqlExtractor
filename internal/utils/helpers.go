@@ -64,6 +64,10 @@ func GetFieldAccess(lines []string) (string, []string) {
 			continue
 		}
 
+		if line == ".end method" {
+			break
+		}
+
 		if strings.HasPrefix(strings.TrimSpace(line), "iget") {
 
 			r := regexp.MustCompile(`->(.+?):`)
@@ -79,6 +83,15 @@ func GetFieldAccess(lines []string) (string, []string) {
 
 	return className, fields
 
+}
+
+func GetObfClassName(firstLine string) string {
+	if strings.HasPrefix(firstLine, ".class") {
+		spl := strings.Split(firstLine, " ")
+		return Last(spl)
+	}
+
+	return ""
 }
 
 func GetStrings(lines []string) string {
@@ -97,6 +110,10 @@ func GetStrings(lines []string) string {
 			continue
 		}
 
+		if line == ".end method" {
+			break
+		}
+
 		if strings.HasPrefix(strings.TrimSpace(line), "const-string") {
 			m := stringRegex.FindStringSubmatch(line)
 			if len(m) != 2 {
@@ -104,6 +121,10 @@ func GetStrings(lines []string) string {
 			}
 			s += m[1]
 		}
+	}
+
+	if strings.HasSuffix(s, "=") {
+		s += ")"
 	}
 
 	return s
@@ -124,6 +145,9 @@ func ExtractTypes(fullString string) *ExtractedType {
 	fields := []*Field{}
 	for _, field := range spl {
 		kv := strings.Split(strings.TrimSpace(field), "=")
+		if len(kv) == 1 {
+			return nil
+		}
 		fields = append(fields, &Field{Name: kv[0], DefaultValue: kv[1], JavaType: ""})
 	}
 
@@ -138,6 +162,9 @@ func GetLines(filepath string) ([]string, error) {
 	lines := []string{}
 
 	f, err := os.Open(filepath)
+
+	defer f.Close()
+
 	if err != nil {
 		return lines, err
 	}
@@ -151,6 +178,9 @@ func GetLines(filepath string) ([]string, error) {
 
 func GetFileContent(filepath string) (string, error) {
 	f, err := os.Open(filepath)
+
+	defer f.Close()
+
 	if err != nil {
 		return "", err
 	}
