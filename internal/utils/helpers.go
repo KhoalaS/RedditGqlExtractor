@@ -8,6 +8,7 @@ import (
 	"strings"
 )
 
+// Extract the field lines e.g. ".field public final b:Ljava/lang/String;" from a smali file.
 func GetFieldsLines(fileContent string) []string {
 
 	fieldsLines := []string{}
@@ -30,6 +31,8 @@ func GetFieldsLines(fileContent string) []string {
 	return fieldsLines
 }
 
+// Transforms a field line e.g. ".field public final b:Ljava/lang/String;"
+// into a tuple containing the obfuscated fieldname and Java type (b, Ljava/lang/String;).
 func TransformFieldLine(line string) Result[Tuple[string]] {
 	firstSplit := strings.Split(line, " ")
 	secondSplit := strings.Split(Last(firstSplit), ":")
@@ -85,15 +88,18 @@ func GetFieldAccess(lines []string) (string, []string) {
 
 }
 
-func GetObfClassName(firstLine string) string {
+// Returns the obfuscated classname of a smali file, if the file is a class.
+func GetObfClassName(firstLine string) Result[string] {
 	if strings.HasPrefix(firstLine, ".class") {
 		spl := strings.Split(firstLine, " ")
-		return Last(spl)
+		return Ok(Last(spl))
 	}
 
-	return ""
+	return Err[string]()
 }
 
+// Returns the concatenated strings from a smali toString method,
+// e.g. "GlobalMemoryApp(action=memory, androidMemoryEvent=null)"
 func GetStrings(lines []string) string {
 	flag := false
 	stringRegex := regexp.MustCompile(`const-string.+?"(.*?)"`)
@@ -154,20 +160,22 @@ func ExtractTypes(fullString string) *ExtractedType {
 	return &ExtractedType{TypeName: typeName, Fields: fields}
 }
 
+// Returns the last element of a slice.
 func Last[T any](array []T) T {
 	return array[len(array)-1]
 }
 
+// Opens a file and returns a slice of the lines of that file.
 func GetLines(filepath string) ([]string, error) {
 	lines := []string{}
 
 	f, err := os.Open(filepath)
 
-	defer f.Close()
-
 	if err != nil {
 		return lines, err
 	}
+
+	defer f.Close()
 
 	scanner := bufio.NewScanner(bufio.NewReader(f))
 	for scanner.Scan() {
@@ -176,14 +184,15 @@ func GetLines(filepath string) ([]string, error) {
 	return lines, nil
 }
 
+// Opens a file and returns the content of the file as a string.
 func GetFileContent(filepath string) (string, error) {
 	f, err := os.Open(filepath)
-
-	defer f.Close()
 
 	if err != nil {
 		return "", err
 	}
+
+	defer f.Close()
 
 	content, err := io.ReadAll(f)
 	if err != nil {
