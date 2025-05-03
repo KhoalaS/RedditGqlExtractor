@@ -44,7 +44,7 @@ func TransformFieldLine(line string) Result[Tuple[string]] {
 	return Ok(Tuple[string]{A: secondSplit[0], B: secondSplit[1]})
 }
 
-func GetFieldAccess(lines []string) (string, []string) {
+func GetFieldAccess(lines []string) (string, []string, []string) {
 	className := ""
 	fields := []string{}
 
@@ -52,7 +52,9 @@ func GetFieldAccess(lines []string) (string, []string) {
 
 	toStringRegex := regexp.MustCompile(`method public (final )?toString`)
 
-	for _, line := range lines {
+	nullFields := []string{}
+
+	for idx, line := range lines {
 		if strings.HasPrefix(line, ".class") {
 			spl := strings.Split(line, " ")
 			className = Last(spl)
@@ -71,20 +73,29 @@ func GetFieldAccess(lines []string) (string, []string) {
 			break
 		}
 
-		if strings.HasPrefix(strings.TrimSpace(line), "iget") {
+		if strings.HasPrefix(strings.TrimSpace(line), "const-string") {
+			for i := idx + 1; i < len(lines); i++ {
+				if strings.HasPrefix(strings.TrimSpace(lines[i]), "const-string") {
+					// string reached before subsearch gave a result
+					nullFields = append(nullFields, strings.TrimRight(Last(strings.Split(line, " ")), "\"="))
+					break
+				}
 
-			r := regexp.MustCompile(`->(.+?):`)
-			m := r.FindStringSubmatch(line)
-			if len(m) != 2 {
-				continue
+				if strings.HasPrefix(strings.TrimSpace(lines[i]), "iget") {
+					r := regexp.MustCompile(`->(.+?):`)
+					m := r.FindStringSubmatch(lines[i])
+					if len(m) != 2 {
+						continue
+					}
+
+					fields = append(fields, m[1])
+					break
+				}
 			}
-
-			fields = append(fields, m[1])
 		}
-
 	}
 
-	return className, fields
+	return className, fields, nullFields
 
 }
 
