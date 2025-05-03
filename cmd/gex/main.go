@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -69,7 +70,12 @@ func main() {
 		typeMappingBar.Add(1)
 
 		lines, err := utils.GetLines(file)
+		if err != nil {
+			debugLogger.Println("error reading content of file", file)
+			continue
+		}
 
+		content, err := utils.GetFileContent(file)
 		if err != nil {
 			debugLogger.Println("error reading content of file", file)
 			continue
@@ -77,9 +83,19 @@ func main() {
 
 		obfClassName := utils.GetObfClassName(lines[0])
 
-		if len(obfClassName) == 0 {
+		if !obfClassName.IsOk {
 			debugLogger.Println("error reading obfuscated classname of", file)
 			continue
+		}
+
+		fields := []string{}
+
+		for _, line := range utils.GetFieldsLines(content) {
+			trTuple := utils.TransformFieldLine(line)
+			if !trTuple.IsOk {
+				debugLogger.Fatal("Error transforming line:", line, "in file:", file)
+			}
+			fields = append(fields, trTuple.Value.B)
 		}
 
 		fullString := utils.GetStrings(lines)
@@ -96,7 +112,19 @@ func main() {
 			continue
 		}
 
-		typeMapping[obfClassName] = ex.TypeName
+		// TODO remove this
+		if len(fields) != len(ex.Fields) {
+			fmt.Println(file)
+			os.Exit(-1)
+		}
+
+		for idx := range ex.Fields {
+			if mappedType, ok := typeMapping[fields[idx]]; ok {
+				ex.Fields[idx].JavaType = mappedType
+			}
+		}
+
+		typeMapping[*obfClassName.Value] = ex.TypeName
 	}
 
 }
