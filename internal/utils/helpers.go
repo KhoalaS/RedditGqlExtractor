@@ -2,7 +2,6 @@ package utils
 
 import (
 	"bufio"
-	"fmt"
 	"io"
 	"os"
 	"regexp"
@@ -96,7 +95,6 @@ func GetFieldAccess(lines []string) ([]string, map[string]string) {
 				continue
 			}
 			lastField := strings.Trim(Last(strings.Split(contents[0][2], ",")), "\"=) ")
-			fmt.Println(lastField)
 
 			for i := idx + 1; i < len(lines); i++ {
 				if strings.HasPrefix(strings.TrimSpace(lines[i]), "const-string") {

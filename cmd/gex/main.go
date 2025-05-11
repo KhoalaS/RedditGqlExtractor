@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"encoding/json"
-	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -105,10 +104,9 @@ func main() {
 		}
 
 		nullFields, valueFields := utils.GetFieldAccess(lines)
-		fmt.Println(file)
 
 		if len(valueFields) != len(fields) {
-			fmt.Println("length difference in", valueFields, fields)
+			debugLogger.Println("length difference in", valueFields, fields)
 		}
 
 		for _, field := range ex.Fields {
