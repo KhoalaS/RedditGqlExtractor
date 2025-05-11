@@ -130,8 +130,16 @@ func main() {
 		fileToTypeMapping[file] = ex
 	}
 
-	outfile, _ := os.Create("out.json")
-	data, _ := json.Marshal(fileToTypeMapping)
+	outfile, err := os.Create("out.json")
+	if err != nil {
+		debugLogger.Println("could not open output file")
+		return
+	}
+	defer outfile.Close()
+	data, err := json.Marshal(fileToTypeMapping)
+	if err != nil {
+		debugLogger.Println("could marshal output data")
+		return
+	}
 	outfile.Write(data)
-	outfile.Close()
 }
