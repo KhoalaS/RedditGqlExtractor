@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"regexp"
 	"slices"
 	"strings"
 	"testing"
@@ -39,46 +40,12 @@ func TestTransformFieldLine(t *testing.T) {
 	}
 }
 
-func TestGetFieldAccess(t *testing.T) {
-	lines, _ := GetLines("testdata/example.smali")
-
-	className, fields, _ := GetFieldAccess(lines)
-	if className != "LmB/hW;" {
-		t.Error("expected LmB/hW; but got", className)
-	}
-
-	expected := []string{"a", "b"}
-	if !slices.Equal(fields, expected) {
-		t.Error("expected fields a and b got", fields)
-	}
-
-	lines, _ = GetLines("testdata/example_4.smali")
-
-	className, fields, nullFields := GetFieldAccess(lines)
-
-	if className != "Lbh0/a;" {
-		t.Error("expected Lbh0/a; but got", className)
-	}
-
-	expected = []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r"}
-	if !slices.Equal(fields, expected) {
-		t.Error("expected fields a-r got", fields)
-	}
-
-	if len(nullFields) == 1 {
-		t.Log(nullFields)
-		if !slices.Equal(nullFields, []string{"metaflair"}) {
-			t.Error("expected nullFields to contain only 'metaflair'")
-		}
-	}
-}
-
 func TestGetStrings(t *testing.T) {
 	lines, _ := GetLines("testdata/example.smali")
 
 	s := GetStrings(lines)
 	expected := "TaxonomyTopic1(id=, displayName=)"
-	if s != expected {
+	if *s.Value != expected {
 		t.Error("expected", expected, "got", s)
 	}
 }
@@ -87,7 +54,7 @@ func TestExtractTypes(t *testing.T) {
 	lines, _ := GetLines("testdata/example.smali")
 	fullString := GetStrings(lines)
 
-	extractedType := ExtractTypes(fullString)
+	extractedType := ExtractTypes(*fullString.Value)
 
 	if extractedType == nil {
 		t.Error()
@@ -103,5 +70,23 @@ func TestExtractTypes(t *testing.T) {
 
 	if extractedType.Fields[0].Name != "id" || extractedType.Fields[1].Name != "displayName" {
 		t.Error()
+	}
+}
+
+func TestStringRegex(t *testing.T) {
+	r := regexp.MustCompile(`([a-zA-Z]+\()?([a-zA-Z0-9=\s,]+)\)?`)
+	testData := []string{"PostClick(noun=", ", comment=null, postFlair="}
+	m := r.FindAllStringSubmatch(testData[0], -1)
+
+	if !slices.Equal(m[0], []string{testData[0], "PostClick(", "noun="}) {
+		t.Fail()
+	}
+
+	last := strings.Split(m[0][2], ",")
+	t.Log(last)
+
+	m = r.FindAllStringSubmatch(testData[1], -1)
+	if !slices.Equal(m[0], []string{testData[1], "", testData[1]}) {
+		t.Fail()
 	}
 }

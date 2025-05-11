@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"encoding/json"
 	"fmt"
 	"log"
 	"os"
@@ -38,6 +39,7 @@ func main() {
 	enumNameMapping := make(map[string]string)
 	enumValueMapping := make(map[string][]string)
 	typeMapping := make(map[string]string)
+	fileToTypeMapping := make(map[string]*utils.ExtractedType)
 
 	enumFiles, _ := utils.GetLines("./enums.txt")
 	enumBar := progressbar.Default(int64(len(enumFiles)), "extract enums")
@@ -88,43 +90,50 @@ func main() {
 			continue
 		}
 
-		fields := []string{}
-
-		for _, line := range utils.GetFieldsLines(content) {
-			trTuple := utils.TransformFieldLine(line)
-			if !trTuple.IsOk {
-				debugLogger.Fatal("Error transforming line:", line, "in file:", file)
-			}
-			fields = append(fields, trTuple.Value.B)
-		}
+		fields := utils.GetFieldLineMap(content)
 
 		fullString := utils.GetStrings(lines)
-
-		if len(fullString) == 0 {
+		if !fullString.IsOk {
 			debugLogger.Println("error reading string segments of toString method in", file)
 			continue
 		}
 
-		ex := utils.ExtractTypes(fullString)
-
+		ex := utils.ExtractTypes(*fullString.Value)
 		if ex == nil {
-			debugLogger.Println("error extracting type in", file)
+			debugLogger.Println("error extracting types from", file)
 			continue
 		}
 
-		// TODO remove this
-		if len(fields) != len(ex.Fields) {
-			fmt.Println(file)
-			os.Exit(-1)
+		nullFields, valueFields := utils.GetFieldAccess(lines)
+		fmt.Println(file)
+
+		if len(valueFields) != len(fields) {
+			fmt.Println("length difference in", valueFields, fields)
 		}
 
-		for idx := range ex.Fields {
-			if mappedType, ok := typeMapping[fields[idx]]; ok {
-				ex.Fields[idx].JavaType = mappedType
+		for _, field := range ex.Fields {
+			if utils.Contains(nullFields, field.Name) {
+				field.DefaultValue = "null"
+				continue
 			}
+			if len(field.DefaultValue) > 0 {
+				continue
+			}
+			if _, ex := valueFields[field.Name]; ex {
+				if mappedType, ok := typeMapping[fields[valueFields[field.Name]]]; ok {
+					field.JavaType = mappedType
+				}
+			}
+			field.DefaultValue = "null"
+
 		}
 
 		typeMapping[*obfClassName.Value] = ex.TypeName
+		fileToTypeMapping[file] = ex
 	}
 
+	outfile, _ := os.Create("out.json")
+	data, _ := json.Marshal(fileToTypeMapping)
+	outfile.Write(data)
+	outfile.Close()
 }

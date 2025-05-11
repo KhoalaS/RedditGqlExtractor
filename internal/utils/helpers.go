@@ -2,6 +2,7 @@ package utils
 
 import (
 	"bufio"
+	"fmt"
 	"io"
 	"os"
 	"regexp"
@@ -44,22 +45,33 @@ func TransformFieldLine(line string) Result[Tuple[string]] {
 	return Ok(Tuple[string]{A: secondSplit[0], B: secondSplit[1]})
 }
 
-func GetFieldAccess(lines []string) (string, []string, []string) {
-	className := ""
-	fields := []string{}
+func GetFieldLineMap(fileContent string) map[string]string {
+	fieldMap := make(map[string]string)
 
+	fieldLines := GetFieldsLines(fileContent)
+	for _, line := range fieldLines {
+		trLine := TransformFieldLine(line)
+		if trLine.IsOk {
+			fieldMap[trLine.Value.A] = trLine.Value.B
+		}
+	}
+
+	return fieldMap
+}
+
+func GetFieldAccess(lines []string) ([]string, map[string]string) {
 	flag := false
 
 	toStringRegex := regexp.MustCompile(`method public (final )?toString`)
+	stringRegex := regexp.MustCompile(`const-string.+?"(.*?)"`)
+	contentRegex := regexp.MustCompile(`([a-zA-Z]+\()?([a-zA-Z0-9=\s,]+)\)?`)
 
 	nullFields := []string{}
+	valueFields := make(map[string]string)
+
+	subsearch := false
 
 	for idx, line := range lines {
-		if strings.HasPrefix(line, ".class") {
-			spl := strings.Split(line, " ")
-			className = Last(spl)
-		}
-
 		if !flag && toStringRegex.MatchString(line) {
 			flag = true
 			continue
@@ -74,28 +86,46 @@ func GetFieldAccess(lines []string) (string, []string, []string) {
 		}
 
 		if strings.HasPrefix(strings.TrimSpace(line), "const-string") {
+			subsearch = true
+			m := stringRegex.FindStringSubmatch(line)
+			if len(m) != 2 {
+				continue
+			}
+			contents := contentRegex.FindAllStringSubmatch(m[1], -1)
+			if len(contents) == 0 || len(contents[0]) != 3 {
+				continue
+			}
+			lastField := strings.Trim(Last(strings.Split(contents[0][2], ",")), "\"=) ")
+			fmt.Println(lastField)
+
 			for i := idx + 1; i < len(lines); i++ {
 				if strings.HasPrefix(strings.TrimSpace(lines[i]), "const-string") {
 					// string reached before subsearch gave a result
 					nullFields = append(nullFields, strings.TrimRight(Last(strings.Split(line, " ")), "\"="))
+					subsearch = false
 					break
 				}
 
 				if strings.HasPrefix(strings.TrimSpace(lines[i]), "iget") {
 					r := regexp.MustCompile(`->(.+?):`)
-					m := r.FindStringSubmatch(lines[i])
-					if len(m) != 2 {
+					obfFieldname := r.FindStringSubmatch(lines[i])
+					if len(obfFieldname) != 2 {
 						continue
 					}
 
-					fields = append(fields, m[1])
+					subsearch = false
+					valueFields[lastField] = obfFieldname[1]
 					break
 				}
+			}
+			if subsearch {
+				nullFields = append(nullFields, lastField)
+				subsearch = false
 			}
 		}
 	}
 
-	return className, fields, nullFields
+	return nullFields, valueFields
 
 }
 
@@ -111,7 +141,7 @@ func GetObfClassName(firstLine string) Result[string] {
 
 // Returns the concatenated strings from a smali toString method,
 // e.g. "GlobalMemoryApp(action=memory, androidMemoryEvent=null)"
-func GetStrings(lines []string) string {
+func GetStrings(lines []string) Result[string] {
 	flag := false
 	stringRegex := regexp.MustCompile(`const-string.+?"(.*?)"`)
 	toStringRegex := regexp.MustCompile(`method public (final )?toString`)
@@ -144,7 +174,11 @@ func GetStrings(lines []string) string {
 		s += ")"
 	}
 
-	return s
+	if len(s) == 0 {
+		return Err[string]()
+	}
+
+	return Ok(s)
 }
 
 func ExtractTypes(fullString string) *ExtractedType {
@@ -211,4 +245,13 @@ func GetFileContent(filepath string) (string, error) {
 	}
 
 	return string(content), nil
+}
+
+func Contains[T comparable](slice []T, value T) bool {
+	for _, v := range slice {
+		if v == value {
+			return true
+		}
+	}
+	return false
 }
