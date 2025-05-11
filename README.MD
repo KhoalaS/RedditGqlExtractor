@@ -33,10 +33,10 @@ Generate the candidate files:
 # ...
 # or call gen_candidates.nu|sh from the scripts folder
 rg -l 'method public (final )?hashCode' | rg -v 'kotlinx|androidx|okhttp|bitdrift|airbnb|google|facebook' > candidates.txt
-rg -l '\.class public final enum Lcom/reddit' > enum_candidates.txt
+rg -l '\.class public final enum Lcom/reddit' > enums.txt
 
 # execute the main script or binary
-./gex -o schema.json -c candidates.txt -e enum_candidates.txt
+./gex -o schema.json -c candidates.txt -e enums.txt
 ```
 
 ## Approaches
@@ -95,3 +95,20 @@ this tells us that the field `b` had the name `displayName` and that it is a Jav
     return-object v0
 .end method
 ```
+# TODO
+
+```smali
+    const-string v1, ", outbound=null, adblock=null, metaflair="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v1, ", metaSearch=null, banner=null, customFeed=null, topicMetadata="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+```
+
+`metaflair` has an implicit default nullish value. `const/4 v1, 0x0` gets appended after the `", outbound=null, adblock=null, metaflair="` string. This leads to an inconsistent amount of fields between since fields with default values are skipped.
