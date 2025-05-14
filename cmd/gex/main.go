@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"log"
 	"os"
+	"slices"
 	"strings"
 
 	"github.com/KhoalaS/RedditGqlExtractor/internal/utils"
@@ -110,7 +111,7 @@ func main() {
 		}
 
 		for _, field := range ex.Fields {
-			if utils.Contains(nullFields, field.Name) {
+			if slices.Contains(nullFields, field.Name) {
 				field.DefaultValue = "null"
 				continue
 			}
@@ -120,10 +121,10 @@ func main() {
 			if _, ex := valueFields[field.Name]; ex {
 				if mappedType, ok := typeMapping[fields[valueFields[field.Name]]]; ok {
 					field.JavaType = mappedType
+				} else {
+					field.JavaType = fields[valueFields[field.Name]]
 				}
 			}
-			field.DefaultValue = "null"
-
 		}
 
 		typeMapping[*obfClassName.Value] = ex.TypeName
