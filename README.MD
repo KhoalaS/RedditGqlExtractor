@@ -7,14 +7,7 @@ Automated type extraction from the Reddit Android App.
 ## Building
 
 ```bash
-# create venv
-python -m venv .venv
-
-# install dependencies
-pip install -r requirements.txt
-
-# (optional) build the binary
-pyinstaller ./src/main.py -F -n gex
+go build -o ./gex cmd/gex/main.go
 ```
 
 ## Usage
@@ -35,8 +28,8 @@ Generate the candidate files:
 rg -l 'method public (final )?hashCode' | rg -v 'kotlinx|androidx|okhttp|bitdrift|airbnb|google|facebook' > candidates.txt
 rg -l '\.class public final enum Lcom/reddit' > enums.txt
 
-# execute the main script or binary
-./gex -o schema.json -c candidates.txt -e enums.txt
+# execute the binary
+./gex
 ```
 
 ## Approaches
