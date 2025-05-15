@@ -8,6 +8,7 @@
   "frontend:dev:serverUrl": "auto",
   "author": {
     "name": "KhoalaS",
-    "email": "s4khleee@uni-trier.de"
-  }
+    "email": "khoalekappa@gmail.com"
+  },
+  "debounceMS": 2000
 }

@@ -1,6 +1,9 @@
 <script lang="ts" setup>
-import { reactive } from 'vue';
-import { Greet } from '../../wailsjs/go/main/App';
+import { reactive, ref } from 'vue';
+import { Greet, OpenSchemaFile } from '../../wailsjs/go/main/App';
+import { utils } from '../../wailsjs/go/models';
+
+const exTypes = ref<Record<string, utils.ExtractedType>>({});
 
 const data = reactive({
   name: '',
@@ -12,10 +15,20 @@ function greet() {
     data.resultText = result;
   });
 }
+
+const onclick = async (event: Event) => {
+  const res = await OpenSchemaFile();
+  if (!res.error) {
+    exTypes.value = res.data;
+  }
+};
 </script>
 
 <template>
   <main>
+    <div v-for="type in exTypes">
+      {{ type.typeName }}
+    </div>
     <div id="result" class="result">{{ data.resultText }}</div>
     <div id="input" class="input-box">
       <input
@@ -27,6 +40,7 @@ function greet() {
       />
       <button class="btn" @click="greet">Greet</button>
     </div>
+    <button @click="onclick">Open file</button>
   </main>
 </template>
 
