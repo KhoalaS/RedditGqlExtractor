@@ -28,12 +28,12 @@ type Tuple[T any] struct {
 }
 
 type ExtractedType struct {
-	TypeName string
-	Fields   []*Field
+	TypeName string   `json:"typeName"`
+	Fields   []*Field `json:"fields"`
 }
 
 type Field struct {
-	Name         string
-	DefaultValue string
-	JavaType     string
+	Name         string `json:"name"`
+	DefaultValue string `json:"defaultValue"`
+	JavaType     string `json:"javaType"`
 }
