@@ -11,6 +11,8 @@ import (
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 )
 
+var exTypes map[string]*utils.ExtractedType
+
 // App struct
 type App struct {
 	ctx context.Context
@@ -47,7 +49,6 @@ func (a *App) OpenSchemaFile() SchemaResult {
 		return SchemaResult{Error: err}
 	}
 
-	exTypes := make(map[string]utils.ExtractedType)
 	filedata, err := io.ReadAll(file)
 	if err != nil {
 		return SchemaResult{Error: err}
@@ -59,10 +60,27 @@ func (a *App) OpenSchemaFile() SchemaResult {
 
 	}
 
-	return SchemaResult{Data: exTypes, Error: nil}
+	typeArray := make([]MinimalType, len(exTypes))
+
+	i := 0
+	for filename, _type := range exTypes {
+		typeArray[i] = MinimalType{Typename: _type.TypeName, Filename: filename}
+		i++
+	}
+
+	return SchemaResult{Data: typeArray, Error: nil}
+}
+
+func (a *App) GetType(filename string) utils.ExtractedType {
+	return *exTypes[filename]
+}
+
+type MinimalType struct {
+	Typename string `json:"typename"`
+	Filename string `json:"filename"`
 }
 
 type SchemaResult struct {
-	Data  map[string]utils.ExtractedType `json:"data"`
-	Error error                          `json:"error"`
+	Data  []MinimalType `json:"data"`
+	Error error         `json:"error"`
 }

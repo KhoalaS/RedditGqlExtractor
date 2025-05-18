@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "7.css": "^0.18.0",
+    "@vueuse/core": "^13.2.0",
     "vue": "^3.5.14"
   },
   "devDependencies": {

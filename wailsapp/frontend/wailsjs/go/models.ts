@@ -1,7 +1,21 @@
 export namespace main {
 	
+	export class MinimalType {
+	    typename: string;
+	    filename: string;
+	
+	    static createFrom(source: any = {}) {
+	        return new MinimalType(source);
+	    }
+	
+	    constructor(source: any = {}) {
+	        if ('string' === typeof source) source = JSON.parse(source);
+	        this.typename = source["typename"];
+	        this.filename = source["filename"];
+	    }
+	}
 	export class SchemaResult {
-	    data: Record<string, utils.ExtractedType>;
+	    data: MinimalType[];
 	    error: any;
 	
 	    static createFrom(source: any = {}) {
@@ -10,7 +24,7 @@ export namespace main {
 	
 	    constructor(source: any = {}) {
 	        if ('string' === typeof source) source = JSON.parse(source);
-	        this.data = this.convertValues(source["data"], utils.ExtractedType, true);
+	        this.data = this.convertValues(source["data"], MinimalType);
 	        this.error = source["error"];
 	    }
 	
