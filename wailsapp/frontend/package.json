@@ -11,6 +11,8 @@
   "dependencies": {
     "7.css": "^0.18.0",
     "@vueuse/core": "^13.2.0",
+    "@xterm/addon-webgl": "^0.18.0",
+    "@xterm/xterm": "^5.5.0",
     "vue": "^3.5.14"
   },
   "devDependencies": {

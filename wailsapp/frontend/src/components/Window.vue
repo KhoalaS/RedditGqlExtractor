@@ -4,6 +4,9 @@ import { WindowButton } from '../utils/Types';
 defineProps<{
   title: string;
   buttons?: WindowButton[];
+  windowOpts?: {
+    hasSpace?: boolean;
+  };
 }>();
 </script>
 <template>
@@ -18,9 +21,8 @@ defineProps<{
         ></button>
       </div>
     </div>
-    <div class="window-body has-space">
+    <div class="window-body" :class="{ 'has-space': windowOpts?.hasSpace }">
       <slot name="content"> </slot>
     </div>
   </div>
 </template>
-
