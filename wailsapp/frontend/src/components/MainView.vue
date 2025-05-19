@@ -5,7 +5,7 @@ import { useVirtualList } from '@vueuse/core';
 import { main, utils } from '../../wailsjs/go/models';
 import ListView from './ListView.vue';
 import Window from './Window.vue';
-import Terminal from './Terminal.vue';
+import { ControlButton } from '../utils/Types';
 
 const exTypes = ref<main.MinimalType[]>([]);
 
@@ -37,10 +37,34 @@ const { list, containerProps, wrapperProps } = useVirtualList(filteredExTypes, {
 });
 
 const activeType = ref<utils.ExtractedType | undefined>();
+const mergeType = ref<utils.ExtractedType>({
+  fields: [],
+  typeName: '',
+  convertValues: () => {},
+});
 
 const clickTypename = async (type: main.MinimalType) => {
   activeType.value = await GetType(type.filename);
 };
+
+const controlButtons: ControlButton[] = [
+  {
+    label: 'Merge',
+    onClick: () => {
+      for (const field of activeType.value!.fields) {
+        const dupe = mergeType.value.fields.findIndex(
+          (val) => val.name == field.name
+        );
+        if (dupe != -1) {
+          mergeType.value.fields[dupe] = field;
+        } else {
+          mergeType.value.fields.push(field);
+        }
+      }
+    },
+    class: 'default',
+  },
+];
 </script>
 
 <template>
@@ -70,8 +94,12 @@ const clickTypename = async (type: main.MinimalType) => {
       <Window
         v-if="activeType"
         :title="activeType.typeName"
-        :buttons="[{ label: 'Close', onClick: () => (activeType = undefined) }]"
+        :titleBarButtons="[
+          { label: 'Close', onClick: () => (activeType = undefined) },
+        ]"
         :window-opts="{ hasSpace: true }"
+        :control-buttons="controlButtons"
+        style="width: fit-content"
       >
         <template #content>
           <ListView
@@ -80,9 +108,29 @@ const clickTypename = async (type: main.MinimalType) => {
           ></ListView>
         </template>
       </Window>
-      <Terminal></Terminal>
+      <Window
+        title="Merged Type"
+        :window-opts="{ hasSpace: true }"
+        style="width: fit-content"
+        :control-buttons="[
+          {
+            label: 'Clear',
+            onClick: () => {
+              mergeType.fields = [];
+            },
+          },
+        ]"
+      >
+        <template #content>
+          <ListView
+            :header="['Typename', 'Default', 'Java Type']"
+            :data="mergeType.fields"
+          ></ListView>
+        </template>
+      </Window>
     </div>
   </main>
 </template>
 
 <style scoped></style>
+
