@@ -119,10 +119,14 @@ func main() {
 				continue
 			}
 			if _, ex := valueFields[field.Name]; ex {
-				if mappedType, ok := typeMapping[fields[valueFields[field.Name]]]; ok {
+				fieldClassname := fields[valueFields[field.Name]]
+				if mappedType, ok := typeMapping[fieldClassname]; ok {
 					field.JavaType = mappedType
+				} else if enumType, ok := enumNameMapping[fieldClassname]; ok {
+					field.JavaType = enumType
+					debugLogger.Println("field matches enum type:", fieldClassname, enumType)
 				} else {
-					field.JavaType = fields[valueFields[field.Name]]
+					field.JavaType = fieldClassname
 				}
 			}
 		}
@@ -143,4 +147,17 @@ func main() {
 		return
 	}
 	outfile.Write(data)
+
+	enumOutfile, err := os.Create("out_enum.json")
+	if err != nil {
+		debugLogger.Println("could not open output file")
+		return
+	}
+	defer enumOutfile.Close()
+	data, err = json.Marshal(enumNameMapping)
+	if err != nil {
+		debugLogger.Println("could marshal output data")
+		return
+	}
+	enumOutfile.Write(data)
 }
