@@ -8,6 +8,25 @@ import (
 	"strings"
 )
 
+var JavaMapping = map[string]string{
+	"Ljava/lang/Integer;":   "Int",
+	"Ljava/lang/String;":    "String",
+	"Ljava/lang/Boolean;":   "Boolean",
+	"Ljava/util/List;":      "[Unknown]",
+	"Ljava/lang/Long;":      "Int",
+	"Ljava/lang/Double;":    "Float",
+	"Ljava/lang/Float;":     "Float",
+	"Ljava/util/ArrayList;": "[Unknown]",
+	"C":                     "String",
+	"D":                     "Float",
+	"F":                     "Float",
+	"I":                     "Int",
+	"J":                     "Int",
+	"Z":                     "Boolean",
+}
+
+var UNKNOWN_TYPE = "Unknown"
+
 // Extract the field lines e.g. ".field public final b:Ljava/lang/String;" from a smali file.
 func GetFieldsLines(fileContent string) []string {
 
@@ -197,7 +216,7 @@ func ExtractTypes(fullString string) *ExtractedType {
 		if len(kv) == 1 {
 			return nil
 		}
-		fields = append(fields, &Field{Name: kv[0], DefaultValue: kv[1], JavaType: ""})
+		fields = append(fields, &Field{Name: kv[0], DefaultValue: kv[1], JavaType: "", GqlType: ""})
 	}
 
 	return &ExtractedType{TypeName: typeName, Fields: fields}

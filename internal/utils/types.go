@@ -36,4 +36,5 @@ type Field struct {
 	Name         string `json:"name"`
 	DefaultValue string `json:"defaultValue"`
 	JavaType     string `json:"javaType"`
+	GqlType      string `json:"gqlType"`
 }

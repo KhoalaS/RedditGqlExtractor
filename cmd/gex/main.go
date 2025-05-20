@@ -18,24 +18,6 @@ func main() {
 	defer logfile.Close()
 	debugLogger := log.New(logfile, "DEBUG:", log.LstdFlags)
 
-	//javaMapping := map[string]string{
-	//	"Ljava/lang/Integer;":   "Int",
-	//	"Ljava/lang/String;":    "String",
-	//	"Ljava/lang/Boolean;":   "Boolean",
-	//	"Ljava/util/List;":      "[Unknown]",
-	//	"Ljava/lang/Long;":      "Int",
-	//	"Ljava/lang/Double;":    "Float",
-	//	"Ljava/lang/Float;":     "Float",
-	//	"Ljava/util/ArrayList;": "[Unknown]",
-	//	"C":                     "String",
-	//	"D":                     "Float",
-	//	"F":                     "Float",
-	//	"I":                     "Int",
-	//	"J":                     "Int",
-	//	"Z":                     "Boolean",
-	// }
-	//
-
 	enumNameMapping := make(map[string]string)
 	enumValueMapping := make(map[string][]string)
 	typeMapping := make(map[string]string)
@@ -122,12 +104,20 @@ func main() {
 				fieldClassname := fields[valueFields[field.Name]]
 				if mappedType, ok := typeMapping[fieldClassname]; ok {
 					field.JavaType = mappedType
+					field.GqlType = mappedType
 				} else if enumType, ok := enumNameMapping[fieldClassname]; ok {
 					field.JavaType = enumType
 					debugLogger.Println("field matches enum type:", fieldClassname, enumType)
+					field.GqlType = enumType
 				} else {
 					field.JavaType = fieldClassname
+					if mappedGqlType, ok := utils.JavaMapping[fieldClassname]; ok {
+						field.GqlType = mappedGqlType
+					} else {
+						field.GqlType = utils.UNKNOWN_TYPE
+					}
 				}
+
 			}
 		}
 
