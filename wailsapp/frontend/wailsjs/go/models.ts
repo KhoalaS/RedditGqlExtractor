@@ -55,6 +55,7 @@ export namespace utils {
 	    name: string;
 	    defaultValue: string;
 	    javaType: string;
+	    gqlType: string;
 	
 	    static createFrom(source: any = {}) {
 	        return new Field(source);
@@ -65,6 +66,7 @@ export namespace utils {
 	        this.name = source["name"];
 	        this.defaultValue = source["defaultValue"];
 	        this.javaType = source["javaType"];
+	        this.gqlType = source["gqlType"];
 	    }
 	}
 	export class ExtractedType {

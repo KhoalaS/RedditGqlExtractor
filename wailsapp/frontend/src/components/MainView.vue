@@ -42,6 +42,7 @@ const mergeType = ref<utils.ExtractedType>({
   typeName: '',
   convertValues: () => {},
 });
+const mergedTypename = ref('');
 
 const clickTypename = async (type: main.MinimalType) => {
   activeType.value = await GetType(type.filename);
@@ -51,6 +52,7 @@ const controlButtons: ControlButton[] = [
   {
     label: 'Merge',
     onClick: () => {
+      mergedTypename.value = activeType.value!.typeName;
       for (const field of activeType.value!.fields) {
         const dupe = mergeType.value.fields.findIndex(
           (val) => val.name == field.name
@@ -103,7 +105,7 @@ const controlButtons: ControlButton[] = [
       >
         <template #content>
           <ListView
-            :header="['Typename', 'Default', 'Java Type']"
+            :header="['Typename', 'Default', 'Java Type', 'GQL Type']"
             :data="activeType.fields"
           ></ListView>
         </template>
@@ -117,13 +119,18 @@ const controlButtons: ControlButton[] = [
             label: 'Clear',
             onClick: () => {
               mergeType.fields = [];
+              mergedTypename = '';
             },
           },
         ]"
       >
         <template #content>
+          <div class="field-row">
+            <label for="merged-name">Merged Typename:</label>
+            <input v-model="mergedTypename" id="merged-name" type="text" />
+          </div>
           <ListView
-            :header="['Typename', 'Default', 'Java Type']"
+            :header="['Typename', 'Default', 'Java Type', 'GQL Type']"
             :data="mergeType.fields"
           ></ListView>
         </template>

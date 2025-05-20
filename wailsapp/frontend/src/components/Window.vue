@@ -1,5 +1,13 @@
 <script setup lang="ts">
+import { useTemplateRef } from 'vue';
 import { ControlButton, TitleBarButton } from '../utils/Types';
+import { useDraggable } from '@vueuse/core';
+
+const el = useTemplateRef('el');
+// `style` will be a helper computed for `left: ?px; top: ?px;`
+const { x, y, style } = useDraggable(el, {
+  initialValue: { x: 400, y: 40 },
+});
 
 defineProps<{
   title: string;
@@ -11,7 +19,7 @@ defineProps<{
 }>();
 </script>
 <template>
-  <div class="window active">
+  <div ref="el" :style="style" class="window active" style="position: fixed">
     <div class="title-bar">
       <div class="title-bar-text">{{ title }}</div>
       <div class="title-bar-controls">
