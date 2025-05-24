@@ -16,7 +16,8 @@ func main() {
 
 	logfile, _ := os.Create("extractor.log")
 	defer logfile.Close()
-	debugLogger := log.New(logfile, "DEBUG:", log.LstdFlags)
+	warnLogger := log.New(logfile, "WARN:", log.LstdFlags)
+	errorLogger := log.New(logfile, "ERROR:", log.LstdFlags)
 	ioLogger := log.New(logfile, "IO:", log.LstdFlags)
 
 	enumNameMapping := make(map[string]string)
@@ -69,7 +70,7 @@ func main() {
 		obfClassName := utils.GetObfClassName(lines[0])
 
 		if !obfClassName.IsOk {
-			debugLogger.Println("error reading obfuscated classname of", file)
+			errorLogger.Println("error reading obfuscated classname of", file)
 			continue
 		}
 
@@ -77,20 +78,20 @@ func main() {
 
 		fullString := utils.GetStrings(lines)
 		if !fullString.IsOk {
-			debugLogger.Println("error reading string segments of toString method in", file)
+			errorLogger.Println("error reading string segments of toString method in", file)
 			continue
 		}
 
 		ex := utils.ExtractTypes(*fullString.Value)
 		if ex == nil {
-			debugLogger.Println("error extracting types from", file)
+			errorLogger.Println("error extracting types from", file)
 			continue
 		}
 
 		nullFields, valueFields := utils.GetFieldAccess(lines)
 
 		if len(valueFields) != len(fields) {
-			debugLogger.Printf("length difference in valuefields(%d) and fields(%d)\n", len(valueFields), len(fields))
+			warnLogger.Printf("length difference in valuefields(%d) and fields(%d)\n", len(valueFields), len(fields))
 		}
 
 		for _, field := range ex.Fields {
