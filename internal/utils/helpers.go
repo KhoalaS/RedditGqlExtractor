@@ -88,6 +88,7 @@ func GetFieldAccess(lines []string) ([]string, map[string]string) {
 	valueFields := make(map[string]string)
 
 	subsearch := false
+	init := false
 
 	for idx, line := range lines {
 		if !flag && toStringRegex.MatchString(line) {
@@ -109,6 +110,15 @@ func GetFieldAccess(lines []string) ([]string, map[string]string) {
 			if len(m) != 2 {
 				continue
 			}
+
+			// the first string has been encountered
+			if !init {
+				if !strings.Contains(m[1], "(") {
+					continue
+				}
+				init = true
+			}
+
 			contents := contentRegex.FindAllStringSubmatch(m[1], -1)
 			if len(contents) == 0 || len(contents[0]) != 3 {
 				continue
@@ -159,18 +169,19 @@ func GetObfClassName(firstLine string) Result[string] {
 // Returns the concatenated strings from a smali toString method,
 // e.g. "GlobalMemoryApp(action=memory, androidMemoryEvent=null)"
 func GetStrings(lines []string) Result[string] {
-	flag := false
+	toStringFlag := false
 	stringRegex := regexp.MustCompile(`const-string.+?"(.*?)"`)
 	toStringRegex := regexp.MustCompile(`method public (final )?toString`)
+	init := false
 
 	s := ""
 	for _, line := range lines {
-		if !flag && toStringRegex.MatchString(line) {
-			flag = true
+		if !toStringFlag && toStringRegex.MatchString(line) {
+			toStringFlag = true
 			continue
 		}
 
-		if !flag {
+		if !toStringFlag {
 			continue
 		}
 
@@ -183,6 +194,15 @@ func GetStrings(lines []string) Result[string] {
 			if len(m) != 2 {
 				continue
 			}
+
+			// the first string has been encountered
+			if !init {
+				if !strings.Contains(m[1], "(") {
+					continue
+				}
+				init = true
+			}
+
 			s += m[1]
 		}
 	}
