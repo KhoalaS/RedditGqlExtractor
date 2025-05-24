@@ -4,6 +4,8 @@
 
 Automated type extraction from the Reddit Android App.
 
+![](https://raw.githubusercontent.com/KhoalaS/RedditGqlExtractor/refs/heads/main/images/frontend.png)
+
 ## Building
 
 ```bash
