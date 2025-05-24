@@ -17,6 +17,7 @@ func main() {
 	logfile, _ := os.Create("extractor.log")
 	defer logfile.Close()
 	debugLogger := log.New(logfile, "DEBUG:", log.LstdFlags)
+	ioLogger := log.New(logfile, "IO:", log.LstdFlags)
 
 	enumNameMapping := make(map[string]string)
 	enumValueMapping := make(map[string][]string)
@@ -55,13 +56,13 @@ func main() {
 
 		lines, err := utils.GetLines(file)
 		if err != nil {
-			debugLogger.Println("error reading content of file", file)
+			ioLogger.Println("error reading content of file", file)
 			continue
 		}
 
 		content, err := utils.GetFileContent(file)
 		if err != nil {
-			debugLogger.Println("error reading content of file", file)
+			ioLogger.Println("error reading content of file", file)
 			continue
 		}
 
@@ -89,7 +90,7 @@ func main() {
 		nullFields, valueFields := utils.GetFieldAccess(lines)
 
 		if len(valueFields) != len(fields) {
-			debugLogger.Println("length difference in", valueFields, fields)
+			debugLogger.Printf("length difference in valuefields(%d) and fields(%d)\n", len(valueFields), len(fields))
 		}
 
 		for _, field := range ex.Fields {
@@ -107,7 +108,6 @@ func main() {
 					field.GqlType = mappedType
 				} else if enumType, ok := enumNameMapping[fieldClassname]; ok {
 					field.JavaType = enumType
-					debugLogger.Println("field matches enum type:", fieldClassname, enumType)
 					field.GqlType = enumType
 				} else {
 					field.JavaType = fieldClassname
@@ -127,26 +127,26 @@ func main() {
 
 	outfile, err := os.Create("out.json")
 	if err != nil {
-		debugLogger.Println("could not open output file")
+		ioLogger.Println("could not open output file")
 		return
 	}
 	defer outfile.Close()
 	data, err := json.Marshal(fileToTypeMapping)
 	if err != nil {
-		debugLogger.Println("could marshal output data")
+		ioLogger.Println("could marshal output data")
 		return
 	}
 	outfile.Write(data)
 
 	enumOutfile, err := os.Create("out_enum.json")
 	if err != nil {
-		debugLogger.Println("could not open output file")
+		ioLogger.Println("could not open output file")
 		return
 	}
 	defer enumOutfile.Close()
 	data, err = json.Marshal(enumNameMapping)
 	if err != nil {
-		debugLogger.Println("could marshal output data")
+		ioLogger.Println("could marshal output data")
 		return
 	}
 	enumOutfile.Write(data)
