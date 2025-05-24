@@ -75,6 +75,16 @@ func (a *App) GetType(filename string) utils.ExtractedType {
 	return *exTypes[filename]
 }
 
+func (a *App) ToGQLType(_type utils.ExtractedType) string {
+	gqlType := ""
+	gqlType += "type " + _type.TypeName + " {\n"
+	for _, field := range _type.Fields {
+		gqlType += "\t" + field.Name + ": " + field.GqlType + "\n"
+	}
+	gqlType += "}\n"
+	return gqlType
+}
+
 type MinimalType struct {
 	Typename string `json:"typename"`
 	Filename string `json:"filename"`

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
-import { OpenSchemaFile, GetType } from '../../wailsjs/go/main/App';
+import { OpenSchemaFile, GetType, ToGQLType } from '../../wailsjs/go/main/App';
 import { useVirtualList } from '@vueuse/core';
 import { main, utils } from '../../wailsjs/go/models';
 import ListView from './ListView.vue';
@@ -37,6 +37,7 @@ const { list, containerProps, wrapperProps } = useVirtualList(filteredExTypes, {
 });
 
 const activeType = ref<utils.ExtractedType | undefined>();
+const activeMinType = ref<main.MinimalType | undefined>();
 const mergeType = ref<utils.ExtractedType>({
   fields: [],
   typeName: '',
@@ -46,6 +47,7 @@ const mergedTypename = ref('');
 
 const clickTypename = async (type: main.MinimalType) => {
   activeType.value = await GetType(type.filename);
+  activeMinType.value = type;
 };
 
 const controlButtons: ControlButton[] = [
@@ -53,6 +55,7 @@ const controlButtons: ControlButton[] = [
     label: 'Merge',
     onClick: () => {
       mergedTypename.value = activeType.value!.typeName;
+      mergeType.value.typeName = activeType.value!.typeName;
       for (const field of activeType.value!.fields) {
         const dupe = mergeType.value.fields.findIndex(
           (val) => val.name == field.name
@@ -66,7 +69,18 @@ const controlButtons: ControlButton[] = [
     },
     class: 'default',
   },
+  {
+    label: 'Copy GQL Type',
+    onClick: async () => {
+      copyGQLType(activeType.value!);
+    },
+  },
 ];
+
+async function copyGQLType(type: utils.ExtractedType) {
+  const gqlType = await ToGQLType(type);
+  navigator.clipboard.writeText(gqlType);
+}
 </script>
 
 <template>
@@ -104,6 +118,7 @@ const controlButtons: ControlButton[] = [
         style="width: fit-content"
       >
         <template #content>
+          {{ activeMinType?.filename }}
           <ListView
             :header="['Typename', 'Default', 'Java Type', 'GQL Type']"
             :data="activeType.fields"
@@ -121,6 +136,10 @@ const controlButtons: ControlButton[] = [
               mergeType.fields = [];
               mergedTypename = '';
             },
+          },
+          {
+            label: 'Copy GQL Type',
+            onClick: () => copyGQLType(mergeType),
           },
         ]"
       >
@@ -140,4 +159,3 @@ const controlButtons: ControlButton[] = [
 </template>
 
 <style scoped></style>
-

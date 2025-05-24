@@ -8,3 +8,5 @@ export function GetType(arg1:string):Promise<utils.ExtractedType>;
 export function Greet(arg1:string):Promise<string>;
 
 export function OpenSchemaFile():Promise<main.SchemaResult>;
+
+export function ToGQLType(arg1:utils.ExtractedType):Promise<string>;
